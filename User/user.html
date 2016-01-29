@@ -1,0 +1,85 @@
+<div class="col-sm-12 header col-xs-12">
+	<div class="container">
+		<div class="col-md-6">
+			<h2 id="welcome">Welcome {{user.fullName}}</h2>
+		</div>
+		<div class="col-md-4">
+			<nav id="nav" class="lato">
+			    <ul id="navigation">
+			        <li ng-click="loadMySessions()"><a class="first">MY SESSIONS</a></li>
+			        <li ng-click="loadAllSessions()"><a>ALL SESSIONS</a></li>
+			        <li ng-click="logOut()"><a>LOG OUT</a></li>
+			    </ul>
+			</nav>
+		</div>
+		<div class="col-md-2">
+			<img class="logo" src="./images/logo.png">
+		</div>
+	</div>
+</div>
+<div class="container">
+	<div ng-show="add" class="alert alert-success text-center">The session has been successfully added to your sessions.</div>
+	<div ng-show="remove" class="alert alert-success text-center">The session has been successfully removed from your sessions.</div>
+	<div ng-show="repeatSession" class="alert alert-info text-center">You are already registered in the session.</div>
+	<div ng-show="error" class="alert alert-warning text-center">An unexpected error has occurred. Please try again.</div>
+
+	<div ng-switch on="activeNav">
+		<div ng-switch-when="mySessions">
+			<h2>My sessions</h2>
+			<br>
+			<table class="table table-striped">
+	        <thead>
+	            <tr>
+	                <th><h4><b>Name</b></h4></th>
+	                <th><h4><b>Location</b></h4></th>
+	                <th><h4><b>Date</b></h4></th>
+	                <th><h4><b>Start time</b></h4></th>
+	                <th><h4><b>Finish time</b></h4></th>
+	                <th><h4><b>Remove from my sessions</b></h4></th>
+	            </tr>
+	        </thead>
+	        <tbody>
+	            <tr ng-repeat="session in sessions">
+	                <td>{{session.name}}</td>
+	                <td>{{session.location}}</td>
+	                <td>{{session.date}}</td>
+	                <td>{{session.hourStart}}</td>
+	                <td>{{session.hourFinish}}</td>
+	                <td><button class="btn btn-danger" ng-click="removeFromMySessions(session.idPersonSession,session.id)"><span class="glyphicon glyphicon-remove"></span></button></td>
+	            </tr>
+	        </tbody>
+	      </table>
+		</div>
+		<div ng-switch-when="allSessions">
+			<h2>All sessions</h2>
+			<br>
+			<table class="table table-striped">
+	        <thead>
+	            <tr>
+	                <th><h4><b>Name</b></h4></th>
+	                <th><h4><b>Location</b></h4></th>
+	                <th><h4><b>Date</b></h4></th>
+	                <th><h4><b>Start time</b></h4></th>
+	                <th><h4><b>Finish time</b></h4></th>
+	                <th><h4><b>Capacity</b></h4></th>
+	                <th><h4><b>Add to my sessions</b></h4></th>
+	            </tr>
+	        </thead>
+	        <tbody>
+	            <tr ng-repeat="session in sessions">
+	                <td>{{session.name}}</td>
+	                <td>{{session.location}}</td>
+	                <td>{{session.date}}</td>
+	                <td>{{session.hourStart}}</td>
+	                <td>{{session.hourFinish}}</td>
+	                <td>{{session.capacity}}/{{session.maxCapacity}}</td>
+	                <td><button class="btn btn-primary" ng-click="addToMySessions(session.id)"><span class="glyphicon glyphicon-ok"></span></button></td>
+	            </tr>
+	        </tbody>
+	      </table>
+		</div>
+	</div>
+</div>
+
+<!-- BOTON IR ARRIBA -->
+<img id="go-top" scrollup src="./images/up.png">

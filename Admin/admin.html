@@ -1,0 +1,76 @@
+<div class="col-sm-12 header col-xs-12">
+	<div class="container">
+		<div class="col-md-6">
+			<h2 id="welcome">Welcome {{admin.fullName}}</h2>
+		</div>
+		<div class="col-md-4">
+			<nav id="nav" class="lato">
+			    <ul id="navigation">
+			        <li ng-click="loadPersons()"><a class="first">ALL PERSONS</a></li>
+			        <li ng-click="loadSessions()"><a>ALL SESSIONS</a></li>
+			        <li ng-click="logOut()"><a>LOG OUT</a></li>
+			    </ul>
+			</nav>
+		</div>
+		<div class="col-md-2">
+			<img class="logo" src="./images/logo.png">
+		</div>
+	</div>
+</div>
+<div class="container" ng-switch on="activeNav">
+	<div ng-switch-when="sessions">
+		<h2>All sessions</h2>
+		<br>
+		<table class="table table-striped">
+        <thead>
+            <tr>
+                <th><h4><b>Name</b></h4></th>
+                <th><h4><b>Location</b></h4></th>
+                <th><h4><b>Date</b></h4></th>
+                <th><h4><b>Start time</b></h4></th>
+                <th><h4><b>Finish time</b></h4></th>
+                <th><h4><b>Capacity</b></h4></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="session in sessions">
+                <td>{{session.name}}</td>
+                <td>{{session.location}}</td>
+                <td>{{session.date}}</td>
+                <td>{{session.hourStart}}</td>
+                <td>{{session.hourFinish}}</td>
+                <td>{{session.capacity}}/{{session.maxCapacity}}</td>
+            </tr>
+        </tbody>
+      </table>
+	</div>
+	<div ng-switch-when="persons">
+		<h2>All persons</h2>
+		<br>
+		<table class="table table-striped">
+        <thead>
+            <tr>
+                <th><h4><b>Id</b></h4></th>
+                <th><h4><b>Name</b></h4></th>
+                <th><h4><b>Email</b></h4></th>
+                <th><h4><b>Phone number</b></h4></th>
+                <th><h4><b>Nationality</b></h4></th>
+                <th><h4><b>Dirección Regional</b></h4></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="person in persons">
+                <td>{{person.id}}</td>
+                <td>{{person.name}}</td>
+                <td>{{person.email}}</td>
+                <td>{{person.phoneNumber}}</td>
+                <td>{{person.nationality}}</td>
+                <td>{{person.direccionRegional}}</td>
+            </tr>
+        </tbody>
+      </table>
+	</div>
+</div>
+
+<!-- BOTON IR ARRIBA -->
+<img id="go-top" scrollup src="./images/up.png">

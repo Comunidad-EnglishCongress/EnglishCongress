@@ -1,0 +1,475 @@
+<header>
+	<div class="col-sm-12 header col-xs-12">
+		<div class="col-md-10 col-md-offset-2 col-sm-12">
+			<!-- LOGO -->
+			<div class="col-sm-1 col-xs-2 row">
+				<a ng-click="activeNav=''" href="#/">
+					<img class="logo" src="./images/logo.png">
+				</a>
+			</div>
+			<!-- MENU DE NAVEGACION -->
+			<div class="col-sm-11 col-xs-10">
+				<nav id="nav" class="lato">
+				    <ul id="navigation">
+				        <li ng-click="activeNav=''"><a href="#/" class="first">HOMEPAGE</a></li>
+				        <li><a>ABOUT US</a>
+				            <ul id="second-navigation">
+				                <li ng-click="activeNav='presentation'"><a>PRESENTATION</a></li>
+				                <li ng-click="activeNav='misionVision'"><a>MISION & VISION</a></li>
+				                <li ng-click="activeNav='objectives'"><a>OBJECTIVES OF THE CONGRESS</a>
+				                <li ng-click="activeNav='population'"><a>TARGET POPULATION</a>
+				                <li ng-click="activeNav='importance'"><a>IMPORTANCE</a>
+				            </ul>
+				        </li>
+				        <li ng-click="activeNav='thematic'"><a>THEMATIC STRANDS</a></li>
+				        <li><a>COMMITTEES</a>
+				        	<ul id="second-navigation">
+				                <li ng-click="activeNav='organizingC'"><a>ORGANIZING COMMITTEE</a></li>
+				                <li ng-click="activeNav='academicC'"><a>ACADEMIC COMMITTEE</a></li>
+				                <li ng-click="activeNav='scientificC'"><a>SCIENTIFIC COMMITTEE</a>
+				                <li ng-click="activeNav='logisticsC'"><a>LOGISTICS COMMITTEE</a>
+				                <li ng-click="activeNav='communicationC'"><a>COMMUNICATION COMMITTEE</a>
+				            </ul>
+				        </li>
+				        <li ng-click="activeNav='registration'"><a>REGISTRATION</a>
+				        <li><a>SPONSORS</a>
+				            <ul id="second-navigation">
+				                <li ng-click="activeNav='sponsors'"><a>SPONSORS</a></li>
+				                <li ng-click="activeNav='exhibitors'"><a>EXHIBITORS</a></li>
+				            </ul>             
+				        </li>
+				        <li ng-click="activeNav='speakers'"><a>SPEAKERS</a></li>
+				        <li data-toggle="modal" data-target="#logIn"><a>LOG IN</a></li>
+				    </ul>
+				</nav>
+			</div>
+		</div>
+	</div>
+</header>
+
+<!-- ZONA DE INFORMACION -->
+<div class="container" ng-switch="activeNav">
+	<div ng-switch-when="">
+		<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,</p>
+		<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,</p>
+		<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,</p>
+	</div>
+	<div ng-switch-when="presentation">
+		<div class="underline-bottom title-size">
+			<label>Presentation</label>
+		</div>
+		<br>
+		<p>English is the most widely spoken language in the world, which makes it an essential tool for the development of competencies in socio-economic and educational contexts. The II English Teaching Congress, Huetar Northern Region, Costa Rica seeks to offer an opportunity to enhance pedagogical experiences through the dialogue in terms of the challenges that educators face in the Huetar Northern Region. The main objective is to contribute to the improvement of teaching practices.</p>
+		<p>This executive summary presents the mission and vision of the congress. It also indicates the objectives, the importance, the location, the main theme and the thematic strands. Finally, it states the target population, the dates of the congress, and the Organizing Committee. The main purpose of this summary is to provide relevant information about the congress.</p>
+	</div>
+	<div ng-switch-when="misionVision">
+		<div class="underline-bottom title-size">
+			<label>Mision</label>
+		</div>
+		<br>
+		<p>To contribute with the improvement of the teaching practices of English educators of Huetar Northern Region, through the development and exchanging of pedagogical experiences, effective training, and the use of innovative tools of the teaching-learning process of English as a foreign language.</p>
+
+		<div class="underline-bottom title-size">
+			<label>Vision</label>
+		</div>
+		<br>
+		<p>To promote academic spaces to delve into pedagogical meditation, collaboration, and effective feedback to contribute to the effectiveness of the teaching-learning process of English as a foreign language of Huetar Northern´s English educators.</p>
+	</div>
+	<div ng-switch-when="objectives">
+		<div class="underline-bottom title-size">
+			<label>Objectives of the congress</label>
+		</div>
+		<br>
+		<label class="subtitle-size">General objective</label>
+		<ul>
+			<li>To strengthen the educational opportunities for the development of innovative teaching practices and pedagogical mediation of English teaching as a foreign language through the establishment of collaborative partnerships in order to contribute with the socio-economical, educational, and cultural development of Región Huetar Norte, Costa Rica.</li>
+		</ul>
+
+		<label class="subtitle-size">Specific objectives</label>
+		<ul>
+			<li>Provide innovative pedagogical tools to the English teachers of Huetar Northern Region, Costa Rica to strengthen the teaching-learning process of English as a foreign language.</li>
+			<li>Establish collaboration, networking, and academic exchange among the English teachers and the educational institutions of Huetar Northern Region, Costa Rica.</li>
+			<li>Promote strategic partnerships between educational institutions of Huetar Northern Region, Costa Rica to strengthen the teaching-learning process of English as a foreign language.</li>
+		</ul>
+		<p></p>
+	</div>
+	<div ng-switch-when="population">
+		<div class="underline-bottom title-size">
+			<label>Target population</label>
+		</div>
+		<br>
+		<p>The II English Teaching Congress is intended for English educators of Huetar Northern Region. This region includes Guatuso County, Los Chiles County, San Carlos County, and Upala County, district Rio Cuarto (Grecia), district San Isidro de Peñas Blancas (San Ramón) of Alajuela; and the districts of Puerto Viejo and La Virgen, Sarapiquí County of Heredia.</p>
+	</div>
+	<div ng-switch-when="importance">
+		<div class="underline-bottom title-size">
+			<label>Importance of the congress</label>
+		</div>
+		<br>
+		<p>The II English Teaching Congress aims at providing the English teachers of Región Huetar Norte, Costa Rica with innovative pedagogical practices when teaching English as a second language. The congress seeks to promote a reflective and interactive academic space in order to create a positive socio-academic impact inside and outside the classroom.</p>
+	</div>
+	<div ng-switch-when="thematic">
+		<div class="underline-bottom title-size">
+			<label>Thematic strands</label>
+		</div>
+		<br>
+		<ul>
+		  	<li>
+		      	<label class="subtitle-size">Effective pedagogical strengths for the teaching of English as a foreign language.</label>
+		      	<ul>
+		          	<li>Macro skills (Listening, Speaking, Reading, Writing).</li>
+		          	<li>Micro skills (Grammar, Vocabulary, Pronunciation).</li>
+		     	</ul>
+		  	</li>
+		  	<li>
+		      	<label class="subtitle-size">Innovative tools for the teaching of English as a foreign language.</label>
+		      	<ul>
+		          	<li>Technology applied to the teaching of English as a foreign language.</li>
+		          	<li>Successful experiences in the teaching of English as a foreign language.</li>
+		     	</ul>
+		  	</li>
+		  	<li>
+		      	<label class="subtitle-size">Testing and assessment of English teaching as a foreign language.</label>
+		      	<ul>
+		          	<li>Creating testing and assessment tools.</li>
+		          	<li>Evaluation of competences.</li>
+		          	<li>Diagnostic, formative, and summative assessment.</li>
+		     	</ul>
+		  	</li>
+		</ul>
+	</div>
+	<div ng-switch-when="organizingC">
+		<div class="underline-bottom">
+			<h3>Organizing Committee</h3>
+		</div>
+		<br>
+		<ul class="list-unstyled">
+		  	<li>
+		      	<h4><b>General Coordinator</b></h4>
+		      	<p>Dra. Patricia López Estrada, Instituto Tecnológico de Costa Rica</p>
+		      	<ul style="list-style-type: none">
+		          	<li>MSc. María Yorleni Mora Rivera, Universidad Estatal a Distancia</li>
+		          	<li>Bach. Paola Rodríguez Corrales, Universidad Estatal a Distancia</li>
+		          	<li>MAMC. María Auxiliadora Zúñiga, Universidad de San José</li>
+		          	<li>Lic. Enrique Rojas Ferraro, Universidad de San José  </li>
+		          	<li>Licda. Grettel Corrales Corrales, Universidad de San José  </li>
+		          	<li>Licda. Sonia Villegas Salas, Instituto Tecnológico de Costa Rica</li>
+		          	<li>MA. Johanny Vallecillo Alfaro, Instituto Tecnológico de Costa Rica</li>
+		          	<li>Licda. Yerlin María Solís Pérez, Instituto Nacional de Aprendizaje </li>
+		          	<li>Licda. Gabriela Castillo Hernández, Ministerio de Educación </li>
+		          	<li>Lic. Gerardo Matamoros Arce, Universidad Técnica Nacional</li>
+		          	<li>MSc. Eduardo Castro Miranda, Universidad Técnica Nacional</li>
+		          	<li>Lic. Keylor Sánchez Sandí, Universidad Técnica Nacional</li>
+		     	</ul>
+		  	</li>
+		</ul>
+		<br>
+		<!--  ZONA DE LOGOS -->
+		<div class="container">
+		  <div class="row">
+		    <div class="col-md-3 col-sm-6 col-xs-12 images-top">
+		      <center><img src="./images/organizing committee/zee.png" width="120px" height="100px"></center>
+		    </div>
+		    <div class="col-md-3 col-sm-6 col-xs-12 images-top">
+		      <center><img src="./images/organizing committee/ctec.png" width="175px" height="100px"></center>
+		    </div>
+		    <div class="col-md-3 col-sm-6 col-xs-12 images-top">
+		      <center><img src="./images/organizing committee/INA.png" width="175px" height="85px"></center>
+		    </div>
+		    <div class="col-md-3 col-sm-6 col-xs-12 images-top">
+		      <center><img src="./images/organizing committee/tec.png" width="175px" height="75px"></center>
+		    </div>
+		  </div>
+		  <div class="row">
+		    <div class="col-md-3 col-sm-6 col-xs-12 images-bottom">
+		      <center><img src="./images/organizing committee/mep.png" width="100px" height="90px"></center>
+		    </div>
+		    <div class="col-md-3 col-sm-6 col-xs-12 images-bottom">
+		      <center><img src="./images/organizing committee/uned.png" width="110px" height="90px"></center>
+		    </div>
+		    <div class="col-md-3 col-sm-6 col-xs-12 images-bottom">
+		      <center><img src="./images/organizing committee/u_san_jose.png" width="175px" height="90px"></center>
+		    </div>
+		    <div class="col-md-3 col-sm-6 col-xs-12 images-bottom">
+		      <center><img src="./images/organizing committee/utn.png" width="110px" height="90px"></center>
+		    </div>
+		  </div>
+		  <br>
+		</div>
+	</div>
+	<div ng-switch-when="academicC">
+		<div class="underline-bottom">
+		    <h3>Academic Committee</h3>
+		</div>
+		<br>
+		<ul class="list-unstyled">
+		  	<li>
+		      	<h4><b>Coordinator: </b>Lic. Gerardo Matamoros Arce, Universidad Técnica Nacional</h4>
+		      	<ul style="list-style-type: none">
+		          	<li>Licda. Gabriela Castillo Hernández, Ministerio de Educación</li>
+		          	<li>MSc. Eduardo Castro Miranda, Universidad Técnica Nacional</li>
+		     	</ul>
+		     	<h4><b>Collaborator: </b>Licda. Yerlin María Solís Pérez, Instituto Nacional de Aprendizaje</h4>
+		  	</li>
+		</ul>
+	</div>
+	<div ng-switch-when="scientificC">
+		<div class="underline-bottom">
+		    <h3>Scientific Committee</h3>
+		</div>
+		<br>
+		<ul class="list-unstyled">
+		    <li>
+		        <h4><b>Coordinator: </b>Licda. Sonia Villegas Salas, Instituto Tecnológico de Costa Rica</h4>
+		        <ul style="list-style-type: none">
+		            <li>Lic. Keylor Sánchez Sandí, Universidad Técnica Nacional</li>
+		            <li>MA. Johanny Vallecillo Alfaro, Instituto Tecnológico de Costa Rica</li>
+		      </ul>
+		    </li>
+		</ul>
+	</div>
+	<div ng-switch-when="logisticsC">
+		<div class="underline-bottom">
+		    <h3>Logisitics Committee</h3>
+		</div>
+		<br>
+		<ul class="list-unstyled">
+		    <li>
+		        <h4><b>Coordinator: </b>Licda. Yerlin María Solis Pérez, Instituto Nacional de Aprendizaje</h4>
+		        <ul style="list-style-type: none">
+		            <li>MSc. María Yorleni Mora Rivera, Universidad Estatal a Distancia</li>
+		            <li>Bach. Paola Rodríguez Corrales, Universidad Estatal a Distancia</li>
+		            <li>Lic. Enrique Rojas Ferraro, Universidad de San José</li>
+		      </ul>
+		      <h4><b>Collaborator: </b>MA. Johanny Vallecillo Alfaro, Instituto Tecnológico de Costa Rica</h4>
+		    </li>
+		</ul>
+	</div>
+	<div ng-switch-when="communicationC">
+		<div class="underline-bottom">
+		    <h3>Communication Committee</h3>
+		</div>
+		<br>
+		<ul class="list-unstyled">
+		    <li>
+		        <h4><b>Coordinator: </b>MAMC. María Auxiliadora Zúñiga, Universidad de San José</h4>
+		        <ul style="list-style-type: none">
+		            <li>Licda. Grettel Corrales Corrales, Universidad de San José</li>
+		      	</ul>
+		      	<h4><b>Collaborators: </b></h4>
+		      	<ul style="list-style-type: none">
+		            <li>Lic. Gerardo Matamoros Arce, Universidad Técnica Nacional</li>
+		            <li>MSc. Eduardo Castro Miranda, Universidad Técnica Nacional</li>
+		      	</ul>
+		    </li>
+		</ul>
+	</div>
+	<div ng-switch-when="registration" ng-controller="registrationCtrl">
+		<div class="underline-bottom title-size">
+			<label>Registration</label>
+		</div>
+		<br>
+		<!-- ELEMENTOS -->
+		<div class="col-md-12">
+			<div class="col-md-6">
+			    <p>
+			        <label>Identification</label>
+			        <input ng-model="id" class="form-control" type="text">
+			    </p>
+			</div>
+			<div class="col-md-6">
+			    <p>
+			        <label>Password</label>
+			        <input ng-model="pass" class="form-control" type="password">
+			    </p>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="col-md-6">
+			    <p>
+			        <label>Full name</label>
+			        <input ng-model="name" class="form-control" type="text">
+			    </p>
+			</div>
+			<div class="col-md-6">
+			    <p>
+			        <label>Group</label><br>
+			        <select ng-model="group" class="form-control">
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+					</select>
+			    </p>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="col-md-6">
+			    <p>
+			        <label>E-mail address</label>
+			        <input ng-model="email" class="form-control" type="text">
+			    </p>
+			</div>
+			<div class="col-md-6">
+			    <p>
+			        <label>Phone number</label>
+			        <input ng-model="phone" class="form-control" type="text">
+			    </p>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="col-md-6">
+			    <p>
+			        <label>Nationality</label>
+			        <input ng-model="nationality" class="form-control" type="text">
+			    </p>
+			</div>
+			<div class="col-md-6">
+			    <p>
+			        <label>Receipt or deposit number</label>
+			        <input ng-model="depositNumber" class="form-control" type="text">
+			    </p>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="col-md-6">
+			    <p>
+			        <label>Dirección Regional de Educación</label>
+			        <br><input ng-model="direccion.norte" type="checkbox" id="direccion-regional" ng-true-value="'Norte-Norte'" ng-false-value="''"> Norte-Norte
+			        <br><input ng-model="direccion.sanCarlos" type="checkbox" id="direccion-regional" ng-true-value="'San Carlos'" ng-false-value="''"> San Carlos
+			        <br><input ng-model="direccion.sarapiqui" type="checkbox" id="direccion-regional" ng-true-value="'Sarapiquí'" ng-false-value="''"> Sarapiquí
+			        <br><input ng-model="direccion.occidente" type="checkbox" id="direccion-regional" ng-true-value="'Occidente'" ng-false-value="''"> Occidente
+			        <br><input ng-model="direccion.other" class="form-control" type="text" placeholder="If your choice is not listed, enter here">
+			    </p>
+			</div>
+			<div class="col-md-6">
+			    <p>
+			        <label>How did you get informed about the congress?</label>
+			        <br><input ng-model="informed.email" type="checkbox" ng-true-value="'Email'" ng-false-value="''"> Email
+			        <br><input ng-model="informed.facebook" type="checkbox" ng-true-value="'Facebook'" ng-false-value="''"> Facebook page
+			        <br><input ng-model="informed.webSite" type="checkbox" ng-true-value="'Website'" ng-false-value="''"> Website
+			        <br><input ng-model="informed.colleague" type="checkbox" ng-true-value="'Colleague'" ng-false-value="''"> Colleague
+			        <br><input ng-model="informed.other" class="form-control" type="text" placeholder="If your choice is not listed, enter here">
+			    </p>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="col-md-6">
+			    <p>
+			        <label>Academic degree</label>
+			        <br><input ng-model="academic.student" type="checkbox" ng-true-value="'Student'" ng-false-value="''"> Student
+			        <br><input ng-model="academic.associate" type="checkbox" ng-true-value="'Associate\'s degree'" ng-false-value="''"> Associate's degree
+			        <br><input ng-model="academic.bachelor" type="checkbox" ng-true-value="'Bachelor\'s degree'" ng-false-value="''"> Bachelor's degree
+			        <br><input ng-model="academic.licentiate" type="checkbox" ng-true-value="'Licentiate degree'" ng-false-value="''"> Licentiate degree
+			        <br><input ng-model="academic.master" type="checkbox" ng-true-value="'Master\'s degree'" ng-false-value="''"> Master's degree
+			        <br><input ng-model="academic.doctorate" type="checkbox" ng-true-value="'Doctorate degree'" ng-false-value="''"> Doctorate degree
+			        <br><input ng-model="academic.other" class="form-control" type="text" placeholder="If your choice is not listed, enter here">
+			        <h5 class="text-error" id="error-academic-degree"></h5>
+			    </p>
+			</div>
+			<div class="col-md-6">
+			    <p>
+			        <label>Teaching population</label>
+			        <br><input ng-model="population.elementary" type="checkbox" ng-true-value="'Elementary'" ng-false-value="''"> Elementary
+			        <br><input ng-model="population.highSchool" type="checkbox" ng-true-value="'High school'" ng-false-value="''"> High school
+			        <br><input ng-model="population.higherEducation" type="checkbox" ng-true-value="'Higher education'" ng-false-value="''"> Higher education
+			        <br><input ng-model="population.other" class="form-control" type="text" placeholder="If your choice is not listed, enter here">
+			    </p>
+			</div>
+		</div>
+		<div class="col-md-12 col-xs-12">
+			<br>
+		    <center><button ng-disabled="emptyData" ng-click="registration()" class="btn btn-primary">Sign up</button></center>
+		</div>
+		<div class="col-md-12 col-xs-12">
+			<br>
+			<div ng-show="registrationOk" class="alert alert-success text-center">Registration was successful.</div>
+			<div ng-show="registrationError" class="alert alert-danger text-center">An error has occurred in the register. Try again.</div>
+		</div>
+	</div>
+	<div ng-switch-when="sponsors">
+		<div class="underline-bottom">
+		    <h3>Sponsors</h3>
+		</div>
+		<br>
+		<div class="container">
+		  <div class="row">
+		    <div class="col-md-3 col-sm-6 col-xs-12 images-top">
+		      <center><img src="./images/sponsors/Avantica.png" width="170px" height="150px"></center>
+		    </div>
+		    <div class="col-md-3 col-sm-6 col-xs-12 images-top">
+		      <center><img src="./images/sponsors/Colegio Agropecuario San Carlos.jpg" width="175px" height="150px"></center>
+		    </div>
+		    <div class="col-md-3 col-sm-6 col-xs-12 images-top">
+		      <center><img src="./images/sponsors/COLYPRO.png" width="175px" height="115px"></center>
+		    </div>
+		    <div class="col-md-3 col-sm-6 col-xs-12 images-top">
+		      <center><img src="./images/sponsors/COTAI.png" width="185px" height="140px"></center>
+		    </div>
+		  </div>
+		  <div class="row">
+		    <div class="col-md-3 col-sm-6 col-xs-12 images-bottom">
+		      <center><img src="./images/sponsors/ETAI.jpg" width="170px" height="125px"></center>
+		    </div>
+		    <div class="col-md-3 col-sm-6 col-xs-12 images-bottom">
+		      <center><img src="./images/sponsors/Nayara.PNG" width="160px" height="125px"></center>
+		    </div>
+		    <div class="col-md-3 col-sm-6 col-xs-12 images-bottom">
+		      <center><img src="./images/sponsors/UCatólica.jpg" width="195px" height="110px"></center>
+		    </div>
+		    <div class="col-md-3 col-sm-6 col-xs-12 images-bottom">
+		      <center><img src="./images/sponsors/US Embassy.jpg" width="135px" height="130px"></center>
+		    </div>
+		  </div>
+		  <br>
+		</div>
+	</div>
+	<div ng-switch-when="exhibitors">
+		exhibitors
+	</div>
+	<div ng-switch-when="speakers">
+		speakers
+	</div>
+</div>
+
+<!--  ZONA DE CONTACTO -->
+<div class="contact-box col-sm-12 be-sky-blue text-center">
+	<h4>Contact: <a href="mailto:#">englishteachingcongress2@gmail.com</a></h4>
+</div>
+
+<!-- BOTON IR ARRIBA -->
+<img id="go-top" scrollup src="./images/up.png">
+
+<div ng-controller="loginCtrl">
+	<div id="logIn" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h3>Log in</h3>
+                </div>
+                <div class="modal-body">
+                    <form role="form">
+                        <div class="form-group">
+                            <label>Email</label>
+                            <div>
+                                <input ng-model="email" type="text" class="form-control">
+                            </div>
+                        </div> 
+                        <div class="form-group">
+                            <label>Password</label>
+                            <div>
+                                <input ng-model="pass" type="password" class="form-control">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                	<div ng-show="errorLogin" class="alert alert-warning text-center">The email or password is incorrect.</div>
+                	<div ng-show="error" class="alert alert-warning text-center">An unexpected error has occurred. Please try again.</div>
+                	<button id="closeLogIn" type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+                    <button type="button" class="btn btn-success" ng-disabled="emptyData" data-ng-click="login(); $event.stopPropagation()"><span class="glyphicon glyphicon-log-in"></span>  Log in</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
