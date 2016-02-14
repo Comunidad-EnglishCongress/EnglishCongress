@@ -34,7 +34,6 @@
 
 				$http.get('./Login/login.model.php?email='+$scope.email+'&pass='+$scope.pass)
 				.success(function(response) {
-					console.log(response);
                     if(response.length > 0) {
                     	document.getElementById('closeLogIn').click();
                     	Session.setInfo(response[0]);

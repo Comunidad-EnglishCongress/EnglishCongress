@@ -6,50 +6,9 @@
 		.controller('registrationCtrl', function($scope, $http, $timeout) {
 			$scope.registrationOk = false;
 			$scope.registrationError = false;
+			$scope.groupError = false;
 			$scope.emptyData = false;
-			$scope.declare = declare;
-
-			function declare() {
-				$scope.id = '';
-				$scope.pass = '';
-				$scope.name = '';
-				$scope.group = '1';
-				$scope.email = 'fauri.1994@gmail.com';
-				$scope.phone = '';
-				$scope.nationality = '';
-				$scope.depositNumber = '';
-				$scope.direccion = {
-					norte: '',
-					sanCarlos: '',
-					sarapiqui: '',
-					occidente: '',
-					other: ''
-				};
-				$scope.informed = {
-					email: '',
-					facebook: '',
-					webSite: '',
-					colleague: '',
-					other: ''
-				};
-				$scope.academic = {
-					student: '',
-					associate: '',
-					bachelor: '',
-					licentiate: '',
-					master: '',
-					doctorate: '',
-					other: ''
-				};
-				$scope.population = {
-					elementary: '',
-					highSchool: '',
-					higherEducation: '',
-					other: ''
-				};
-			}
-
-			declare();
+			$scope.declare = declare;			
 
 			$scope.$watch('id', function() {
 				validate();
@@ -139,6 +98,50 @@
 			});
 
 			$scope.registration = registration;
+			$scope.validateId = validateId;
+			$scope.validateEmail = validateEmail;
+
+			function declare() {
+				$scope.id = '';
+				$scope.pass = '';
+				$scope.name = '';
+				$scope.group = 'Dirección Regional de Educación, San Carlos';
+				$scope.email = 'fauri.1994@gmail.com';
+				$scope.phone = '';
+				$scope.nationality = '';
+				$scope.depositNumber = '';
+				$scope.direccion = {
+					norte: '',
+					sanCarlos: '',
+					sarapiqui: '',
+					occidente: '',
+					other: ''
+				};
+				$scope.informed = {
+					email: '',
+					facebook: '',
+					webSite: '',
+					colleague: '',
+					other: ''
+				};
+				$scope.academic = {
+					student: '',
+					associate: '',
+					bachelor: '',
+					licentiate: '',
+					master: '',
+					doctorate: '',
+					other: ''
+				};
+				$scope.population = {
+					elementary: '',
+					highSchool: '',
+					higherEducation: '',
+					other: ''
+				};
+			}
+
+			declare();
 
 	        function validate() {
 	            if(!$scope.id.length || !$scope.pass.length || !$scope.name.length || !$scope.email.length
@@ -215,30 +218,74 @@
 			  	return string.slice(0, string.length-2);
 	        }			
 
+	        function decrementCapacity() {
+	        	$http.get('./Registration/registration.model.php?action=decrement&group='+$scope.group)
+				.success(function(response) {
+                });
+	        }
+
 	        function registration() {
 	        	$scope.registrationOk = false;
 				$scope.registrationError = false;
+				$scope.groupError = false;
 
-				$http.get('./Registration/registration.model.php?id='+$scope.id+'&pass='+$scope.pass+'&fullName='+$scope.name+
-					'&regionGroup='+$scope.group+'&email='+$scope.email+'&phone='+$scope.phone+'&nationality='+$scope.nationality+
-					'&depositNumber='+$scope.depositNumber+'&direccion='+concatDireccion()+'&informed='+concatInformed()+
-					'&academic='+concatAcademic()+'&population='+concatPopulation()+'&type=U')
+				$http.get('./Registration/registration.model.php?action=validateGroup&group='+$scope.group)
 				.success(function(response) {
-                    if(response) {
-                    	$scope.registrationOk = true;
-                    	declare();
+                    if(parseInt(response[0]) > 0) {
+                    	$http.get('./Registration/registration.model.php?id='+$scope.id+'&pass='+$scope.pass+'&fullName='+$scope.name+
+							'&regionGroup='+$scope.group+'&email='+$scope.email+'&phone='+$scope.phone+'&nationality='+$scope.nationality+
+							'&depositNumber='+$scope.depositNumber+'&direccion='+concatDireccion()+'&informed='+concatInformed()+
+							'&academic='+concatAcademic()+'&population='+concatPopulation()+'&type=U&action=insert')
+						.success(function(response) {
+		                    if(response) {
+		                    	decrementCapacity();
+		                    	$scope.registrationOk = true;
+		                    	declare();
 
-                    	$timeout(function() {
-		            		$scope.registrationOk = false;
-		            	}, 5000);
+		                    	$timeout(function() {
+				            		$scope.registrationOk = false;
+				            	}, 5000);
+		                    }
+		                    else {
+		                    	$scope.registrationError = true;
+
+		                    	$timeout(function() {
+				            		$scope.registrationError = false;
+				            	}, 5000);
+		                    }
+		                });
                     }
                     else {
-                    	$scope.registrationError = true;
+                    	$scope.groupError = true;
 
                     	$timeout(function() {
-		            		$scope.registrationError = false;
+		            		$scope.groupError = false;
 		            	}, 5000);
                     }
+                });
+
+				
+	        }
+
+	        function validateId() {
+	        	$scope.errorId = false;
+
+	        	$http.get('./Registration/registration.model.php?action=validateId&id='+$scope.id)
+				.success(function(response) {
+                    if(response[0]) {
+                    	$scope.errorId = true;
+                    }
+                });
+	        }
+
+	        function validateEmail() {
+	        	$scope.errorEmail = false;
+
+	        	$http.get('./Registration/registration.model.php?action=validateEmail&email='+$scope.email)
+				.success(function(response) {
+                	if(response[0]) {
+                    	$scope.errorEmail = true;
+                    } 
                 });
 	        }
 		})

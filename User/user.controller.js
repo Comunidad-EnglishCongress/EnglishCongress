@@ -18,6 +18,7 @@
 			$scope.addToMySessions = addToMySessions;
 
 			function logOut() {
+				Session.setInfo({});
 				$location.path('/');
 			}
 
@@ -31,10 +32,13 @@
 
 			function loadAllSessions() {
 				$scope.activeNav = 'allSessions';
-				$http.get('./User/user.model.php?action=allSessions')
-				.success(function(response) {
-                    $scope.sessions = response;
-                });	
+
+				if(Session.getInfo() != {}) {
+					$http.get('./User/user.model.php?action=allSessions')
+					.success(function(response) {
+	                    $scope.sessions = response;
+	                });	
+				}
 			}
 
 			function removeFromMySessions(id, idSession) {

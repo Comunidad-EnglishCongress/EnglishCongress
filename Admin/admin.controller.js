@@ -12,23 +12,30 @@
 			$scope.loadPersons = loadPersons;
 
 			function logOut() {
+				Session.setInfo({});
 				$location.path('/');
 			}
 
 			function loadSessions() {
 				$scope.activeNav = 'sessions';
-				$http.get('./Admin/admin.model.php?action=sessions')
-				.success(function(response) {
-                    $scope.sessions = response;
-                });
+
+				if(Session.getInfo() != {}) {
+					$http.get('./Admin/admin.model.php?action=sessions')
+					.success(function(response) {
+	                    $scope.sessions = response;
+	                });
+				}
 			}
 
 			function loadPersons() {
 				$scope.activeNav = 'persons';
-				$http.get('./Admin/admin.model.php?action=persons')
-				.success(function(response) {
-                    $scope.persons = response;
-                });	
+
+				if(Session.getInfo() != {}) {
+					$http.get('./Admin/admin.model.php?action=persons')
+					.success(function(response) {
+	                    $scope.persons = response;
+	                });	
+				}
 			}
 		})
 })();
