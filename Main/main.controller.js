@@ -3,9 +3,7 @@
 
 	angular
 		.module('myApp')
-		.controller('mainCtrl', function($scope, $http) {
+		.controller('mainCtrl', function($scope) {
 			$scope.activeNav = '';
-
-			
-		})
+		});
 })();

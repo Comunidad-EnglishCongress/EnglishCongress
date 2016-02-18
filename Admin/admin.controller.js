@@ -3,39 +3,36 @@
 
 	angular
 		.module('myApp')
-		.controller('adminCtrl', function($scope, $http, $location, Session) {
-			$scope.admin = Session.getInfo();
-			$scope.activeNav = '';
+		.controller('adminCtrl', adminCtrl); 
 
-			$scope.logOut = logOut;
-			$scope.loadSessions = loadSessions;
-			$scope.loadPersons = loadPersons;
+	function adminCtrl($scope, $http, $location, $cookies, Auth) {
+		$scope.admin = $cookies.getObject('session');
+		$scope.activeNav = '';
 
-			function logOut() {
-				Session.setInfo({});
-				$location.path('/');
-			}
+		$scope.logOut = logOut;
+		$scope.loadSessions = loadSessions;
+		$scope.loadPersons = loadPersons;
 
-			function loadSessions() {
-				$scope.activeNav = 'sessions';
+		function logOut() {
+			Auth.logOut();
+		}
 
-				if(Session.getInfo() != {}) {
-					$http.get('./Admin/admin.model.php?action=sessions')
-					.success(function(response) {
-	                    $scope.sessions = response;
-	                });
-				}
-			}
+		function loadSessions() {
+			$scope.activeNav = 'sessions';
 
-			function loadPersons() {
-				$scope.activeNav = 'persons';
+			$http.get('./Admin/admin.model.php?action=sessions')
+			.success(function(response) {
+                $scope.sessions = response;
+            });
+		}
 
-				if(Session.getInfo() != {}) {
-					$http.get('./Admin/admin.model.php?action=persons')
-					.success(function(response) {
-	                    $scope.persons = response;
-	                });	
-				}
-			}
-		})
+		function loadPersons() {
+			$scope.activeNav = 'persons';
+
+			$http.get('./Admin/admin.model.php?action=persons')
+			.success(function(response) {
+                $scope.persons = response;
+            });	
+		}
+	}
 })();
