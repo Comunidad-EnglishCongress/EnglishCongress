@@ -1,21 +1,22 @@
 <div class="col-sm-12 header col-xs-12">
-	<div class="container">
-		<div class="col-md-6">
-			<h2 id="welcome">Welcome {{admin.fullName}}</h2>
-		</div>
-		<div class="col-md-4">
-			<nav id="nav" class="lato">
-			    <ul id="navigation">
-			        <li ng-click="loadPersons()"><a class="first">ALL PERSONS</a></li>
-			        <li ng-click="loadSessions()"><a>ALL SESSIONS</a></li>
-			        <li ng-click="logOut()"><a>LOG OUT</a></li>
-			    </ul>
-			</nav>
-		</div>
-		<div class="col-md-2">
-			<img class="logo" src="./images/logo.png">
-		</div>
-	</div>
+    <div class="container">
+        <div class="col-sm-2 col-xs-2">
+            <img class="logo" src="./images/logo.png">
+        </div>
+        <div class="col-sm-10 col-xs-10">
+            <nav id="nav" class="lato">
+                <ul id="navigation">
+                    <li ng-click="loadPersons()"><a class="first">ALL PERSONS</a></li>
+                    <li ng-click="loadSessions()"><a>ALL SESSIONS</a></li>
+                    <li><a>{{admin.fullName | uppercase}}</a>
+                        <ul id="second-navigation">
+                            <li ng-click="logOut()"><a>LOG OUT</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
 </div>
 <div class="container" ng-switch on="activeNav">
 	<div ng-switch-when="sessions">

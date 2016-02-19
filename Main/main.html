@@ -1,14 +1,14 @@
 <header>
 	<div class="col-sm-12 header col-xs-12">
-		<div class="col-md-10 col-md-offset-2 col-sm-12">
+		<div class="container">
 			<!-- LOGO -->
-			<div class="col-sm-1 col-xs-2 row">
+			<div class="col-sm-2 col-xs-2">
 				<a ng-click="activeNav=''" href="#/">
 					<img class="logo" src="./images/logo.png">
 				</a>
 			</div>
 			<!-- MENU DE NAVEGACION -->
-			<div class="col-sm-11 col-xs-10">
+			<div class="col-sm-10 col-xs-10">
 				<nav id="nav" class="lato">
 				    <ul id="navigation">
 				        <li ng-click="activeNav=''"><a href="#/" class="first">HOMEPAGE</a></li>
@@ -87,7 +87,132 @@
 		<div ng-include="'./templates/communication.committee.htm'"></div>
 	</div>
 	<div ng-switch-when="registration" ng-controller="registrationCtrl">
-		<div ng-include="'./templates/registration.htm'"></div>
+		<div class="underline-bottom montserrat">
+			<h3>Registration</h3>
+		</div>
+		<br>
+		<!-- ELEMENTOS -->
+		<div class="col-md-12">
+			<div class="col-md-6">
+			    <p>
+			        <label>Identification</label>
+			        <input ng-model="id" class="form-control" type="text" ng-blur="validateId();">
+			        <div class="alert alert-danger" ng-show="errorId">The identification is already registered.</div>
+			    </p>
+			</div>
+			<div class="col-md-6">
+			    <p>
+			        <label>Password</label>
+			        <input ng-model="pass" class="form-control" type="password">
+			    </p>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="col-md-6">
+			    <p>
+			        <label>Full name</label>
+			        <input ng-model="name" class="form-control" type="text">
+			    </p>
+			</div>
+			<div class="col-md-6">
+			    <p>
+			        <label>Group</label><br>
+			        <select ng-model="group" class="form-control">
+						<option value="Dirección Regional de Educación, San Carlos">Dirección Regional de Educación, San Carlos</option>
+						<option value="Dirección Regional de Educación, Norte-Norte">Dirección Regional de Educación, Norte-Norte</option>
+						<option value="Dirección Regional de Educación, Sarapiquí">Dirección Regional de Educación, Sarapiquí</option>
+						<option value="Dirección Regional de Educación, Occidente">Dirección Regional de Educación, Occidente</option>
+						<option value="Consejo Académico Regional">Consejo Académico Regional</option>
+						<option value="General Public">General Public</option>
+					</select>
+			    </p>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="col-md-6">
+			    <p>
+			        <label>E-mail address</label>
+			        <input ng-model="email" class="form-control" type="text" ng-blur="validateEmail();">
+			        <div class="alert alert-danger" ng-show="errorEmail">E-mail address is already registered.</div>
+			    </p>
+			</div>
+			<div class="col-md-6">
+			    <p>
+			        <label>Phone number</label>
+			        <input ng-model="phone" class="form-control" type="text">
+			    </p>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="col-md-6">
+			    <p>
+			        <label>Nationality</label>
+			        <input ng-model="nationality" class="form-control" type="text">
+			    </p>
+			</div>
+			<div class="col-md-6">
+			    <p>
+			        <label>Receipt or deposit number</label>
+			        <input ng-model="depositNumber" class="form-control" type="text">
+			    </p>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="col-md-6">
+			    <p>
+			        <label>Dirección Regional de Educación</label>
+			        <br><input ng-model="direccion.norte" type="checkbox" id="direccion-regional" ng-true-value="'Norte-Norte'" ng-false-value="''"> Norte-Norte
+			        <br><input ng-model="direccion.sanCarlos" type="checkbox" id="direccion-regional" ng-true-value="'San Carlos'" ng-false-value="''"> San Carlos
+			        <br><input ng-model="direccion.sarapiqui" type="checkbox" id="direccion-regional" ng-true-value="'Sarapiquí'" ng-false-value="''"> Sarapiquí
+			        <br><input ng-model="direccion.occidente" type="checkbox" id="direccion-regional" ng-true-value="'Occidente'" ng-false-value="''"> Occidente
+			        <br><input ng-model="direccion.other" class="form-control" type="text" placeholder="If your choice is not listed, enter here">
+			    </p>
+			</div>
+			<div class="col-md-6">
+			    <p>
+			        <label>How did you get informed about the congress?</label>
+			        <br><input ng-model="informed.email" type="checkbox" ng-true-value="'Email'" ng-false-value="''"> Email
+			        <br><input ng-model="informed.facebook" type="checkbox" ng-true-value="'Facebook'" ng-false-value="''"> Facebook page
+			        <br><input ng-model="informed.webSite" type="checkbox" ng-true-value="'Website'" ng-false-value="''"> Website
+			        <br><input ng-model="informed.colleague" type="checkbox" ng-true-value="'Colleague'" ng-false-value="''"> Colleague
+			        <br><input ng-model="informed.other" class="form-control" type="text" placeholder="If your choice is not listed, enter here">
+			    </p>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="col-md-6">
+			    <p>
+			        <label>Academic degree</label>
+			        <br><input ng-model="academic.student" type="checkbox" ng-true-value="'Student'" ng-false-value="''"> Student
+			        <br><input ng-model="academic.associate" type="checkbox" ng-true-value="'Associate\'s degree'" ng-false-value="''"> Associate's degree
+			        <br><input ng-model="academic.bachelor" type="checkbox" ng-true-value="'Bachelor\'s degree'" ng-false-value="''"> Bachelor's degree
+			        <br><input ng-model="academic.licentiate" type="checkbox" ng-true-value="'Licentiate degree'" ng-false-value="''"> Licentiate degree
+			        <br><input ng-model="academic.master" type="checkbox" ng-true-value="'Master\'s degree'" ng-false-value="''"> Master's degree
+			        <br><input ng-model="academic.doctorate" type="checkbox" ng-true-value="'Doctorate degree'" ng-false-value="''"> Doctorate degree
+			        <br><input ng-model="academic.other" class="form-control" type="text" placeholder="If your choice is not listed, enter here">
+			        <h5 class="text-error" id="error-academic-degree"></h5>
+			    </p>
+			</div>
+			<div class="col-md-6">
+			    <p>
+			        <label>Teaching population</label>
+			        <br><input ng-model="population.elementary" type="checkbox" ng-true-value="'Elementary'" ng-false-value="''"> Elementary
+			        <br><input ng-model="population.highSchool" type="checkbox" ng-true-value="'High school'" ng-false-value="''"> High school
+			        <br><input ng-model="population.higherEducation" type="checkbox" ng-true-value="'Higher education'" ng-false-value="''"> Higher education
+			        <br><input ng-model="population.other" class="form-control" type="text" placeholder="If your choice is not listed, enter here">
+			    </p>
+			</div>
+		</div>
+		<div class="col-md-12 col-xs-12">
+			<br>
+		    <center><button ng-disabled="emptyData || errorId || errorEmail" ng-click="registration()" class="btn btn-primary"><span class="glyphicon glyphicon-ok"></span>&nbsp;&nbsp;Sign up</button></center>
+		</div>
+		<div class="col-md-12 col-xs-12">
+			<br>
+			<div ng-show="registrationOk" class="alert alert-success text-center">Registration was successful.</div>
+			<div ng-show="registrationError" class="alert alert-danger text-center">An error has occurred in the register. Try again.</div>
+			<div ng-show="groupError" class="alert alert-danger text-center">The selected group does not have capacity.</div>
+		</div>
 	</div>
 	<div ng-switch-when="sponsors">
 		<div ng-include="'./templates/sponsors.htm'"></div>
@@ -113,35 +238,35 @@
 
 <div ng-controller="loginCtrl">
 	<div id="logIn" class="modal fade">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header montserrat">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h3>Log in</h3>
-                </div>
-                <div class="modal-body">
-                    <form role="form">
-                        <div class="form-group">
-                            <label>Email</label>
-                            <div>
-                                <input ng-model="email" type="text" class="form-control">
-                            </div>
-                        </div> 
-                        <div class="form-group">
-                            <label>Password</label>
-                            <div>
-                                <input ng-model="pass" type="password" class="form-control">
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                	<div ng-show="errorLogin" class="alert alert-warning text-center">The email or password is incorrect.</div>
-                	<div ng-show="error" class="alert alert-warning text-center">An unexpected error has occurred. Please try again.</div>
-                	<button id="closeLogIn" type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;Cancel</button>
-                    <button type="button" class="btn btn-primary" ng-disabled="emptyData" data-ng-click="login(); $event.stopPropagation()"><span class="glyphicon glyphicon-log-in"></span>&nbsp;&nbsp;Log in</button>
-                </div>
-            </div>
-        </div>
-    </div>
+	    <div class="modal-dialog">
+	        <div class="modal-content">
+	            <div class="modal-header montserrat">
+	                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	                <h3>Log in</h3>
+	            </div>
+	            <div class="modal-body">
+	                <form role="form">
+	                    <div class="form-group">
+	                        <label>Email</label>
+	                        <div>
+	                            <input ng-model="email" type="text" class="form-control">
+	                        </div>
+	                    </div> 
+	                    <div class="form-group">
+	                        <label>Password</label>
+	                        <div>
+	                            <input ng-model="pass" type="password" class="form-control">
+	                        </div>
+	                    </div>
+	                </form>
+	            </div>
+	            <div class="modal-footer">
+	            	<div ng-show="errorLogin" class="alert alert-warning text-center">The email or password is incorrect.</div>
+	            	<div ng-show="error" class="alert alert-warning text-center">An unexpected error has occurred. Please try again.</div>
+	            	<button id="closeLogIn" type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;Cancel</button>
+	                <button type="button" class="btn btn-primary" ng-disabled="emptyData" data-ng-click="login(); $event.stopPropagation()"><span class="glyphicon glyphicon-log-in"></span>&nbsp;&nbsp;Log in</button>
+	            </div>
+	        </div>
+	    </div>
+	</div>
 </div>
