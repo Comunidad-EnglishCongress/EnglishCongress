@@ -226,11 +226,11 @@
         	$scope.registrationOk = false;
 			$scope.registrationError = false;
 			$scope.groupError = false;
-
+			
 			$http.get('./Registration/registration.model.php?action=validateGroup&group='+$scope.group)
 			.success(function(response) {
                 if(parseInt(response[0]) > 0) {
-                	$http.get('./Registration/registration.model.php?id='+$scope.id+'&pass='+$scope.pass+'&fullName='+$scope.name+
+                	$http.get('./Registration/registration.model.php?id='+$scope.id+'&pass='+calcMD5($scope.pass)+'&fullName='+$scope.name+
 						'&regionGroup='+$scope.group+'&email='+$scope.email+'&phone='+$scope.phone+'&nationality='+$scope.nationality+
 						'&depositNumber='+$scope.depositNumber+'&direccion='+concatDireccion()+'&informed='+concatInformed()+
 						'&academic='+concatAcademic()+'&population='+concatPopulation()+'&type=U&action=insert')

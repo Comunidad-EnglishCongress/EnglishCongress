@@ -33,8 +33,8 @@
 		function login() {
 			$scope.errorLogin = false;
 			$scope.error = false;
-
-			$http.get('./Login/login.model.php?email='+$scope.email+'&pass='+$scope.pass)
+			console.log(calcMD5($scope.pass));
+			$http.get('./Login/login.model.php?email='+$scope.email+'&pass='+calcMD5($scope.pass))
 			.success(function(response) {
                 if(response.length > 0) {
                 	document.getElementById('closeLogIn').click();

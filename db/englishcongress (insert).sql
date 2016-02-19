@@ -56,7 +56,7 @@ INSERT INTO `groups` (`id`, `name`, `capacity`, `maxCapacity`) VALUES
 
 CREATE TABLE IF NOT EXISTS `person` (
   `id` varchar(11) NOT NULL,
-  `pass` varchar(25) NOT NULL,
+  `pass` varchar(50) NOT NULL,
   `fullName` varchar(75) NOT NULL,
   `regionGroup` varchar(20) NOT NULL,
   `email` varchar(75) NOT NULL,
