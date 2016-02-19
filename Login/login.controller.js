@@ -13,6 +13,7 @@
 		$scope.error = false;
 
 		$scope.login = login;
+		$scope.enterLogin = enterLogin;
 
 		$scope.$watch('email', function() {
 			validate();
@@ -33,7 +34,7 @@
 		function login() {
 			$scope.errorLogin = false;
 			$scope.error = false;
-			console.log(calcMD5($scope.pass));
+			
 			$http.get('./Login/login.model.php?email='+$scope.email+'&pass='+calcMD5($scope.pass))
 			.success(function(response) {
                 if(response.length > 0) {
@@ -47,6 +48,11 @@
                 	$scope.errorLogin = true;
                 }
             });
+		}
+
+		function enterLogin(e) {
+			if(e.keyCode === 13)
+				login();
 		}
 	}
 })();

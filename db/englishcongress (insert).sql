@@ -75,8 +75,8 @@ CREATE TABLE IF NOT EXISTS `person` (
 --
 
 INSERT INTO `person` (`id`, `pass`, `fullName`, `regionGroup`, `email`, `phoneNumber`, `nationality`, `depositNumber`, `direccionRegional`, `informed`, `academicDegree`, `teachingPopulation`, `type`) VALUES
-('2-0000-0000', '12345', 'Fauricio Rojas Hernandez', 'CQ', 'fauri-94@hotmail.com', '88888888', 'Costa Rican', '1122-3344', 'San Carlos', 'Website', 'Student', 'Higher education', 'A'),
-('2-0000-0001', '12345', 'Cristian Salas Salazar', 'CQ', 'cs.salas94@gmail.com', '88888888', 'Costa Rican', '5566-7788', 'San Carlos', 'Website', 'Student', 'High school', 'U');
+('2-0000-0000', '827ccb0eea8a706c4c34a16891f84e7b', 'Fauricio Rojas Hernandez', 'CQ', 'fauri-94@hotmail.com', '88888888', 'Costa Rican', '1122-3344', 'San Carlos', 'Website', 'Student', 'Higher education', 'A'),
+('2-0000-0001', '827ccb0eea8a706c4c34a16891f84e7b', 'Cristian Salas Salazar', 'CQ', 'cs.salas94@gmail.com', '88888888', 'Costa Rican', '5566-7788', 'San Carlos', 'Website', 'Student', 'High school', 'U');
 
 -- --------------------------------------------------------
 

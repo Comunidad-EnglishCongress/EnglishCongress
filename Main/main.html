@@ -255,7 +255,7 @@
 	                    <div class="form-group">
 	                        <label>Password</label>
 	                        <div>
-	                            <input ng-model="pass" type="password" class="form-control">
+	                            <input ng-model="pass" ng-keydown="enterLogin($event);" type="password" class="form-control">
 	                        </div>
 	                    </div>
 	                </form>
