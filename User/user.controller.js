@@ -11,6 +11,7 @@
 		$scope.remove = false;
 		$scope.add = false;
 		$scope.repeatSession = false;
+		$scope.crashSession = false;
 		$scope.error = false;
 
 		$scope.logOut = logOut;
@@ -74,6 +75,13 @@
 
                 	$timeout(function() {
 	            		$scope.repeatSession = false;
+	            	}, 5000);
+				}
+				else if(response === 'crash') {
+					$scope.crashSession = true;
+
+                	$timeout(function() {
+	            		$scope.crashSession = false;
 	            	}, 5000);
 				}
 				else if(response) {

@@ -43,31 +43,36 @@
 		else {
 			$crash = false;
 
-			// VALIDAR CHOQUE
-			$query2= "SELECT * FROM session WHERE id=$idSession";
+			$query2 = "SELECT id,name,date,hourStart,hourFinish FROM session WHERE id=$idSession";
 			$result2 = $conn->query($query2);
 			$result2 = mysqli_fetch_row($result2);
+			//echo(json_encode($result2))."<br><br>";
 
-			$query3 = "SELECT * FROM session s INNER JOIN personsession ps ON s.id=$idSession WHERE ps.idPerson='$idPerson';";
+			$query3 = "SELECT s.id,s.name,s.date,s.hourStart,s.hourFinish FROM person p INNER JOIN personsession ps ON p.id=ps.idPerson INNER JOIN session s ON ps.idSession=s.id WHERE ps.idPerson='$idPerson';";
 			$result3 = $conn->query($query3);
 
 	    	while($row = mysqli_fetch_array($result3)) {
-		        if($row[3] === $result2[3] && $row[4] === $result2[4]) {
-	        		$crash = true;
-	        		break;
-	        	}
+				//echo $row[0]." - ".$row[1]." - ".$row[2]." - ".$row[3]." - ".$row[4]."<br>";
+	        	if($result2[2] == $row[2]) {
+			        if(strtotime($result2[4]) <= strtotime($row[3]) || strtotime($result2[3]) >= strtotime($row[4])) {
+			        	
+			        }
+			        else {
+			        	$crash = true;
+			        	break;
+			        }
+			    }
 		    }
-
-	    	/*if(!$crash) {
-				$query4 = "INSERT INTO personsession(idPerson, idSession) VALUES('$idPerson', $idSession)";
+		    
+			if($crash) {
+			    echo 'crash';
+			}
+			else {
+			    $query4 = "INSERT INTO personsession(idPerson, idSession) VALUES('$idPerson', $idSession)";
 				$result4 = $conn->query($query4);
 		    
 				echo true;
 			}
-			else {
-				echo "crash";
-			}*/
-			echo $crash;
 		}
 	}
 

@@ -20,15 +20,6 @@ body
 {
 	opacity: 0.6;
 }
-.contact-box
-{
-    margin-top: 10px;
-	padding: 20px 0px 20px;
-}
-.be-sky-blue
-{
-	background-color: #CCEBFF;
-}
 .montserrat 
 {
     font-family: 'Montserrat', sans-serif;
@@ -87,6 +78,40 @@ li, input[type='checkbox'], select {
     color: white;
     background-color: #337ab7;
     border: 2px solid #337ab7;
+}
+
+
+/*Footer*/
+footer{
+    width: 100%;
+    clear: both;
+    color: #666;
+    /*background: #CCEBFF;*/
+    background: #141419;
+    line-height: 40px;
+    overflow: hidden;
+}
+footer .left{
+    float: left;
+    margin-left: 60px;
+}
+footer .right{
+    float: right;
+    margin-right: 60px;
+}
+footer ul{
+    list-style: none;
+}
+footer ul li{
+    display: inline-block;
+    margin-right: 5px;
+}
+footer ul li a{
+  color: #666;
+}
+footer ul li a:hover{
+    color: #666;
+    text-decoration: underline;
 }
 
 

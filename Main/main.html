@@ -88,7 +88,7 @@
 	</div>
 	<div ng-switch-when="registration" ng-controller="registrationCtrl">
 		<div class="underline-bottom montserrat">
-			<h3>Registration</h3>
+			<h3><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;Registration</h3>
 		</div>
 		<br>
 		<!-- ELEMENTOS -->
@@ -229,9 +229,16 @@
 </div>
 
 <!--  ZONA DE CONTACTO -->
-<div class="contact-box col-sm-12 be-sky-blue text-center">
-	<h4>Contact: <a href="mailto:#">englishteachingcongress2@gmail.com</a></h4>
-</div>
+<footer>
+    <div class="left">
+        <p>&COPY; 2016 II English Teaching Congress</p>
+    </div>
+    <div class="right">
+        <ul>
+            <li>Contact: <a href="mailto:#">englishteachingcongress2@gmail.com</a></li>
+        </ul>
+    </div>
+</footer>
 
 <!-- BOTON IR ARRIBA -->
 <span scrollup class="icon fa fa-arrow-up"></span>
@@ -242,18 +249,18 @@
 	        <div class="modal-content">
 	            <div class="modal-header montserrat">
 	                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-	                <h3>Log in</h3>
+	                <h3><span class="glyphicon glyphicon-log-in"></span>&nbsp;&nbsp;Log in</h3>
 	            </div>
 	            <div class="modal-body">
 	                <form role="form">
 	                    <div class="form-group">
-	                        <label>Email</label>
+	                        <label><span class="glyphicon glyphicon-envelope"></span>&nbsp;&nbsp;E-mail address</label>
 	                        <div>
 	                            <input ng-model="email" type="text" class="form-control">
 	                        </div>
 	                    </div> 
 	                    <div class="form-group">
-	                        <label>Password</label>
+	                        <label><span class="glyphicon glyphicon-lock"></span>&nbsp;&nbsp;Password</label>
 	                        <div>
 	                            <input ng-model="pass" ng-keydown="enterLogin($event);" type="password" class="form-control">
 	                        </div>

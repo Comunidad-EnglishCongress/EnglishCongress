@@ -10,7 +10,7 @@
 			        <li ng-click="loadAllSessions()"><a>ALL SESSIONS</a></li>
 			        <li><a>{{user.fullName | uppercase}}</a>
 			            <ul id="second-navigation">
-			                <li ng-click="logOut()"><a>LOG OUT</a></li>
+			                <li ng-click="logOut()"><a><span class="glyphicon glyphicon-off"></span>&nbsp;&nbsp;LOG OUT</a></li>
 			            </ul>
 			        </li>
 			    </ul>
@@ -22,11 +22,12 @@
 	<div ng-show="add" class="alert alert-success text-center">The session has been successfully added to your sessions.</div>
 	<div ng-show="remove" class="alert alert-success text-center">The session has been successfully removed from your sessions.</div>
 	<div ng-show="repeatSession" class="alert alert-info text-center">You are already registered in the session.</div>
+	<div ng-show="crashSession" class="alert alert-danger text-center">You already have a session at the same time as the selected session.</div>
 	<div ng-show="error" class="alert alert-warning text-center">An unexpected error has occurred. Please try again.</div>
 
 	<div ng-switch on="activeNav">
 		<div ng-switch-when="mySessions">
-			<h2>My sessions</h2>
+			<h2><span class="glyphicon glyphicon-tasks"></span>&nbsp;&nbsp;My sessions</h2>
 			<br>
 			<table class="table table-striped">
 	        <thead>
@@ -52,7 +53,7 @@
 	      </table>
 		</div>
 		<div ng-switch-when="allSessions">
-			<h2>All sessions</h2>
+			<h2><span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;All sessions</h2>
 			<br>
 			<table class="table table-striped">
 	        <thead>
