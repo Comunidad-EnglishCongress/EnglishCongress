@@ -41,10 +41,33 @@
 			echo "exists";
 		}
 		else {
-			$query2 = "INSERT INTO personsession(idPerson, idSession) VALUES('$idPerson', $idSession)";
+			$crash = false;
+
+			// VALIDAR CHOQUE
+			$query2= "SELECT * FROM session WHERE id=$idSession";
 			$result2 = $conn->query($query2);
+			$result2 = mysqli_fetch_row($result2);
+
+			$query3 = "SELECT * FROM session s INNER JOIN personsession ps ON s.id=$idSession WHERE ps.idPerson='$idPerson';";
+			$result3 = $conn->query($query3);
+
+	    	while($row = mysqli_fetch_array($result3)) {
+		        if($row[3] === $result2[3] && $row[4] === $result2[4]) {
+	        		$crash = true;
+	        		break;
+	        	}
+		    }
+
+	    	/*if(!$crash) {
+				$query4 = "INSERT INTO personsession(idPerson, idSession) VALUES('$idPerson', $idSession)";
+				$result4 = $conn->query($query4);
 		    
-			echo true;
+				echo true;
+			}
+			else {
+				echo "crash";
+			}*/
+			echo $crash;
 		}
 	}
 
