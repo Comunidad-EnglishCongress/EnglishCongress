@@ -1,55 +1,30 @@
-body
-{
+body {
     font-family: 'Lato', sans-serif;
 	font-size: 16px;
 	text-align: justify;
 }
-.header
-{
-	padding: 10px 5px 10px;
-	background-color: #F0F0F0;
-	border: 1px solid #DCDCDC;
-    margin-bottom: 20px;
-}
-.logo
-{
-	height: 95px;
-	width: 80px;
-}
-.logo:hover
-{
-	opacity: 0.6;
-}
-.montserrat 
-{
+.montserrat {
     font-family: 'Montserrat', sans-serif;
 }
-.green
-{
+.green {
     color: #058542;
 }
-.fa-arrow-up
-{
+/* Flecha ir arriba */
+.fa-arrow-up {
 	position: fixed;
-	right: 30px;
-	bottom: 15px;
+	right: 25px;
+	bottom: 10px;
 	cursor: pointer;
     font-size: 30px;
+    color: #F8F8F8;
 }
-.fa-arrow-up:hover
-{
-	opacity: 0.6;
+.fa-arrow-up:hover {
+	transform: scale(1.2);
 }
-
-.underline-bottom
-{
+.underline-bottom {
 	border-bottom: 1px solid black;
 }
-.subtitle-size
-{
-	font-size: 1.1em;
-}
-li, input[type='checkbox'], select {
+.navbar-nav > li, input[type='checkbox'], select {
     cursor: pointer;
 }
 .btn {
@@ -80,9 +55,29 @@ li, input[type='checkbox'], select {
     border: 2px solid #337ab7;
 }
 
+/* Navigation */
+.navbar {
+    padding: 30px;
+}
+.navbar-brand {
+    padding: 0px;
+}
+.navbar-brand>img {
+    height: 75px;
+    width: 60px;
+    margin-top: -10px;
+}
+.navbar-brand>img:hover {
+    opacity: 0.6;
+}
+.navbar-collapse {
+    overflow-x:hidden; 
+    border-style: hidden;
+}
 
-/*Footer*/
-footer{
+
+/* Footer */
+footer {
     width: 100%;
     clear: both;
     color: #666;
@@ -90,141 +85,27 @@ footer{
     background: #141419;
     line-height: 40px;
     overflow: hidden;
+    margin-top: 20px;
 }
-footer .left{
-    float: left;
-    margin-left: 60px;
-}
-footer .right{
-    float: right;
-    margin-right: 60px;
-}
-footer ul{
+footer ul {
     list-style: none;
 }
-footer ul li{
+footer ul li {
     display: inline-block;
     margin-right: 5px;
 }
-footer ul li a{
+footer ul li a {
   color: #666;
 }
-footer ul li a:hover{
+footer ul li a:hover {
     color: #666;
     text-decoration: underline;
 }
 
-
-
-
-
-
-
-
-.images-top
-{
+/* Logos */
+.images-top {
   margin: 25px 0px 25px;
 }
-.images-bottom
-{
+.images-bottom {
   margin-bottom: 25px;
-}
-
-
-
-/* Main Navigation */
-#nav {
-    position: relative;
-    margin-top: 25px;
-}
-
-ul#navigation {
-    margin:0px auto;
-    position: relative;
-}
-
-ul#navigation li {
-    display: inline;
-    font-size: 13px;
-    font-weight: bold;
-    float: left;
-    position: relative;
-}
-
-ul#navigation li a {
-    padding: 10px 10px 0;
-    text-decoration: none;
-    display: inline-block;  
-    color: #005186; /* Color de letra menu primario */
-}
-
-ul#navigation li a:hover {
-    opacity: 0.6;
-}
-
-ul#second-navigation li a:hover {
-    /*color: #ECF0F1;*/
-    color: #005186;
-}
-
-ul#second-navigation li:hover > a {
-    background: #ECF0F1;
-    color: #005186;
-}
-
-
-
-
-/* Drop-Down Navigation */
-ul#navigation li:hover > ul
-{
-/*these 2 styles are very important, 
-being the ones which make the drop-down to appear on hover */
-    visibility: visible;
-    opacity: 1;
-}
-
-ul#navigation ul, ul#navigation ul li ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;    
-/*the next 2 styles are very important, 
-being the ones which make the drop-down to stay hidden */
-    visibility:hidden;
-    opacity:0;
-
-    position: absolute;
-    z-index: 99999;
-    width:200px;
-    /*background:#f8f8f8;*/
-    background-color: #C0C0C0;
-    /*box-shadow:1px 1px 3px #ccc;*/
-/* css3 transitions for smooth hover effect */
-    -webkit-transition:opacity 0.2s linear, visibility 0.2s linear; 
-    -moz-transition:opacity 0.2s linear, visibility 0.2s linear; 
-    -o-transition:opacity 0.2s linear, visibility 0.2s linear; 
-    transition:opacity 0.2s linear, visibility 0.2s linear;     
-}
-
-ul#navigation ul li ul {
-    left: 200px; /* strong related to width:200px; from above */
-}
-
-ul#navigation ul li {
-    clear: both;
-    width: 200px;
-    border: 0 none;
-}
-
-ul#navigation ul li a {
-    padding: 5px 10px;
-    /*color: #ECF0F1;*/
-    color: #005186; /* Color de letra menu secundario */
-    text-decoration: none;
-    display: inline-block;
-    border: 0 none;
-    float: left;
-    clear: both;
-    width: 200px;
-    font-size: 12px;
 }

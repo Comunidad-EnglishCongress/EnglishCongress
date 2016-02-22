@@ -1,52 +1,55 @@
-<header>
-	<div class="col-sm-12 header col-xs-12">
-		<div class="container">
-			<!-- LOGO -->
-			<div class="col-sm-2 col-xs-2">
-				<a ng-click="activeNav=''" href="#/">
-					<img class="logo" src="./images/logo.png">
-				</a>
-			</div>
-			<!-- MENU DE NAVEGACION -->
-			<div class="col-sm-10 col-xs-10">
-				<nav id="nav" class="lato">
-				    <ul id="navigation">
-				        <li ng-click="activeNav=''"><a href="#/" class="first">HOMEPAGE</a></li>
-				        <li><a>ABOUT US</a>
-				            <ul id="second-navigation">
-				                <li ng-click="activeNav='presentation'"><a>PRESENTATION</a></li>
-				                <li ng-click="activeNav='misionVision'"><a>MISION & VISION</a></li>
-				                <li ng-click="activeNav='objectives'"><a>OBJECTIVES OF THE CONGRESS</a>
-				                <li ng-click="activeNav='population'"><a>TARGET POPULATION</a>
-				                <li ng-click="activeNav='importance'"><a>IMPORTANCE</a>
-				            </ul>
-				        </li>
-				        <li ng-click="activeNav='thematic'"><a>THEMATIC STRANDS</a></li>
-				        <li><a>COMMITTEES</a>
-				        	<ul id="second-navigation">
-				                <li ng-click="activeNav='organizingC'"><a>ORGANIZING COMMITTEE</a></li>
-				                <li ng-click="activeNav='academicC'"><a>ACADEMIC COMMITTEE</a></li>
-				                <li ng-click="activeNav='scientificC'"><a>SCIENTIFIC COMMITTEE</a>
-				                <li ng-click="activeNav='logisticsC'"><a>LOGISTICS COMMITTEE</a>
-				                <li ng-click="activeNav='communicationC'"><a>COMMUNICATION COMMITTEE</a>
-				            </ul>
-				        </li>
-				        <li ng-click="activeNav='registration'"><a>REGISTRATION</a>
-				        <li><a>SPONSORS</a>
-				            <ul id="second-navigation">
-				                <li ng-click="activeNav='sponsors'"><a>SPONSORS</a></li>
-				                <li ng-click="activeNav='exhibitors'"><a>EXHIBITORS</a></li>
-				                <li ng-click="activeNav='colaborators'"><a>COLABORATORS</a></li>
-				            </ul>             
-				        </li>
-				        <li ng-click="activeNav='speakers'"><a>SPEAKERS</a></li>
-				        <li data-toggle="modal" data-target="#logIn"><a>LOG IN</a></li>
-				    </ul>
-				</nav>
-			</div>
-		</div>
+<nav class="navbar navbar-default">
+	<div class="container">
+  		<div class="navbar-header">
+    		<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navBar">
+      			<span class="sr-only">Toggle navigation</span>
+          		<span class="icon-bar"></span>
+          		<span class="icon-bar"></span>
+          		<span class="icon-bar"></span>
+    		</button>
+    		<a class="navbar-brand" ng-click="activeNav=''" href="#/">
+				<img src="./images/logo.png">
+			</a>
+  		</div>
+  		<div class="navbar-collapse collapse navBar">
+    		<ul class="nav navbar-nav navbar-right">
+      			<li ng-click="activeNav=''"><a href="#/" class="active">HOMEPAGE</a></li>
+		      	<li class="dropdown">
+		        	<a href="" class="dropdown-toggle" data-toggle="dropdown">ABOUT US <b class="caret"></b></a>
+		        	<ul class="dropdown-menu">
+		          		<li ng-click="activeNav='presentation'"><a>PRESENTATION</a></li>
+		                <li ng-click="activeNav='misionVision'"><a>MISION & VISION</a></li>
+		                <li ng-click="activeNav='objectives'"><a>OBJECTIVES OF THE CONGRESS</a>
+		                <li ng-click="activeNav='population'"><a>TARGET POPULATION</a>
+		                <li ng-click="activeNav='importance'"><a>IMPORTANCE</a>
+		        	</ul>
+		      	</li>
+		      	<li ng-click="activeNav='thematic'"><a>THEMATIC STRANDS</a></li>
+		      	<li class="dropdown">
+		        	<a href="" class="dropdown-toggle" data-toggle="dropdown">COMMITTEES <b class="caret"></b></a>
+		        	<ul class="dropdown-menu">
+		          		<li ng-click="activeNav='organizingC'"><a>ORGANIZING COMMITTEE</a></li>
+		                <li ng-click="activeNav='academicC'"><a>ACADEMIC COMMITTEE</a></li>
+		                <li ng-click="activeNav='scientificC'"><a>SCIENTIFIC COMMITTEE</a>
+		                <li ng-click="activeNav='logisticsC'"><a>LOGISTICS COMMITTEE</a>
+		                <li ng-click="activeNav='communicationC'"><a>COMMUNICATION COMMITTEE</a>
+		        	</ul>
+		      	</li>
+		      	<li ng-click="activeNav='registration'"><a>REGISTRATION</a>
+		      	<li ng-click="activeNav='speakers'"><a>SPEAKERS</a></li>
+		      	<li class="dropdown">
+		        	<a href="" class="dropdown-toggle" data-toggle="dropdown">SPONSORS <b class="caret"></b></a>
+		        	<ul class="dropdown-menu">
+		          		<li ng-click="activeNav='sponsors'"><a>SPONSORS</a></li>
+		                <li ng-click="activeNav='exhibitors'"><a>EXHIBITORS</a></li>
+		                <li ng-click="activeNav='colaborators'"><a>COLABORATORS</a></li>
+		        	</ul>
+		      	</li>
+        		<li data-toggle="modal" data-target="#logIn"><a>LOG IN</a></li>
+    		</ul>
+ 		</div>
 	</div>
-</header>
+</nav>
 
 <!-- ZONA DE INFORMACION -->
 <div class="container" ng-switch="activeNav">
@@ -229,11 +232,11 @@
 </div>
 
 <!--  ZONA DE CONTACTO -->
-<footer>
-    <div class="left">
+<footer class="text-center">
+    <div class="col-md-6 col-xs-12">
         <p>&COPY; 2016 II English Teaching Congress</p>
     </div>
-    <div class="right">
+    <div class="col-md-6 col-xs-12">
         <ul>
             <li>Contact: <a href="mailto:#">englishteachingcongress2@gmail.com</a></li>
         </ul>
