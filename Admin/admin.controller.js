@@ -19,17 +19,29 @@
 
 		function loadSessions() {
 			$scope.activeNav = 'sessions';
-
-			$http.get('./Admin/admin.model.php?action=sessions')
-			.success(function(response) {
-                $scope.sessions = response;
-            });
+			var indata = {
+				action: "sessions"
+			};
+			$http({
+				url: "./Admin/admin.model.php",
+				method: "POST",
+				params: indata
+			})			
+				.success(function(response) {
+					$scope.sessions = response;
+				});
 		}
 
 		function loadPersons() {
 			$scope.activeNav = 'persons';
-
-			$http.get('./Admin/admin.model.php?action=persons')
+			var indata = {
+				action: "persons"				
+			};
+			$http({
+				url: "./Admin/admin.model.php",
+				method: "POST",
+				params: indata
+			})			
 			.success(function(response) {
                 $scope.persons = response;
             });	
