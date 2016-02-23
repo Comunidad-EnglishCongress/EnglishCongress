@@ -1,24 +1,30 @@
-<div class="col-sm-12 header col-xs-12">
+<nav class="navbar navbar-default">
     <div class="container">
-        <div class="col-sm-2 col-xs-2">
-            <img class="logo" src="./images/logo.png">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navBar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" ng-click="activeNav=''" href="#/">
+                <img src="./images/logo.png">
+            </a>
         </div>
-        <div class="col-sm-10 col-xs-10">
-            <nav id="nav" class="lato">
-                <ul id="navigation">
-                    <li ng-click="loadPersons()"><a class="first">ALL PERSONS</a></li>
-                    <li ng-click="loadSessions()"><a>ALL SESSIONS</a></li>
-                    <li class="dropdown">
-                        <a href="" class="dropdown-toggle" data-toggle="dropdown">{{admin.fullName | uppercase}} <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li ng-click="logOut()"><a><span class="glyphicon glyphicon-off"></span>&nbsp;&nbsp;LOG OUT</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </nav>
+        <div class="navbar-collapse collapse navBar">
+            <ul class="nav navbar-nav navbar-right">
+                <li ng-click="loadPersons()"><a class="first">ALL PERSONS</a></li>
+                <li ng-click="loadSessions()"><a>ALL SESSIONS</a></li>
+                <li class="dropdown">
+                    <a href="" class="dropdown-toggle" data-toggle="dropdown">{{admin.fullName | uppercase}} <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li ng-click="logOut()"><a><span class="glyphicon glyphicon-off"></span>&nbsp;&nbsp;LOG OUT</a></li>
+                    </ul>
+                </li>
+            </ul>
         </div>
     </div>
-</div>
+</nav>
 <div class="container" ng-switch on="activeNav">
 	<div ng-switch-when="sessions">
 		<h2><span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;All sessions</h2>
