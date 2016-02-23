@@ -34,22 +34,25 @@
 
             $scope.errorLogin = false;
             $scope.error = false;
-
             var indata = {
                 email: $scope.email,
                 pass: calcMD5($scope.pass)
             }
+
             $http({
                 url: "./Login/login.model.php",
                 method: "POST",
                 params: indata
-            }).success(function(response) {
+            })
+            .success(function(response) {
                 if (response.length > 0) {
                     document.getElementById('closeLogIn').click();
                     Auth.logIn(response[0]);
-                } else if (!response) {
+                } 
+                else if (!response) {
                     $scope.error = true;
-                } else {
+                } 
+                else {
                     $scope.errorLogin = true;
                 }
             });

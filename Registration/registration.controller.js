@@ -215,95 +215,71 @@
                 .success(function(response) {});
         }
 
-        function login() {
-
-            $scope.errorLogin = false;
-            $scope.error = false;
-
-            var Indata = {
-                email: $scope.email,
-                pass: calcMD5($scope.pass)
-            }
-            $http({
-                url: "./Login/login.model.php",
-                method: "POST",
-                params: Indata
-            }).success(function(response) {
-                if (response.length > 0) {
-                    document.getElementById('closeLogIn').click();
-                    Auth.logIn(response[0]);
-                } else if (!response) {
-                    $scope.error = true;
-                } else {
-                    $scope.errorLogin = true;
-                }
-            });
-
-        }
-
         function registration() {
             $scope.registrationOk = false;
             $scope.registrationError = false;
             $scope.groupError = false;
-
             var indata = {
                 action: "validateGroup",
                 group: $scope.group
             };
+
             $http({
                     url: "./Registration/registration.model.php",
                     method: "POST",
                     params: indata
                 })
-                .success(function(response) {
-                    if (parseInt(response[0]) > 0) {
-                        indata = {
-                            id: $scope.id,
-                            pass: calcMD5($scope.pass),
-                            fullName: $scope.name,
-                            regionGroup: $scope.group,
-                            email: $scope.email,
-                            phone: $scope.phone,
-                            nationality: $scope.nationality,
-                            depositNumber: $scope.depositNumber,
-                            direccion: concatDireccion(),
-                            informed: concatInformed(),
-                            academic: concatAcademic(),
-                            population: concatPopulation(),
-                            type: "U",
-                            action: "insert"
-                        };
-                        $http({
-                            url: "./Registration/registration.model.php",
-                            method: "POST",
-                            params: indata
-                        }).success(function(response) {
-                            if (response) {
-                                decrementCapacity();
-                                $scope.registrationOk = true;
-                                declare();
+            .success(function(response) {
+                if (parseInt(response[0]) > 0) {
+                    indata = {
+                        id: $scope.id,
+                        pass: calcMD5($scope.pass),
+                        fullName: $scope.name,
+                        regionGroup: $scope.group,
+                        email: $scope.email,
+                        phone: $scope.phone,
+                        nationality: $scope.nationality,
+                        depositNumber: $scope.depositNumber,
+                        direccion: concatDireccion(),
+                        informed: concatInformed(),
+                        academic: concatAcademic(),
+                        population: concatPopulation(),
+                        type: "U",
+                        action: "insert"
+                    };
 
-                                $timeout(function() {
-                                    $scope.registrationOk = false;
-                                }, 5000);
-                            } else {
-                                $scope.registrationError = true;
+                    $http({
+                        url: "./Registration/registration.model.php",
+                        method: "POST",
+                        params: indata
+                    })
+                    .success(function(response) {
+                        if (response) {
+                            decrementCapacity();
+                            $scope.registrationOk = true;
+                            declare();
 
-                                $timeout(function() {
-                                    $scope.registrationError = false;
-                                }, 5000);
-                            }
-                        });
-                    } else {
-                        $scope.groupError = true;
+                            $timeout(function() {
+                                $scope.registrationOk = false;
+                            }, 5000);
+                        } 
+                        else {
+                            $scope.registrationError = true;
 
-                        $timeout(function() {
-                            $scope.groupError = false;
-                        }, 5000);
-                    }
-                });
+                            $timeout(function() {
+                                $scope.registrationError = false;
+                            }, 5000);
+                        }
+                    });
+                } 
+                else {
+                    $scope.groupError = true;
 
-
+                    $timeout(function() {
+                        $scope.groupError = false;
+                    }, 5000);
+                }
+            }); 
         }
 
         function validateId() {

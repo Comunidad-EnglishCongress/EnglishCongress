@@ -26,27 +26,35 @@
 
         function loadMySessions() {
             $scope.activeNav = 'mySessions';
-
             var indata = {
                 idPerson: $scope.user.id,
                 action: "mySessions"
             };
+
             $http({
                 url: "./User/user.model.php",
                 method: "POST",
                 params: indata
             })
-                .success(function(response) {
-                    $scope.sessions = response;
-                });
+            .success(function(response) {
+                $scope.sessions = response;
+            });
         }
 
         function loadAllSessions() {
-            $scope.activeNav = 'allSessions';			
-            $http.get('./User/user.model.php?action=allSessions')
-                .success(function(response) {
-                    $scope.sessions = response;
-                });
+            $scope.activeNav = 'allSessions';
+            var indata = {
+                action: "allSessions"
+            };	
+
+            $http({
+                url: "./User/user.model.php",
+                method: "POST",
+                params: indata
+            })
+            .success(function(response) {
+                $scope.sessions = response;
+            });
         }
 
         function removeFromMySessions(id, idSession) {
@@ -55,38 +63,41 @@
 				idSession: idSession,
 				action: "remove"
 			};
+
 			$http({
 				url: "./User/user.model.php",
 				method: "POST",
 				params: indata
 			})            
-                .success(function(response) {
-                    if (response) {
-                        loadMySessions();
-						indata = {
-							id: idSession,
-							action: "increment"
-						};
-						$http({
-							url: "./User/user.model.php",
-							method: "POST",
-							params: indata
-						})							                        
-                            .success(function(response) {
-                                $scope.remove = true;
+            .success(function(response) {
+                if (response) {
+                    loadMySessions();
+					
+                    indata = {
+						id: idSession,
+						action: "increment"
+					};
 
-                                $timeout(function() {
-                                    $scope.remove = false;
-                                }, 5000);
-                            });
-                    } else {
-                        $scope.error = true;
+					$http({
+						url: "./User/user.model.php",
+						method: "POST",
+						params: indata
+					})							                        
+                    .success(function(response) {
+                        $scope.remove = true;
 
                         $timeout(function() {
-                            $scope.error = false;
+                            $scope.remove = false;
                         }, 5000);
-                    }
-                });
+                    });
+                } else {
+                    $scope.error = true;
+
+                    $timeout(function() {
+                        $scope.error = false;
+                    }, 5000);
+                }
+            });
         }
 
         function addToMySessions(idSession) {
@@ -95,50 +106,55 @@
 				idSession: idSession,
 				action: "add"
 			};
+
 			$http({
 				url: "./User/user.model.php",
 				method: "POST",
 				params: indata
 			})            
-                .success(function(response) {
-                    if (response === 'exists') {
-                        $scope.repeatSession = true;
+            .success(function(response) {
+                if (response === 'exists') {
+                    $scope.repeatSession = true;
+
+                    $timeout(function() {
+                        $scope.repeatSession = false;
+                    }, 5000);
+                } 
+                else if (response === 'crash') {
+                    $scope.crashSession = true;
+
+                    $timeout(function() {
+                        $scope.crashSession = false;
+                    }, 5000);
+                } 
+                else if (response) {
+					indata = {
+						id: idSession,
+						action: "decrement"
+					}
+
+					$http({
+						url: "./User/user.model.php",
+						method: "POST",
+						params: indata
+					})                        
+                    .success(function(response) {
+                        loadAllSessions();
+                        $scope.add = true;
 
                         $timeout(function() {
-                            $scope.repeatSession = false;
+                            $scope.add = false;
                         }, 5000);
-                    } else if (response === 'crash') {
-                        $scope.crashSession = true;
+                    });
+                } 
+                else {
+                    $scope.error = true;
 
-                        $timeout(function() {
-                            $scope.crashSession = false;
-                        }, 5000);
-                    } else if (response) {
-						indata = {
-							id: idSession,
-							action: "decrement"
-						}
-						$http({
-							url: "./User/user.model.php",
-							method: "POST",
-							params: indata
-						})                        
-                            .success(function(response) {
-                                loadAllSessions();
-                                $scope.add = true;
-
-                                $timeout(function() {
-                                    $scope.add = false;
-                                }, 5000);
-                            });
-                    } else {
-                        $scope.error = true;
-
-                        $timeout(function() {
-                            $scope.error = false;
-                        }, 5000);
-                    }
-                });
+                    $timeout(function() {
+                        $scope.error = false;
+                    }, 5000);
+                }
+            });
         }
     }
 })();
