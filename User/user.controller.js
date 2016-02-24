@@ -37,7 +37,12 @@
                 params: indata
             })
             .success(function(response) {
-                $scope.sessions = response;
+                if(typeof(response) == 'object') {
+                    $scope.sessions = response;
+                }
+                else {
+                    errorConnection();
+                }
             });
         }
 
@@ -53,12 +58,16 @@
                 params: indata
             })
             .success(function(response) {
-                $scope.sessions = response;
+                if(typeof(response) == 'object') {
+                    $scope.sessions = response;
+                }
+                else {
+                    errorConnection();
+                }
             });
         }
 
         function removeFromMySessions(ev, id, idSession) {
-            // Appending dialog to document.body to cover sidenav in docs app
             var confirm = $mdDialog.confirm()
             .title('Would you like to delete this session?')
             .textContent('If you delete this session, maybe you can\'t add again to your sessions.')
@@ -80,7 +89,7 @@
                     params: indata
                 })            
                 .success(function(response) {
-                    if (response) {
+                    if (response == true) {
                         loadMySessions();
                         
                         indata = {
@@ -100,12 +109,9 @@
                                 $scope.remove = false;
                             }, 5000);
                         });
-                    } else {
-                        $scope.error = true;
-
-                        $timeout(function() {
-                            $scope.error = false;
-                        }, 5000);
+                    } 
+                    else {
+                        errorConnection();
                     }
                 });
             }, function() {
@@ -140,7 +146,7 @@
                         $scope.crashSession = false;
                     }, 5000);
                 } 
-                else if (response) {
+                else if (response == true) {
 					indata = {
 						id: idSession,
 						action: "decrement"
@@ -161,13 +167,17 @@
                     });
                 } 
                 else {
-                    $scope.error = true;
-
-                    $timeout(function() {
-                        $scope.error = false;
-                    }, 5000);
+                    errorConnection();
                 }
             });
+        }
+
+        function errorConnection() {
+            $scope.error = true;
+
+            $timeout(function() {
+                $scope.error = false;
+            }, 5000);
         }
 
         loadMySessions();

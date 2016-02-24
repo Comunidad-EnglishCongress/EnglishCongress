@@ -5,9 +5,10 @@
 		.module('myApp')
 		.controller('adminCtrl', adminCtrl); 
 
-	function adminCtrl($scope, $http, $location, $cookies, Auth) {
+	function adminCtrl($scope, $http, $timeout, $location, $cookies, Auth) {
 		$scope.admin = $cookies.getObject('session');
 		$scope.activeNav = '';
+		$scope.error = false;
 
 		$scope.logOut = logOut;
 		$scope.loadSessions = loadSessions;
@@ -29,7 +30,12 @@
 				params: indata
 			})			
 			.success(function(response) {
-				$scope.sessions = response;
+				if(typeof(response) == 'object') {
+					$scope.sessions = response;
+				}
+				else {
+					errorConnection();
+				}
 			});
 		}
 
@@ -45,9 +51,22 @@
 				params: indata
 			})			
 			.success(function(response) {
-                $scope.persons = response;
+				if(typeof(response) == 'object') {
+                	$scope.persons = response;
+				}
+				else {
+					errorConnection();
+				}
             });	
 		}
+
+		function errorConnection() {
+            $scope.error = true;
+
+            $timeout(function() {
+                $scope.error = false;
+            }, 5000);
+        }
 
 		loadPersons();
 	}

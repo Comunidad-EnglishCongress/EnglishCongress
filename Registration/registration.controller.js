@@ -102,12 +102,13 @@
         $scope.registration = registration;
         $scope.validateId = validateId;
         $scope.validateEmail = validateEmail;
+        $scope.validateGroup = validateGroup;
 
         function declare() {
             $scope.id = '';
             $scope.pass = '';
             $scope.name = '';
-            $scope.group = 'Dirección Regional de Educación, San Carlos';
+            $scope.group = '';
             $scope.email = 'fauri.1994@gmail.com';
             $scope.phone = '';
             $scope.nationality = '';
@@ -220,14 +221,111 @@
         }
 
         function decrementCapacity() {
-            $http.get('./Registration/registration.model.php?action=decrement&group=' + $scope.group)
-                .success(function(response) {});
+            var indata = {
+                action: "decrement",
+                group: $scope.group
+            };
+
+            $http({
+                    url: "./Registration/registration.model.php",
+                    method: "POST",
+                    params: indata
+                })
+            .success(function(response) {});
         }
 
         function registration() {
             $scope.registrationOk = false;
             $scope.registrationError = false;
             $scope.groupError = false;
+            var indata = {
+                id: $scope.id,
+                pass: calcMD5($scope.pass),
+                fullName: $scope.name,
+                regionGroup: $scope.group,
+                email: $scope.email,
+                phone: $scope.phone,
+                nationality: $scope.nationality,
+                depositNumber: $scope.depositNumber,
+                direccion: concatDireccion(),
+                informed: concatInformed(),
+                academic: concatAcademic(),
+                population: concatPopulation(),
+                type: "U",
+                action: "insert"
+            };
+
+            $http({
+                url: "./Registration/registration.model.php",
+                method: "POST",
+                params: indata
+            })
+            .success(function(response) {
+                if (response == true) {
+                    decrementCapacity();
+                    $scope.registrationOk = true;
+                    declare();
+
+                    $timeout(function() {
+                        $scope.registrationOk = false;
+                    }, 5000);
+                }
+                else if(typeof(response) == 'string') {
+                    $scope.registrationError = true;
+                }
+            });
+        }
+
+        function validateId() {
+            $scope.errorId = false;
+            var indata = {
+                action: "validateId",
+                id: $scope.id
+            };
+
+            $http({
+                    url: "./Registration/registration.model.php",
+                    method: "POST",
+                    params: indata
+                })
+            .success(function(response) {
+                if(typeof(response) == 'string') {
+                    $scope.errorId = true;
+                    $scope.messageId = 'An unexpected error occurred while identification is validated. Please try again.';
+                }
+                else if (response[0]) {
+                    $scope.errorId = true;
+                    $scope.messageId = 'The identification is already registered.';
+                }
+            });
+        }
+
+        function validateEmail() {
+            $scope.errorEmail = false;
+            var indata = {
+                action: "validateEmail",
+                email: $scope.email
+            };
+
+            $http({
+                    url: "./Registration/registration.model.php",
+                    method: "POST",
+                    params: indata
+                })
+            .success(function(response) {
+                if(typeof(response) == 'string') {
+                    $scope.errorEmail = true;
+                    $scope.messageEmail = 'An unexpected error occurred while e-mail address is validated. Please try again.';
+                }
+                else if (response[0]) {
+                    $scope.errorEmail = true;
+                    $scope.messageEmail = 'E-mail address is already registered.';
+                }
+            });
+        }
+
+        function validateGroup() {
+            $scope.errorGroup = false;
             var indata = {
                 action: "validateGroup",
                 group: $scope.group
@@ -239,78 +337,15 @@
                     params: indata
                 })
             .success(function(response) {
-                if (parseInt(response[0]) > 0) {
-                    indata = {
-                        id: $scope.id,
-                        pass: calcMD5($scope.pass),
-                        fullName: $scope.name,
-                        regionGroup: $scope.group,
-                        email: $scope.email,
-                        phone: $scope.phone,
-                        nationality: $scope.nationality,
-                        depositNumber: $scope.depositNumber,
-                        direccion: concatDireccion(),
-                        informed: concatInformed(),
-                        academic: concatAcademic(),
-                        population: concatPopulation(),
-                        type: "U",
-                        action: "insert"
-                    };
-
-                    $http({
-                        url: "./Registration/registration.model.php",
-                        method: "POST",
-                        params: indata
-                    })
-                    .success(function(response) {
-                        if (response) {
-                            decrementCapacity();
-                            $scope.registrationOk = true;
-                            declare();
-
-                            $timeout(function() {
-                                $scope.registrationOk = false;
-                            }, 5000);
-                        } 
-                        else {
-                            $scope.registrationError = true;
-
-                            $timeout(function() {
-                                $scope.registrationError = false;
-                            }, 5000);
-                        }
-                    });
-                } 
-                else {
-                    $scope.groupError = true;
-
-                    $timeout(function() {
-                        $scope.groupError = false;
-                    }, 5000);
+                if (typeof(response) == 'string') {
+                    $scope.errorGroup = true;
+                    $scope.messageGroup = 'An unexpected error occurred while group is validated. Please try again.';
                 }
-            }); 
-        }
-
-        function validateId() {
-            $scope.errorId = false;
-
-            $http.get('./Registration/registration.model.php?action=validateId&id=' + $scope.id)
-                .success(function(response) {
-                    if (response[0]) {
-                        $scope.errorId = true;
-                    }
-                });
-        }
-
-        function validateEmail() {
-            $scope.errorEmail = false;
-
-            $http.get('./Registration/registration.model.php?action=validateEmail&email=' + $scope.email)
-                .success(function(response) {
-                    if (response[0]) {
-                        $scope.errorEmail = true;
-                    }
-                });
+                else if (parseInt(response[0]) <= 0) {
+                    $scope.errorGroup = true;
+                    $scope.messageGroup = 'The selected group does not have capacity.';
+                }
+            });
         }
     }
 })();

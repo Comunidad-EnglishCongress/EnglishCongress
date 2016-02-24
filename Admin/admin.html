@@ -26,6 +26,8 @@
     </div>
 </nav>
 <div class="container" ng-switch on="activeNav">
+    <div ng-show="error" class="alert alert-danger text-center">An unexpected error has occurred. Please try again.</div>
+
 	<div ng-switch-when="sessions">
 		<h2><span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;All sessions</h2>
 		<br>
@@ -53,7 +55,7 @@
       </table>
 	</div>
 	<div ng-switch-when="persons">
-		<h2>All persons</h2>
+		<h2><span class="fa fa-users"></span>&nbsp;&nbsp;All persons</h2>
 		<br>
 		<table class="table table-striped">
         <thead>

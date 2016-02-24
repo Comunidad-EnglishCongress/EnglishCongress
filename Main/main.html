@@ -100,7 +100,7 @@
 			    <p>
 			        <label>Identification</label>
 			        <input ng-model="id" class="form-control" type="text" ng-blur="validateId();">
-			        <div class="alert alert-danger" ng-show="errorId">The identification is already registered.</div>
+			        <div class="alert alert-danger" ng-show="errorId">{{messageId}}</div>
 			    </p>
 			</div>
 			<div class="col-md-6">
@@ -120,7 +120,7 @@
 			<div class="col-md-6">
 			    <p>
 			        <label>Group</label><br>
-			        <select ng-model="group" class="form-control">
+			        <select ng-model="group" class="form-control" ng-change="validateGroup();">
 						<option value="Dirección Regional de Educación, San Carlos">Dirección Regional de Educación, San Carlos</option>
 						<option value="Dirección Regional de Educación, Norte-Norte">Dirección Regional de Educación, Norte-Norte</option>
 						<option value="Dirección Regional de Educación, Sarapiquí">Dirección Regional de Educación, Sarapiquí</option>
@@ -128,6 +128,7 @@
 						<option value="Consejo Académico Regional">Consejo Académico Regional</option>
 						<option value="General Public">General Public</option>
 					</select>
+					<div class="alert alert-danger" ng-show="errorGroup">{{messageGroup}}</div>
 			    </p>
 			</div>
 		</div>
@@ -136,7 +137,7 @@
 			    <p>
 			        <label>E-mail address</label>
 			        <input ng-model="email" class="form-control" type="text" ng-blur="validateEmail();">
-			        <div class="alert alert-danger" ng-show="errorEmail">E-mail address is already registered.</div>
+			        <div class="alert alert-danger" ng-show="errorEmail">{{messageEmail}}</div>
 			    </p>
 			</div>
 			<div class="col-md-6">
@@ -208,13 +209,12 @@
 		</div>
 		<div class="col-md-12 col-xs-12">
 			<br>
-		    <center><button ng-disabled="emptyData || errorId || errorEmail" ng-click="registration()" class="btn btn-primary"><span class="glyphicon glyphicon-ok"></span>&nbsp;&nbsp;Sign up</button></center>
+		    <center><button ng-disabled="emptyData || errorId || errorEmail || errorGroup" ng-click="registration()" class="btn btn-primary"><span class="glyphicon glyphicon-ok"></span>&nbsp;&nbsp;Sign up</button></center>
 		</div>
 		<div class="col-md-12 col-xs-12">
 			<br>
 			<div ng-show="registrationOk" class="alert alert-success text-center">Registration was successful.</div>
-			<div ng-show="registrationError" class="alert alert-danger text-center">An error has occurred in the register. Try again.</div>
-			<div ng-show="groupError" class="alert alert-danger text-center">The selected group does not have capacity.</div>
+			<div ng-show="registrationError" class="alert alert-danger text-center">An error has occurred in the register. Please try again.</div>
 		</div>
 	</div>
 	<div ng-switch-when="sponsors">
