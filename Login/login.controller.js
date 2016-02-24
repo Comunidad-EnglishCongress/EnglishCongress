@@ -45,23 +45,24 @@
                 params: indata
             })
             .success(function(response) {
-                if (response.length > 0) {
+                if(!response) {
+                    $scope.errorLogin = true;
+                }
+                else if (typeof(response) == 'object') {
                     document.getElementById('closeLogIn').click();
                     Auth.logIn(response[0]);
-                } 
-                else if (!response) {
+                }
+                else if (typeof(response) == 'string') {
                     $scope.error = true;
-                } 
-                else {
-                    $scope.errorLogin = true;
                 }
             });
 
         }
 
         function enterLogin(e) {
-            if (e.keyCode === 13)
+            if (e.keyCode === 13) {
                 login();
+            }
         }
     }
 })();

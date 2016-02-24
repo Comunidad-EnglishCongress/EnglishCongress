@@ -25,7 +25,10 @@
 	    		);
 	    }
 	    
-		echo json_encode($JSON);
+	    if($JSON == [])
+	    	echo false;
+	    else
+			echo json_encode($JSON);
 	}
 
 	$connection = new Connection();

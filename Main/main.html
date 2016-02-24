@@ -271,8 +271,8 @@
 	                </form>
 	            </div>
 	            <div class="modal-footer">
-	            	<div ng-show="errorLogin" class="alert alert-warning text-center">The email or password is incorrect.</div>
-	            	<div ng-show="error" class="alert alert-warning text-center">An unexpected error has occurred. Please try again.</div>
+	            	<div ng-show="errorLogin" class="alert alert-danger text-center">The email or password is incorrect.</div>
+	            	<div ng-show="error" class="alert alert-danger text-center">An unexpected error has occurred. Please try again.</div>
 	            	<button id="closeLogIn" type="button" class="btn btn-danger" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;Cancel</button>
 	            	&nbsp;&nbsp;
 	                <button type="button" class="btn btn-primary" ng-disabled="emptyData" data-ng-click="login(); $event.stopPropagation()"><span class="glyphicon glyphicon-log-in"></span>&nbsp;&nbsp;Log in</button>

@@ -48,5 +48,7 @@
                 $scope.persons = response;
             });	
 		}
+
+		loadPersons();
 	}
 })();
