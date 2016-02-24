@@ -146,7 +146,16 @@
         declare();
 
         function validate() {
-            if (!$scope.id.length || !$scope.pass.length || !$scope.name.length || !$scope.email.length || !/^([\da-z_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/.test($scope.email) || !/^([0-9])*$/.test($scope.phone) || !$scope.phone.length || !$scope.nationality.length || !$scope.depositNumber.length || !($scope.direccion.norte.length || $scope.direccion.sanCarlos.length || $scope.direccion.sarapiqui.length || $scope.direccion.occidente.length || $scope.direccion.other.length) || !($scope.informed.email.length || $scope.informed.facebook.length || $scope.informed.webSite.length || $scope.informed.colleague.length || $scope.informed.other.length) || !($scope.academic.student.length || $scope.academic.associate.length || $scope.academic.bachelor.length || $scope.academic.licentiate.length || $scope.academic.master.length || $scope.academic.doctorate.length || $scope.academic.other.length) || !($scope.population.elementary.length || $scope.population.highSchool.length || $scope.population.higherEducation.length || $scope.population.other.length)) {
+            if (!$scope.id.length || !$scope.pass.length || !$scope.name.length || !$scope.email.length || 
+                !/^([\da-z_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/.test($scope.email) || !/^([0-9])*$/.test($scope.phone) || 
+                !$scope.phone.length || !$scope.nationality.length || !$scope.depositNumber.length || 
+                !($scope.direccion.norte.length || $scope.direccion.sanCarlos.length || $scope.direccion.sarapiqui.length || 
+                    $scope.direccion.occidente.length || $scope.direccion.other.length) || !($scope.informed.email.length || 
+                    $scope.informed.facebook.length || $scope.informed.webSite.length || $scope.informed.colleague.length || 
+                    $scope.informed.other.length) || !($scope.academic.student.length || $scope.academic.associate.length || 
+                    $scope.academic.bachelor.length || $scope.academic.licentiate.length || $scope.academic.master.length || 
+                    $scope.academic.doctorate.length || $scope.academic.other.length) || !($scope.population.elementary.length || 
+                    $scope.population.highSchool.length || $scope.population.higherEducation.length || $scope.population.other.length)) {
                 $scope.emptyData = true;
             } else { // Habilita
                 $scope.emptyData = false;

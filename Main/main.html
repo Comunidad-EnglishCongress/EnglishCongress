@@ -164,20 +164,20 @@
 			<div class="col-md-6">
 			    <p>
 			        <label>Dirección Regional de Educación</label>
-			        <br><input ng-model="direccion.norte" type="checkbox" id="direccion-regional" ng-true-value="'Norte-Norte'" ng-false-value="''"> Norte-Norte
-			        <br><input ng-model="direccion.sanCarlos" type="checkbox" id="direccion-regional" ng-true-value="'San Carlos'" ng-false-value="''"> San Carlos
-			        <br><input ng-model="direccion.sarapiqui" type="checkbox" id="direccion-regional" ng-true-value="'Sarapiquí'" ng-false-value="''"> Sarapiquí
-			        <br><input ng-model="direccion.occidente" type="checkbox" id="direccion-regional" ng-true-value="'Occidente'" ng-false-value="''"> Occidente
+          			<br><md-checkbox ng-model="direccion.norte" class="md-primary" ng-true-value="'Norte-Norte'" ng-false-value="''">Norte-Norte</md-checkbox>
+          			<br><md-checkbox ng-model="direccion.sanCarlos" class="md-primary" ng-true-value="'San Carlos'" ng-false-value="''">San Carlos</md-checkbox>
+          			<br><md-checkbox ng-model="direccion.sarapiqui" class="md-primary" ng-true-value="'Sarapiquí'" ng-false-value="''">Sarapiquí</md-checkbox>
+          			<br><md-checkbox ng-model="direccion.occidente" class="md-primary" ng-true-value="'Occidente'" ng-false-value="''">Occidente</md-checkbox>
 			        <br><input ng-model="direccion.other" class="form-control" type="text" placeholder="If your choice is not listed, enter here">
 			    </p>
 			</div>
 			<div class="col-md-6">
 			    <p>
 			        <label>How did you get informed about the congress?</label>
-			        <br><input ng-model="informed.email" type="checkbox" ng-true-value="'Email'" ng-false-value="''"> Email
-			        <br><input ng-model="informed.facebook" type="checkbox" ng-true-value="'Facebook'" ng-false-value="''"> Facebook page
-			        <br><input ng-model="informed.webSite" type="checkbox" ng-true-value="'Website'" ng-false-value="''"> Website
-			        <br><input ng-model="informed.colleague" type="checkbox" ng-true-value="'Colleague'" ng-false-value="''"> Colleague
+			        <br><md-checkbox ng-model="informed.email" class="md-primary" ng-true-value="'Email'" ng-false-value="''">Email</md-checkbox>
+			        <br><md-checkbox ng-model="informed.facebook" class="md-primary" ng-true-value="'Facebook'" ng-false-value="''">Facebook page</md-checkbox>
+			        <br><md-checkbox ng-model="informed.webSite" class="md-primary" ng-true-value="'Website'" ng-false-value="''">Website</md-checkbox>
+			        <br><md-checkbox ng-model="informed.colleague" class="md-primary" ng-true-value="'Colleague'" ng-false-value="''">Colleague</md-checkbox>
 			        <br><input ng-model="informed.other" class="form-control" type="text" placeholder="If your choice is not listed, enter here">
 			    </p>
 			</div>
@@ -186,12 +186,12 @@
 			<div class="col-md-6">
 			    <p>
 			        <label>Academic degree</label>
-			        <br><input ng-model="academic.student" type="checkbox" ng-true-value="'Student'" ng-false-value="''"> Student
-			        <br><input ng-model="academic.associate" type="checkbox" ng-true-value="'Associate\'s degree'" ng-false-value="''"> Associate's degree
-			        <br><input ng-model="academic.bachelor" type="checkbox" ng-true-value="'Bachelor\'s degree'" ng-false-value="''"> Bachelor's degree
-			        <br><input ng-model="academic.licentiate" type="checkbox" ng-true-value="'Licentiate degree'" ng-false-value="''"> Licentiate degree
-			        <br><input ng-model="academic.master" type="checkbox" ng-true-value="'Master\'s degree'" ng-false-value="''"> Master's degree
-			        <br><input ng-model="academic.doctorate" type="checkbox" ng-true-value="'Doctorate degree'" ng-false-value="''"> Doctorate degree
+			        <br><md-checkbox ng-model="academic.student" class="md-primary" ng-true-value="'Student'" ng-false-value="''">Student</md-checkbox>
+			        <br><md-checkbox ng-model="academic.associate" class="md-primary" ng-true-value="'Associate\'s degree'" ng-false-value="''">Associate's degree</md-checkbox>
+			        <br><md-checkbox ng-model="academic.bachelor" class="md-primary" ng-true-value="'Bachelor\'s degree'" ng-false-value="''">Bachelor's degree</md-checkbox>
+			        <br><md-checkbox ng-model="academic.licentiate" class="md-primary" ng-true-value="'Licentiate degree'" ng-false-value="''">Licentiate degree</md-checkbox>
+			        <br><md-checkbox ng-model="academic.master" class="md-primary" ng-true-value="'Master\'s degree'" ng-false-value="''">Master's degree</md-checkbox>
+			        <br><md-checkbox ng-model="academic.doctorate" class="md-primary" ng-true-value="'Doctorate degree'" ng-false-value="''">Doctorate degree</md-checkbox>
 			        <br><input ng-model="academic.other" class="form-control" type="text" placeholder="If your choice is not listed, enter here">
 			        <h5 class="text-error" id="error-academic-degree"></h5>
 			    </p>
@@ -199,9 +199,9 @@
 			<div class="col-md-6">
 			    <p>
 			        <label>Teaching population</label>
-			        <br><input ng-model="population.elementary" type="checkbox" ng-true-value="'Elementary'" ng-false-value="''"> Elementary
-			        <br><input ng-model="population.highSchool" type="checkbox" ng-true-value="'High school'" ng-false-value="''"> High school
-			        <br><input ng-model="population.higherEducation" type="checkbox" ng-true-value="'Higher education'" ng-false-value="''"> Higher education
+			        <br><md-checkbox ng-model="population.elementary" class="md-primary" ng-true-value="'Elementary'" ng-false-value="''">Elementary</md-checkbox>
+			        <br><md-checkbox ng-model="population.highSchool" class="md-primary" ng-true-value="'High school'" ng-false-value="''">High school</md-checkbox>
+			        <br><md-checkbox ng-model="population.higherEducation" class="md-primary" ng-true-value="'Higher education'" ng-false-value="''">Higher education</md-checkbox>
 			        <br><input ng-model="population.other" class="form-control" type="text" placeholder="If your choice is not listed, enter here">
 			    </p>
 			</div>

@@ -54,7 +54,7 @@
 	                <td>{{session.date}}</td>
 	                <td>{{session.hourStart}}</td>
 	                <td>{{session.hourFinish}}</td>
-	                <td><button class="btn btn-danger" ng-click="removeFromMySessions(session.idPersonSession,session.id)"><span class="glyphicon glyphicon-remove"></span></button></td>
+	                <td><button class="btn btn-danger" ng-click="removeFromMySessions($event, session.idPersonSession,session.id)"><span class="glyphicon glyphicon-remove"></span></button></td>
 	            </tr>
 	        </tbody>
 	      </table>

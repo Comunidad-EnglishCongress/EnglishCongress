@@ -6,7 +6,7 @@
 		$id = $_REQUEST['id'];
 		$pass = $_REQUEST['pass'];
 		$fullName = utf8_decode($_REQUEST['fullName']);
-		$regionGroup = $_REQUEST['regionGroup'];
+		$regionGroup = utf8_decode($_REQUEST['regionGroup']);
 		$email = $_REQUEST['email'];
 		$phone = $_REQUEST['phone'];
 		$nationality = $_REQUEST['nationality'];
@@ -17,7 +17,7 @@
 		$population = $_REQUEST['population'];
 		$type = $_REQUEST['type'];
 
-		$query = "INSERT INTO Person VALUES('$id','$pass','$fullName','$regionGroup','$email','$phone','$nationality','$depositNumber','$direccion','$informed','$academic','$population','$type')";
+		$query = "INSERT INTO Person VALUES('$id','$pass','$fullName','$regionGroup','$email','$phone','$nationality','$depositNumber','$direccion','$informed',\"$academic\",'$population','$type')";
 		$result = $conn->query($query);
 
 		echo true;

@@ -5,7 +5,7 @@
         .module('myApp')
         .controller('userCtrl', userCtrl);
 
-    function userCtrl($scope, $http, $timeout, $location, $cookies, Auth) {
+    function userCtrl($scope, $http, $timeout, $location, $cookies, $mdDialog, $mdMedia, Auth) {
         $scope.user = $cookies.getObject('session');
         $scope.activeNav = '';
         $scope.remove = false;
@@ -57,46 +57,59 @@
             });
         }
 
-        function removeFromMySessions(id, idSession) {
-			var indata = {
-				id: id,
-				idSession: idSession,
-				action: "remove"
-			};
+        function removeFromMySessions(ev, id, idSession) {
+            // Appending dialog to document.body to cover sidenav in docs app
+            var confirm = $mdDialog.confirm()
+            .title('Would you like to delete this session?')
+            .textContent('If you delete this session, maybe you can\'t add again to your sessions.')
+            .ariaLabel('Lucky day')
+            .targetEvent(ev)
+            .ok('Yes')
+            .cancel('No');
+            
+            $mdDialog.show(confirm).then(function() {
+                var indata = {
+                    id: id,
+                    idSession: idSession,
+                    action: "remove"
+                };
 
-			$http({
-				url: "./User/user.model.php",
-				method: "POST",
-				params: indata
-			})            
-            .success(function(response) {
-                if (response) {
-                    loadMySessions();
-					
-                    indata = {
-						id: idSession,
-						action: "increment"
-					};
+                $http({
+                    url: "./User/user.model.php",
+                    method: "POST",
+                    params: indata
+                })            
+                .success(function(response) {
+                    if (response) {
+                        loadMySessions();
+                        
+                        indata = {
+                            id: idSession,
+                            action: "increment"
+                        };
 
-					$http({
-						url: "./User/user.model.php",
-						method: "POST",
-						params: indata
-					})							                        
-                    .success(function(response) {
-                        $scope.remove = true;
+                        $http({
+                            url: "./User/user.model.php",
+                            method: "POST",
+                            params: indata
+                        })                                                  
+                        .success(function(response) {
+                            $scope.remove = true;
+
+                            $timeout(function() {
+                                $scope.remove = false;
+                            }, 5000);
+                        });
+                    } else {
+                        $scope.error = true;
 
                         $timeout(function() {
-                            $scope.remove = false;
+                            $scope.error = false;
                         }, 5000);
-                    });
-                } else {
-                    $scope.error = true;
-
-                    $timeout(function() {
-                        $scope.error = false;
-                    }, 5000);
-                }
+                    }
+                });
+            }, function() {
+                
             });
         }
 

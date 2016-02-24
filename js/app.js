@@ -2,7 +2,7 @@
 	'use strict';
 
 	angular
-		.module('myApp', ['ngRoute', 'ngCookies'])
+		.module('myApp', ['ngRoute', 'ngCookies', 'ngMaterial'])
 		.directive('scrollup', scrollup)
 	    .factory('Auth', Auth)
 	    .config(config)
