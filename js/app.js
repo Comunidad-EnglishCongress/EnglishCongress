@@ -3,34 +3,9 @@
 
 	angular
 		.module('myApp', ['ngRoute', 'ngCookies', 'ngMaterial'])
-		.directive('scrollup', scrollup)
 	    .factory('Auth', Auth)
 	    .config(config)
 	    .run(run);
-
-	function scrollup($document) {
-        return {
-            restrict: 'A',
-            link: function (scope, elm, attrs) {
-                elm.bind("click", function () {
-                    function scrollToTop(element, to, duration) {
-                        if (duration < 0) 
-                        	return;
-
-                        var difference = to - element.scrollTop;
-                        var perTick = difference / duration * 10;
-
-                        setTimeout(function () {
-                            element.scrollTop = element.scrollTop + perTick;
-                            scrollToTop(element, to, duration - 10);
-                        }, 5);
-                    }
-
-                    scrollToTop($document[0].body, 0, 400);
-                });
-            }
-        };
-	}
 
 	function Auth($cookies, $location) {
 	    return {

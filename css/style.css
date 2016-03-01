@@ -22,6 +22,10 @@ body {
 	transform: scale(1.2);
 }
 
+.be-black {
+    color: #141419;
+}
+
 .underline-bottom {
 	border-bottom: 1px solid black;
 }

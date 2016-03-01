@@ -5,6 +5,7 @@
 		.module('myApp')
 		.controller('mainCtrl', function($scope) {
 			$scope.activeNav = '';
+			$scope.goTop = goTop;
 			$scope.persons = [
 				{
 					id: '1',
@@ -19,5 +20,11 @@
 					image: ''
 				}
 			];
+
+			function goTop() {
+				$('html, body').animate({
+		            scrollTop: 0
+		        }, 500);
+			}
 		});
 })();

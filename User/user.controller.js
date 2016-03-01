@@ -19,6 +19,7 @@
         $scope.loadAllSessions = loadAllSessions;
         $scope.removeFromMySessions = removeFromMySessions;
         $scope.addToMySessions = addToMySessions;
+        $scope.goTop = goTop;
 
         function logOut() {
             Auth.logOut();
@@ -181,5 +182,11 @@
         }
 
         loadMySessions();
+
+        function goTop() {
+            $('html, body').animate({
+                scrollTop: 0
+            }, 500);
+        }
     }
 })();

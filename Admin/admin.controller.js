@@ -13,6 +13,7 @@
 		$scope.logOut = logOut;
 		$scope.loadSessions = loadSessions;
 		$scope.loadPersons = loadPersons;
+		$scope.goTop = goTop;
 
 		function logOut() {
 			Auth.logOut();
@@ -69,5 +70,11 @@
         }
 
 		loadPersons();
+
+		function goTop() {
+			$('html, body').animate({
+	            scrollTop: 0
+	        }, 500);
+		}
 	}
 })();
