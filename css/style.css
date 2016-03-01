@@ -21,10 +21,11 @@ body {
 .fa-arrow-up:hover {
 	transform: scale(1.2);
 }
+
 .underline-bottom {
 	border-bottom: 1px solid black;
 }
-.navbar-nav > li, input[type='checkbox'], select {
+.navbar-nav > li, input[type='checkbox'], select, .panel-title {
     cursor: pointer;
 }
 .btn {
@@ -118,4 +119,19 @@ footer ul li a:hover {
 }
 .images-bottom {
   margin-bottom: 25px;
+}
+
+/* Acordeon */
+.panel-heading > h4 {
+    font-size: 18px;
+}
+.panel-title:hover {
+    
+}
+.panel-body > p {
+    margin-top: 20px;
+}
+.panel-body > img { 
+  float: left;
+  margin-right: 15px;
 }

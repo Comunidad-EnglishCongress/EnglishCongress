@@ -2,3 +2,18 @@
     <h3>Speakers</h3>
 </div>
 <br>
+<div class="panel-group" id="accordion">
+  	<div class="panel panel-default" ng-repeat="person in persons">
+    	<div class="panel-heading">
+      		<h4 class="panel-title">
+        		<a data-toggle="collapse" data-parent="#accordion" data-target="#{{person.id}}">{{person.name}}</a>
+      		</h4>
+    	</div>
+    	<div id="{{person.id}}" class="panel-collapse collapse">
+      		<div class="panel-body">
+      			<img ng-src="{{person.image}}">
+	      		<p>{{person.description}}</p>
+      		</div>
+    	</div>
+  	</div>
+</div>
