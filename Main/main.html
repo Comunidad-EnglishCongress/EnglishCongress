@@ -143,7 +143,8 @@
 			<div class="col-md-6">
 			    <p>
 			        <label>Phone number</label>
-			        <input ng-model="phone" class="form-control" type="text">
+			        <input ng-model="phone" class="form-control" type="text" ng-blur="validatePhone();">
+					<div class="alert alert-danger" ng-show="errorPhone">{{messagePhone}}</div>
 			    </p>
 			</div>
 		</div>
@@ -209,7 +210,7 @@
 		</div>
 		<div class="col-md-12 col-xs-12">
 			<br>
-		    <center><button ng-disabled="emptyData || errorId || errorEmail || errorGroup" ng-click="registration()" class="btn btn-primary"><span class="glyphicon glyphicon-ok"></span>&nbsp;&nbsp;Sign up</button></center>
+		    <center><button ng-disabled="emptyData || errorId || errorEmail || errorPhone || errorGroup" ng-click="registration()" class="btn btn-primary"><span class="glyphicon glyphicon-ok"></span>&nbsp;&nbsp;Sign up</button></center>
 		</div>
 		<div class="col-md-12 col-xs-12">
 			<br>

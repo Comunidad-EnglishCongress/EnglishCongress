@@ -103,8 +103,9 @@
         $scope.validateId = validateId;
         $scope.validateEmail = validateEmail;
         $scope.validateGroup = validateGroup;
+		$scope.validatePhone = validatePhone;
 
-        function declare() {
+        function declare() {			
             $scope.id = '';
             $scope.pass = '';
             $scope.name = '';
@@ -147,8 +148,7 @@
         declare();
 
         function validate() {
-            if (!$scope.id.length || !$scope.pass.length || !$scope.name.length || !$scope.email.length || 
-                !/^([\da-z_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/.test($scope.email) || !/^([0-9])*$/.test($scope.phone) || 
+            if (!$scope.id.length || !$scope.pass.length || !$scope.name.length || !$scope.email.length ||
                 !$scope.phone.length || !$scope.nationality.length || !$scope.depositNumber.length || 
                 !($scope.direccion.norte.length || $scope.direccion.sanCarlos.length || $scope.direccion.sarapiqui.length || 
                     $scope.direccion.occidente.length || $scope.direccion.other.length) || !($scope.informed.email.length || 
@@ -302,26 +302,32 @@
 
         function validateEmail() {
             $scope.errorEmail = false;
-            var indata = {
-                action: "validateEmail",
-                email: $scope.email
-            };
+			if( !/^([\da-z_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/.test($scope.email)){
+				$scope.errorEmail = true;
+                $scope.messageEmail = 'E-mail address has a wrong format.';
+			}
+			else{
+				var indata = {
+					action: "validateEmail",
+					email: $scope.email
+				};
 
-            $http({
-                    url: "./Registration/registration.model.php",
-                    method: "POST",
-                    params: indata
-                })
-            .success(function(response) {
-                if(typeof(response) == 'string') {
-                    $scope.errorEmail = true;
-                    $scope.messageEmail = 'An unexpected error occurred while e-mail address is validated. Please try again.';
-                }
-                else if (response[0]) {
-                    $scope.errorEmail = true;
-                    $scope.messageEmail = 'E-mail address is already registered.';
-                }
-            });
+				$http({
+						url: "./Registration/registration.model.php",
+						method: "POST",
+						params: indata
+					})
+				.success(function(response) {
+					if(typeof(response) == 'string') {
+						$scope.errorEmail = true;
+						$scope.messageEmail = 'An unexpected error occurred while e-mail address is validated. Please try again.';
+					}
+					else if (response[0]) {
+						$scope.errorEmail = true;
+						$scope.messageEmail = 'E-mail address is already registered.';
+					}
+				});
+			}
         }
 
         function validateGroup() {
@@ -347,5 +353,13 @@
                 }
             });
         }
+		
+		function validatePhone (){
+			$scope.errorPhone = false;			
+			if(isNaN($scope.phone)){
+				$scope.errorPhone = true;
+				$scope.messagePhone = "The phone number has a wrong format. It must be only numbers."
+			}
+		};
     }
 })();
