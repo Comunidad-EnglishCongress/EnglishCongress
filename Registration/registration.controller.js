@@ -12,92 +12,34 @@
         $scope.emptyData = false;
         $scope.declare = declare;
 
-        $scope.$watch('id', function() {
-            validate();
-        });
-        $scope.$watch('pass', function() {
-            validate();
-        });
-        $scope.$watch('name', function() {
-            validate();
-        });
-        $scope.$watch('email', function() {
-            validate();
-        });
-        $scope.$watch('phone', function() {
-            validate();
-        });
-        $scope.$watch('nationality', function() {
-            validate();
-        });
-        $scope.$watch('depositNumber', function() {
-            validate();
-        });
-        $scope.$watch('direccion.norte', function() {
-            validate();
-        });
-        $scope.$watch('direccion.sanCarlos', function() {
-            validate();
-        });
-        $scope.$watch('direccion.sarapiqui', function() {
-            validate();
-        });
-        $scope.$watch('direccion.occidente', function() {
-            validate();
-        });
-        $scope.$watch('direccion.other', function() {
-            validate();
-        });
-        $scope.$watch('informed.email', function() {
-            validate();
-        });
-        $scope.$watch('informed.facebook', function() {
-            validate();
-        });
-        $scope.$watch('informed.webSite', function() {
-            validate();
-        });
-        $scope.$watch('informed.colleague', function() {
-            validate();
-        });
-        $scope.$watch('informed.other', function() {
-            validate();
-        });
-
-        $scope.$watch('academic.student', function() {
-            validate();
-        });
-        $scope.$watch('academic.associate', function() {
-            validate();
-        });
-        $scope.$watch('academic.bachelor', function() {
-            validate();
-        });
-        $scope.$watch('academic.licentiate', function() {
-            validate();
-        });
-        $scope.$watch('academic.master', function() {
-            validate();
-        });
-        $scope.$watch('academic.doctorate', function() {
-            validate();
-        });
-        $scope.$watch('academic.other', function() {
-            validate();
-        });
-
-        $scope.$watch('population.elementary', function() {
-            validate();
-        });
-        $scope.$watch('population.highSchool', function() {
-            validate();
-        });
-        $scope.$watch('population.higherEducation', function() {
-            validate();
-        });
-        $scope.$watch('population.other', function() {
-            validate();
-        });
+        $scope.$watch('id', validate);
+        $scope.$watch('pass', validate);
+        $scope.$watch('name', validate);
+        $scope.$watch('email', validate);
+        $scope.$watch('phone', validate);
+        $scope.$watch('nationality', validate);;
+        $scope.$watch('depositNumber', validate);
+        $scope.$watch('direccion.norte', validate);
+        $scope.$watch('direccion.sanCarlos', validate);
+        $scope.$watch('direccion.sarapiqui', validate);
+        $scope.$watch('direccion.occidente', validate);
+        $scope.$watch('direccion.other', validate);
+        $scope.$watch('informed.email', validate);
+        $scope.$watch('informed.facebook', validate);
+        $scope.$watch('informed.webSite', validate);
+        $scope.$watch('informed.colleague', validate);
+        $scope.$watch('informed.other', validate);
+        $scope.$watch('academic.student', validate);
+        $scope.$watch('academic.associate', validate);
+        $scope.$watch('academic.bachelor', validate);
+        $scope.$watch('academic.licentiate', validate);
+        $scope.$watch('academic.master', validate);
+        $scope.$watch('academic.doctorate', validate);
+        $scope.$watch('academic.other', validate);
+        $scope.$watch('population.elementary', validate);
+        $scope.$watch('population.highSchool', validate);
+        $scope.$watch('population.higherEducation', validate);
+        $scope.$watch('population.other', validate);
 
         $scope.registration = registration;
         $scope.validateId = validateId;
@@ -355,7 +297,8 @@
         }
 		
 		function validatePhone () {
-			$scope.errorPhone = false;			
+			$scope.errorPhone = false;
+
 			if(isNaN($scope.phone)) {
 				$scope.errorPhone = true;
 				$scope.messagePhone = "The phone number has a wrong format. It must be only numbers."

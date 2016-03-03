@@ -69,6 +69,17 @@ body {
     background-color: #C9C9C9;
     border: 2px solid #C9C9C9;
 }
+.title {
+    font-size: 25px;
+    font-weight: normal;
+}
+.subtitle {
+    font: bold;
+    font-size: 18px;
+}
+.bold {
+    font: bold;
+}
 
 /* Navigation */
 .navbar {
