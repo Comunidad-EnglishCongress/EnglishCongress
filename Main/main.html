@@ -24,7 +24,14 @@
 		                <li ng-click="activeNav='importance'"><a>IMPORTANCE</a>
 		        	</ul>
 		      	</li>
-		      	<li ng-click="activeNav='thematic'"><a>THEMATIC STRANDS</a></li>
+		      	<li class="dropdown">
+		        	<a href="" class="dropdown-toggle" data-toggle="dropdown">ACADEMIC FRAME <b class="caret"></b></a>
+		        	<ul class="dropdown-menu">
+		          		<li ng-click="activeNav='thematic'"><a>THEMATIC STRANDS</a></li>
+		                <li ng-click="activeNav='congressP'"><a>CONGRESS PRESENTATIONS</a></li>
+		        	</ul>
+		      	</li>
+		      	<li ng-click="activeNav='speakers'"><a>SPEAKERS</a></li>
 		      	<li class="dropdown">
 		        	<a href="" class="dropdown-toggle" data-toggle="dropdown">COMMITTEES <b class="caret"></b></a>
 		        	<ul class="dropdown-menu">
@@ -35,16 +42,8 @@
 		                <li ng-click="activeNav='communicationC'"><a>COMMUNICATION COMMITTEE</a>
 		        	</ul>
 		      	</li>
+		      	<li ng-click="activeNav='sponsors'"><a>SPONSORS</a></li>
 		      	<li ng-click="activeNav='registration'"><a>REGISTRATION</a>
-		      	<li ng-click="activeNav='speakers'"><a>SPEAKERS</a></li>
-		      	<li class="dropdown">
-		        	<a href="" class="dropdown-toggle" data-toggle="dropdown">SPONSORS <b class="caret"></b></a>
-		        	<ul class="dropdown-menu">
-		          		<li ng-click="activeNav='sponsors'"><a>SPONSORS</a></li>
-		                <li ng-click="activeNav='exhibitors'"><a>EXHIBITORS</a></li>
-		                <li ng-click="activeNav='colaborators'"><a>COLABORATORS</a></li>
-		        	</ul>
-		      	</li>
         		<li data-toggle="modal" data-target="#logIn"><a>LOG IN</a></li>
     		</ul>
  		</div>
@@ -74,6 +73,12 @@
 	<div ng-switch-when="thematic">
 		<div ng-include="'./templates/thematic.htm'"></div>
 	</div>
+	<div ng-switch-when="congressP">
+		<div ng-include="'./templates/congressP.htm'"></div>
+	</div>
+	<div ng-switch-when="speakers">
+		<div ng-include="'./templates/speakers.htm'"></div>
+	</div>
 	<div ng-switch-when="organizingC">
 		<div ng-include="'./templates/organizing.committee.htm'"></div>
 	</div>
@@ -89,11 +94,13 @@
 	<div ng-switch-when="communicationC">
 		<div ng-include="'./templates/communication.committee.htm'"></div>
 	</div>
+	<div ng-switch-when="sponsors">
+		<div ng-include="'./templates/sponsors.htm'"></div>
+	</div>
 	<div ng-switch-when="registration" ng-controller="registrationCtrl">
-		<div class="underline-bottom montserrat">
-			<label class="title"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;Registration</label>
+		<div class="underline-bottom">
+			<label class="title montserrat"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;Registration</label>
 		</div>
-		<br>
 		<!-- ELEMENTOS -->
 		<div class="col-md-12">
 			<div class="col-md-6">
@@ -217,18 +224,6 @@
 			<div ng-show="registrationOk" class="alert alert-success text-center">Registration was successful.</div>
 			<div ng-show="registrationError" class="alert alert-danger text-center">An error has occurred in the register. Please try again.</div>
 		</div>
-	</div>
-	<div ng-switch-when="sponsors">
-		<div ng-include="'./templates/sponsors.htm'"></div>
-	</div>
-	<div ng-switch-when="exhibitors">
-		<div ng-include="'./templates/exhibitors.htm'"></div>
-	</div>
-	<div ng-switch-when="colaborators">
-		<div ng-include="'./templates/colaborators.htm'"></div>
-	</div>
-	<div ng-switch-when="speakers">
-		<div ng-include="'./templates/speakers.htm'"></div>
 	</div>
 </div>
 

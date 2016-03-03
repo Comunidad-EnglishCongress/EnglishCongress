@@ -29,17 +29,17 @@
     <div ng-show="error" class="alert alert-danger text-center">An unexpected error has occurred. Please try again.</div>
 
 	<div ng-switch-when="sessions">
-		<h2><span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;All sessions</h2>
-		<br>
+		<label class="title montserrat"><span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;All sessions</label>
+		<br><br>
 		<table class="table table-striped">
         <thead>
             <tr>
-                <th><h4><b>Name</b></h4></th>
-                <th><h4><b>Location</b></h4></th>
-                <th><h4><b>Date</b></h4></th>
-                <th><h4><b>Start time</b></h4></th>
-                <th><h4><b>Finish time</b></h4></th>
-                <th><h4><b>Capacity</b></h4></th>
+                <th><label class="subtitle">Name</label></th>
+                <th><label class="subtitle">Location</label></th>
+                <th><label class="subtitle">Date</label></th>
+                <th><label class="subtitle">Start time</label></th>
+                <th><label class="subtitle">Finish time</label></th>
+                <th><label class="subtitle">Capacity</label></th>
             </tr>
         </thead>
         <tbody>
@@ -55,17 +55,17 @@
       </table>
 	</div>
 	<div ng-switch-when="persons">
-		<h2><span class="fa fa-users"></span>&nbsp;&nbsp;All persons</h2>
-		<br>
+		<label class="title montserrat"><span class="fa fa-users"></span>&nbsp;&nbsp;All persons</label>
+		<br><br>
 		<table class="table table-striped">
         <thead>
             <tr>
-                <th><h4><b>Id</b></h4></th>
-                <th><h4><b>Name</b></h4></th>
-                <th><h4><b>Email</b></h4></th>
-                <th><h4><b>Phone number</b></h4></th>
-                <th><h4><b>Nationality</b></h4></th>
-                <th><h4><b>Dirección Regional</b></h4></th>
+                <th><label class="subtitle">ID</label></th>
+                <th><label class="subtitle">Name</label></th>
+                <th><label class="subtitle">Email</label></th>
+                <th><label class="subtitle">Phone number</label></th>
+                <th><label class="subtitle">Nationality</label></th>
+                <th><label class="subtitle">Place</label></th>
             </tr>
         </thead>
         <tbody>

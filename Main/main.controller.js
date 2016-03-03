@@ -34,10 +34,13 @@
 				{
 					id: '5',
 					name: 'Constantine John Ioannou',
-					description: "25 Kimberwick Crescent"
-						+"Ottawa, Ontario, K1V IK6"
-						+"(613) 247-2201"
-						+"cjioannou@gmail.com",
+					description: '',
+					image: ''
+				},
+				{
+					id: '6',
+					name: 'Joel Antonio Álvarez González',
+					description: '',
 					image: ''
 				}
 			];

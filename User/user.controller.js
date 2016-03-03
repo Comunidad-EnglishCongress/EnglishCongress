@@ -71,7 +71,7 @@
         function removeFromMySessions(ev, id, idSession) {
             var confirm = $mdDialog.confirm()
             .title('Would you like to delete this session?')
-            .textContent('If you delete this session, maybe you can\'t add again to your sessions.')
+            .textContent('If you delete this session, you might not be able to register it again.')
             .ariaLabel('Lucky day')
             .targetEvent(ev)
             .ok('Yes')
