@@ -20,6 +20,19 @@ body {
 	transform: scale(1.2);
 }
 
+.fa-facebook-official {
+    font-size: 30px;
+}
+.fa-facebook-official:hover {
+    transition: 0.3s;
+    transform: scale(1.3);
+}
+a:link {   
+    text-decoration: none;   
+}
+.infoContent .block .icon-social{
+    font-size: 30px;
+}
 .be-black {
     color: #141419;
 }
