@@ -4,6 +4,7 @@
 	angular
 		.module('myApp', ['ngRoute', 'ngCookies', 'ngMaterial'])
 	    .factory('Auth', Auth)
+	    .directive('backImg', backImg)
 	    .config(config)
 	    .run(run);
 
@@ -56,6 +57,18 @@
             }
             return false;
         }
+	}
+
+	function backImg() {
+		return function(scope, element, attrs) {
+			attrs.$observe('backImg', function(value) {
+				element.css({
+					'background-image': "url('"+value+"')",
+					'background-position': 'center',
+					'background-size': 'cover'
+				});
+			});
+		};
 	}
 
 	function config($routeProvider) {

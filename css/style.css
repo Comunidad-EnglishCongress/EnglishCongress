@@ -152,6 +152,43 @@ footer ul li a:hover {
 .images-bottom {
     margin-bottom: 25px;
 }
+.circle {
+    border-radius: 50%;
+    width: 500px;
+    height: 500px;
+    display: inline-block;
+}
+
+@media screen and (min-width: 360px) {
+    .circle {
+        border-radius: 50%;
+        width: 300px;
+        height: 300px;
+    }
+}
+@media screen and (min-width: 480px) {
+    .circle {
+        border-radius: 50%;
+        width: 350px;
+        height: 350px;
+    }
+}
+@media screen and (min-width: 640px) {
+    .circle {
+        border-radius: 50%;
+        width: 400px;
+        height: 400px;
+        display: inline-block;
+    }
+}
+@media screen and (min-width: 1024px) {
+    .circle {
+        border-radius: 50%;
+        width: 500px;
+        height: 500px;
+        display: inline-block;
+    }
+}
 
 /* Acordeon */
 .panel-heading > h4 {
