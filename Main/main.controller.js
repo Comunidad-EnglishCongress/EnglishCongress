@@ -40,8 +40,8 @@
 				{
 					id: '6',
 					name: 'Joel Antonio Álvarez González',
-					description: '',
-					image: ''
+					description: 'Joel holds a B.A in ESL from the University of Panama. He also holds a Master’s degree in TESOL from Universidad Latina de Panama and a Master’s degree in Higher Education from the University of Panama, and a MBA from Laurate International University. He was the logistic and academic coordinator at English for Life Program in Panama. Joel has participated in different Post-Graduate seminars in Panama, Costa Rica, Nicaragua, Colombia, Canada, and The United States. He was the Panama TESOL president 2013-2015. He is currently the program manager for the Teaching English and Leadership Program in Peace Corps Panama.',
+					image: './images/ponentes/JoelAntonio.jpg'
 				}
 			];
 
