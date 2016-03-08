@@ -17,7 +17,7 @@
 					id: '2',
 					name: 'Ana María Chacón',
 					description: 'Ana María Chacón holds a BA, M.Ed. and Ed. D in Education/Curriculum and Instruction. She has worked as college professor, principal, head teacher. TLA mentor teacher, and literacy lead teacher. She has many years of experience in areas such as Teaching English as a Second language, Early Childhood Education, Elementary Education and Dual Language Instruction. Dr Chacón in currently teaching first grade in a Dual Immersion program and conducting action research in her classroom.',
-					image: ''
+					image: './images/ponentes/AnaMariaChacon.JPG'
 				},
 				{
 					id: '3',
@@ -34,8 +34,8 @@
 				{
 					id: '5',
 					name: 'Constantine John Ioannou',
-					description: '',
-					image: ''
+					description: 'Constantine Ioannou is a former member of the TESOL Board of Directors and works as a program director for international projects and exchanges for the Ottawa-Carleton Education Network, the international education department of the Ottawa-Carleton District School Board. Constantine is a teacher, curriculum supervisor and materials writer for English and other languages and currently is an active teacher trainer for Canadian ESL and international language teachers and international teachers of TESOL or CLIL.',
+					image: './images/ponentes/Constantine.jpg'
 				},
 				{
 					id: '6',

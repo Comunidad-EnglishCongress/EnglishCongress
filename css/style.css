@@ -194,13 +194,13 @@ footer ul li a:hover {
 .panel-heading > h4 {
     font-size: 18px;
 }
-.panel-title:hover {
-    
-}
 .panel-body > p {
     margin-top: 20px;
 }
-.panel-body > img { 
+.speaker-photo {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
     float: left;
     margin-right: 15px;
 }
