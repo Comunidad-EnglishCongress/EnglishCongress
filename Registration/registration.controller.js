@@ -15,6 +15,7 @@
         $scope.$watch('id', validate);
         $scope.$watch('pass', validate);
         $scope.$watch('name', validate);
+        $scope.$watch('group', validate);
         $scope.$watch('email', validate);
         $scope.$watch('phone', validate);
         $scope.$watch('nationality', validate);;
@@ -90,8 +91,8 @@
         declare();
 
         function validate() {
-            if (!$scope.id.length || !$scope.pass.length || !$scope.name.length || !$scope.email.length ||
-                !$scope.phone.length || !$scope.nationality.length || 
+            if (!$scope.id.length || !$scope.pass.length || !$scope.name.length || !$scope.group.length ||
+                !$scope.email.length || !$scope.phone.length || !$scope.nationality.length || 
                 !($scope.direccion.norte.length || $scope.direccion.sanCarlos.length || $scope.direccion.sarapiqui.length || 
                     $scope.direccion.occidente.length || $scope.direccion.other.length) || !($scope.informed.email.length || 
                     $scope.informed.facebook.length || $scope.informed.webSite.length || $scope.informed.colleague.length || 
@@ -273,26 +274,29 @@
 
         function validateGroup() {
             $scope.errorGroup = false;
-            var indata = {
-                action: "validateGroup",
-                group: $scope.group
-            };
+            
+            if($scope.group !== '') {
+                var indata = {
+                    action: "validateGroup",
+                    group: $scope.group
+                };
 
-            $http({
-                    url: "./Registration/registration.model.php",
-                    method: "POST",
-                    params: indata
-                })
-            .success(function(response) {
-                if (typeof(response) == 'string') {
-                    $scope.errorGroup = true;
-                    $scope.messageGroup = 'An unexpected error occurred while group is validated. Please try again.';
-                }
-                else if (parseInt(response[0]) <= 0) {
-                    $scope.errorGroup = true;
-                    $scope.messageGroup = 'The selected group does not have capacity.';
-                }
-            });
+                $http({
+                        url: "./Registration/registration.model.php",
+                        method: "POST",
+                        params: indata
+                    })
+                .success(function(response) {
+                    if (typeof(response) == 'string') {
+                        $scope.errorGroup = true;
+                        $scope.messageGroup = 'An unexpected error occurred while group is validated. Please try again.';
+                    }
+                    else if (parseInt(response[0]) <= 0) {
+                        $scope.errorGroup = true;
+                        $scope.messageGroup = 'The selected group does not have capacity.';
+                    }
+                });
+            }
         }
 		
 		function validatePhone () {
