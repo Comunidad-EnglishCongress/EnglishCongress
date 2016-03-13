@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS `groups` (
   `name` varchar(75) NOT NULL,
   `capacity` smallint(6) NOT NULL,
   `maxCapacity` smallint(6) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
 
 -- --------------------------------------------------------
 
@@ -50,7 +50,7 @@ CREATE TABLE IF NOT EXISTS `person` (
   `email` varchar(75) NOT NULL,
   `phoneNumber` varchar(15) NOT NULL,
   `nationality` varchar(50) NOT NULL,
-  `depositNumber` varchar(30) NOT NULL,
+  `receipt` tinyint(1) NOT NULL,
   `direccionRegional` varchar(150) NOT NULL,
   `informed` varchar(150) NOT NULL,
   `academicDegree` varchar(150) NOT NULL,
@@ -68,7 +68,7 @@ CREATE TABLE IF NOT EXISTS `personsession` (
 `id` int(11) NOT NULL,
   `idPerson` varchar(11) NOT NULL,
   `idSession` int(11) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
 
 -- --------------------------------------------------------
 
@@ -85,7 +85,7 @@ CREATE TABLE IF NOT EXISTS `session` (
   `hourFinish` varchar(10) NOT NULL,
   `capacity` int(11) NOT NULL,
   `maxCapacity` int(11) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 --
 -- Índices para tablas volcadas
@@ -119,16 +119,22 @@ ALTER TABLE `session`
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
+
+--
+-- AUTO_INCREMENT de la tabla `groups`
+--
+ALTER TABLE `groups`
+MODIFY `id` tinyint(4) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `personsession`
 --
 ALTER TABLE `personsession`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1;
 --
 -- AUTO_INCREMENT de la tabla `session`
 --
 ALTER TABLE `session`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1;
 --
 -- Restricciones para tablas volcadas
 --

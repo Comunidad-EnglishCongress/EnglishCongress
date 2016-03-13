@@ -9,7 +9,7 @@
 		$email = $_REQUEST['email'];
 		$pass = $_REQUEST['pass'];
 
-		$query = "SELECT id, fullName, email, type FROM Person WHERE email='$email' AND pass='$pass'";
+		$query = "SELECT id, fullName, email, receipt, type FROM Person WHERE email='$email' AND pass='$pass'";
 		$result = $conn->query($query);
 
 	    while($row = mysqli_fetch_array($result)) {
@@ -21,6 +21,7 @@
 	    		'id' => $row['id'],
 	    		'fullName' => $row['fullName'],
 	    		'email' => $row['email'],
+	    		'receipt' => $row['receipt'],
 	    		'type' => $row['type']
 	    		);
 	    }

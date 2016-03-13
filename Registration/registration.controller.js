@@ -55,7 +55,6 @@
             $scope.email = 'fauri.1994@gmail.com';
             $scope.phone = '';
             $scope.nationality = '';
-            $scope.depositNumber = '';
             $scope.direccion = {
                 norte: '',
                 sanCarlos: '',
@@ -85,13 +84,14 @@
                 higherEducation: '',
                 other: ''
             };
+            $scope.confirmation = false;
         }
 
         declare();
 
         function validate() {
             if (!$scope.id.length || !$scope.pass.length || !$scope.name.length || !$scope.email.length ||
-                !$scope.phone.length || !$scope.nationality.length || !$scope.depositNumber.length || 
+                !$scope.phone.length || !$scope.nationality.length || 
                 !($scope.direccion.norte.length || $scope.direccion.sanCarlos.length || $scope.direccion.sarapiqui.length || 
                     $scope.direccion.occidente.length || $scope.direccion.other.length) || !($scope.informed.email.length || 
                     $scope.informed.facebook.length || $scope.informed.webSite.length || $scope.informed.colleague.length || 
@@ -188,7 +188,6 @@
                 email: $scope.email,
                 phone: $scope.phone,
                 nationality: $scope.nationality,
-                depositNumber: $scope.depositNumber,
                 direccion: concatDireccion(),
                 informed: concatInformed(),
                 academic: concatAcademic(),

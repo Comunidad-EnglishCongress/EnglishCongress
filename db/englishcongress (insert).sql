@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-02-2016 a las 00:15:03
+-- Tiempo de generación: 12-03-2016 a las 19:27:32
 -- Versión del servidor: 5.6.20
 -- Versión de PHP: 5.5.15
 
@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS `groups` (
   `name` varchar(75) NOT NULL,
   `capacity` smallint(6) NOT NULL,
   `maxCapacity` smallint(6) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=7;
 
 --
 -- Volcado de datos para la tabla `groups`
@@ -62,7 +62,7 @@ CREATE TABLE IF NOT EXISTS `person` (
   `email` varchar(75) NOT NULL,
   `phoneNumber` varchar(15) NOT NULL,
   `nationality` varchar(50) NOT NULL,
-  `depositNumber` varchar(30) NOT NULL,
+  `receipt` tinyint(1) NOT NULL,
   `direccionRegional` varchar(150) NOT NULL,
   `informed` varchar(150) NOT NULL,
   `academicDegree` varchar(150) NOT NULL,
@@ -74,9 +74,9 @@ CREATE TABLE IF NOT EXISTS `person` (
 -- Volcado de datos para la tabla `person`
 --
 
-INSERT INTO `person` (`id`, `pass`, `fullName`, `regionGroup`, `email`, `phoneNumber`, `nationality`, `depositNumber`, `direccionRegional`, `informed`, `academicDegree`, `teachingPopulation`, `type`) VALUES
-('2-0000-0000', '827ccb0eea8a706c4c34a16891f84e7b', 'Fauricio Rojas Hernandez', 'CQ', 'fauri-94@hotmail.com', '88888888', 'Costa Rican', '1122-3344', 'San Carlos', 'Website', 'Student', 'Higher education', 'A'),
-('2-0000-0001', '827ccb0eea8a706c4c34a16891f84e7b', 'Cristian Salas Salazar', 'CQ', 'cs.salas94@gmail.com', '88888888', 'Costa Rican', '5566-7788', 'San Carlos', 'Website', 'Student', 'High school', 'U');
+INSERT INTO `person` (`id`, `pass`, `fullName`, `regionGroup`, `email`, `phoneNumber`, `nationality`, `receipt`, `direccionRegional`, `informed`, `academicDegree`, `teachingPopulation`, `type`) VALUES
+('2-0000-0000', '827ccb0eea8a706c4c34a16891f84e7b', 'Fauricio Rojas Hernandez', 'CQ', 'fauri-94@hotmail.com', '88888888', 'Costa Rican', 0, 'San Carlos', 'Website', 'Student', 'Higher education', 'A'),
+('2-0000-0001', '827ccb0eea8a706c4c34a16891f84e7b', 'Cristian Salas Salazar', 'CQ', 'cs.salas94@gmail.com', '88888888', 'Costa Rican', 0, 'San Carlos', 'Website', 'Student', 'High school', 'U');
 
 -- --------------------------------------------------------
 
@@ -88,17 +88,17 @@ CREATE TABLE IF NOT EXISTS `personsession` (
 `id` int(11) NOT NULL,
   `idPerson` varchar(11) NOT NULL,
   `idSession` int(11) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5;
 
 --
 -- Volcado de datos para la tabla `personsession`
 --
 
 INSERT INTO `personsession` (`id`, `idPerson`, `idSession`) VALUES
-(2, '2-0000-0001', 2),
-(3, '2-0000-0001', 4),
-(4, '2-0000-0001', 3),
-(6, '2-0000-0001', 1);
+(1, '2-0000-0001', 2),
+(2, '2-0000-0001', 4),
+(3, '2-0000-0001', 3),
+(4, '2-0000-0001', 1);
 
 -- --------------------------------------------------------
 
@@ -159,6 +159,11 @@ ALTER TABLE `session`
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
+--
+-- AUTO_INCREMENT de la tabla `groups`
+--
+ALTER TABLE `groups`
+MODIFY `id` tinyint(4) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `personsession`
 --

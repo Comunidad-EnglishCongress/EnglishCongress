@@ -2,7 +2,7 @@
 	'use strict';
 
 	angular
-		.module('myApp', ['ngRoute', 'ngCookies', 'ngMaterial'])
+		.module('myApp', ['ngRoute', 'ngCookies', 'ngMaterial', 'imageupload'])
 	    .factory('Auth', Auth)
 	    .directive('backImg', backImg)
 	    .config(config)

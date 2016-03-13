@@ -19,6 +19,8 @@
         $scope.loadAllSessions = loadAllSessions;
         $scope.removeFromMySessions = removeFromMySessions;
         $scope.addToMySessions = addToMySessions;
+        $scope.changeReceipt = changeReceipt;
+        $scope.uploadReceipt = uploadReceipt;
         $scope.goTop = goTop;
 
         function logOut() {
@@ -182,6 +184,24 @@
         }
 
         loadMySessions();
+
+        function changeReceipt() {
+            $scope.activeNav = 'addReceipt';
+        }
+
+        function uploadReceipt(image) {
+            console.log(image);
+            /*var formData = new FormData();
+            formData.append('image', image, image.name);
+
+            $http.post('upload', formData, {
+                headers: { 'Content-Type': false },
+                transformRequest: angular.identity
+            }).success(function(result) {
+                $scope.uploadedImgSrc = result.src;
+                $scope.sizeInBytes = result.size;
+            });*/
+        }
 
         function goTop() {
             $('html, body').animate({

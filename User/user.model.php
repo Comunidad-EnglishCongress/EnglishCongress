@@ -46,13 +46,11 @@
 			$query2 = "SELECT id,name,date,hourStart,hourFinish FROM session WHERE id=$idSession";
 			$result2 = $conn->query($query2);
 			$result2 = mysqli_fetch_row($result2);
-			//echo(json_encode($result2))."<br><br>";
 
 			$query3 = "SELECT s.id,s.name,s.date,s.hourStart,s.hourFinish FROM person p INNER JOIN personsession ps ON p.id=ps.idPerson INNER JOIN session s ON ps.idSession=s.id WHERE ps.idPerson='$idPerson';";
 			$result3 = $conn->query($query3);
 
 	    	while($row = mysqli_fetch_array($result3)) {
-				//echo $row[0]." - ".$row[1]." - ".$row[2]." - ".$row[3]." - ".$row[4]."<br>";
 	        	if($result2[2] == $row[2]) {
 			        if(strtotime($result2[4]) <= strtotime($row[3]) || strtotime($result2[3]) >= strtotime($row[4])) {
 			        	
@@ -139,6 +137,25 @@
 		echo true;
 	}
 
+	function changeReceiptState($conn) {
+		$id = $_REQUEST['id'];
+
+		$query = "UPDATE person SET receipt=1 WHERE id='$id'";
+		$result = $conn->query($query);
+	    
+		echo true;
+	}
+
+	function uploadReceipt() {
+		$imageName = $_REQUEST['id'];
+                
+        $archivo = $_FILES['imagen']['tmp_name'];
+        $nombreArchivo = $_FILES['imagen']['name'];
+        
+        unlink("/var/www/usuariosGitBook/$imageName");        
+        move_uploaded_file($archivo, "/var/www/usuariosGitBook/$imageName");
+	}
+
 	$connection = new Connection();
 	$conn = $connection->createConnection();
 
@@ -162,6 +179,12 @@
 		}
 		else if($action === "decrement") {
 			decrementCapacity($conn);
+		}
+		else if($action === "changeReceipt") {
+			changeReceiptState($conn);
+		}
+		else if($action === "upload") {
+			uploadReceipt();
 		}
 	}
 	else {

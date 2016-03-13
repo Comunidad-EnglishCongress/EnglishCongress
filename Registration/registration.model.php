@@ -10,14 +10,13 @@
 		$email = $_REQUEST['email'];
 		$phone = $_REQUEST['phone'];
 		$nationality = $_REQUEST['nationality'];
-		$depositNumber = $_REQUEST['depositNumber'];
 		$direccion = utf8_decode($_REQUEST['direccion']);
 		$informed = $_REQUEST['informed'];
 		$academic = $_REQUEST['academic'];
 		$population = $_REQUEST['population'];
 		$type = $_REQUEST['type'];
 
-		$query = "INSERT INTO Person VALUES('$id','$pass','$fullName','$regionGroup','$email','$phone','$nationality','$depositNumber','$direccion','$informed',\"$academic\",'$population','$type')";
+		$query = "INSERT INTO Person VALUES('$id','$pass','$fullName','$regionGroup','$email','$phone','$nationality', 0, '$direccion','$informed',\"$academic\",'$population','$type')";
 		$result = $conn->query($query);
 
 		echo true;

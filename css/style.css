@@ -70,7 +70,7 @@ a:link {
     background-color: #337ab7;
     border: 2px solid #337ab7;
 }
-.btn-default {
+/*.btn-default {
     border: 2px solid #C9C9C9;
     background-color: transparent;
     color: black;
@@ -79,7 +79,7 @@ a:link {
     color: white;
     background-color: #C9C9C9;
     border: 2px solid #C9C9C9;
-}
+}*/
 .title {
     font-size: 25px;
     font-weight: normal;
@@ -97,6 +97,39 @@ a:link {
 }
 .margin {
     margin: 0px 0px 25px 0px;
+}
+.box {
+    margin: 20px 0 20px 0;
+}
+.btn-upload {
+    background-color: #337ab7;
+    color: white;
+}
+.btn-upload:hover {
+    color: white;
+}
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+.custom-preview {
+    width: 300px;
+    min-height: 50px;
 }
 
 /* Navigation */

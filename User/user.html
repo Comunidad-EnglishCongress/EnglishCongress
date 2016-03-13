@@ -13,12 +13,13 @@
   		</div>
   		<div class="navbar-collapse collapse navBar">
     		<ul class="nav navbar-nav navbar-right">
-    			<li ng-click="loadMySessions()"><a class="first">MY SESSIONS</a></li>
-		        <li ng-click="loadAllSessions()"><a>ALL SESSIONS</a></li>
+    			<li ng-click="loadMySessions();"><a class="first">MY SESSIONS</a></li>
+		        <li ng-click="loadAllSessions();"><a>ALL SESSIONS</a></li>
 		        <li class="dropdown">
 		        	<a href="" class="dropdown-toggle" data-toggle="dropdown">{{user.fullName | uppercase}} <b class="caret"></b></a>
 		        	<ul class="dropdown-menu">
-		          		<li ng-click="logOut()"><a><span class="glyphicon glyphicon-off"></span>&nbsp;&nbsp;LOG OUT</a></li>
+		        		<li ng-if="user.receipt == '0'" ng-click="changeReceipt();"><a><span class="glyphicon glyphicon-picture"></span>&nbsp;&nbsp;ADD RECEIPT</a></li>
+		          		<li ng-click="logOut();"><a><span class="glyphicon glyphicon-log-out"></span>&nbsp;&nbsp;LOG OUT</a></li>
 		        	</ul>
 		      	</li>
     		</ul>
@@ -86,6 +87,24 @@
 	            </tr>
 	        </tbody>
 	      </table>
+		</div>
+		<div ng-switch-when="addReceipt">
+			<h2><span class="glyphicon glyphicon-picture"></span>&nbsp;&nbsp;Add receipt</h2>
+			<br>
+            <div>
+	            <span class="btn btn-default btn-file">
+	            	<span class="glyphicon glyphicon-file"></span>
+    				Choose file <input type="file" accept="image/*" image="image">
+				</span>
+				&nbsp;&nbsp;
+				<button class="btn btn-upload" type="submit" ng-click="uploadReceipt(image)"><span class="glyphicon glyphicon-upload"></span>&nbsp;&nbsp;Upload</button>
+			</div>
+			<div class="box" ng-show="image">
+				<div>
+					<label class="subtite">Preview</label>
+				</div>
+            	<img class="custom-preview" ng-src="{{image.url}}" type="{{image.file.type}}"> 
+            </div>
 		</div>
 	</div>
 </div>
