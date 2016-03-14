@@ -89,6 +89,7 @@
 	      </table>
 		</div>
 		<div ng-switch-when="addReceipt">
+			<div ng-show="upload" class="alert text-center" ng-class="uploadStyle">{{uploadMessage}}</div>
 			<h2><span class="glyphicon glyphicon-picture"></span>&nbsp;&nbsp;Add receipt</h2>
 			<br>
             <div>

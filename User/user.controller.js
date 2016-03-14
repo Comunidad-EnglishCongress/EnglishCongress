@@ -13,6 +13,9 @@
         $scope.repeatSession = false;
         $scope.crashSession = false;
         $scope.error = false;
+        $scope.upload = false;
+        $scope.uploadStyle = '';
+        $scope.uploadMessage = '';
 
         $scope.logOut = logOut;
         $scope.loadMySessions = loadMySessions;
@@ -189,18 +192,42 @@
             $scope.activeNav = 'addReceipt';
         }
 
-        function uploadReceipt(image) {
-            console.log(image);
-            /*var formData = new FormData();
-            formData.append('image', image, image.name);
+        function uploadReceipt(file) {
+            $scope.upload = false;
 
-            $http.post('upload', formData, {
-                headers: { 'Content-Type': false },
-                transformRequest: angular.identity
-            }).success(function(result) {
-                $scope.uploadedImgSrc = result.src;
-                $scope.sizeInBytes = result.size;
-            });*/
+            var uploadUrl = 'User/upload.php?id='+$scope.user.id;
+            var formData = new FormData();
+            formData.append('file', file.file);
+
+            $http.post(uploadUrl, formData, {
+                transformRequest: angular.identity,
+                headers: {'Content-Type': undefined}
+            })
+            .success(function(response){
+                $scope.upload = true;
+
+                if(response === 'success') {
+                    $scope.uploadStyle = 'alert-success';
+                    $scope.uploadMessage = 'The image was uploaded successfully.';
+                }
+                else {
+                    $scope.uploadStyle = 'alert-danger';
+                    $scope.uploadMessage = 'An error occurred when the image is uploaded.';
+                }
+
+                $timeout(function() {
+                    $scope.upload = false;
+                }, 5000);
+            })
+            .error(function(err){
+                $scope.upload = true;
+                $scope.uploadStyle = 'alert-danger';
+                $scope.uploadMessage = 'An error occurred when the image is uploaded. Please try again.';
+
+                $timeout(function() {
+                    $scope.upload = false;
+                }, 5000);
+            });
         }
 
         function goTop() {
