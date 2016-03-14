@@ -4,9 +4,9 @@
 <div class="panel-group" id="accordion">
   	<div class="panel panel-default" ng-repeat="person in persons">
     	<div class="panel-heading">
-      		<h4 class="panel-title">
+      		<label class="panel-title subtitle">
         		<a data-toggle="collapse" data-parent="#accordion" data-target="#{{person.id}}">{{person.name}}</a>
-      		</h4>
+      		</label>
     	</div>
     	<div id="{{person.id}}" class="panel-collapse collapse">
       		<div class="panel-body">

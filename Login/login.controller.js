@@ -31,7 +31,6 @@
         }        
 
         function login() {
-
             $scope.errorLogin = false;
             $scope.error = false;
             var indata = {
