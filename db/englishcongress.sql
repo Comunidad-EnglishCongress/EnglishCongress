@@ -51,7 +51,6 @@ CREATE TABLE IF NOT EXISTS `person` (
   `phoneNumber` varchar(15) NOT NULL,
   `nationality` varchar(50) NOT NULL,
   `receipt` tinyint(1) NOT NULL,
-  `direccionRegional` varchar(150) NOT NULL,
   `informed` varchar(150) NOT NULL,
   `academicDegree` varchar(150) NOT NULL,
   `teachingPopulation` varchar(150) NOT NULL,

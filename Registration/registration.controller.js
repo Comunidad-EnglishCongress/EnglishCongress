@@ -20,11 +20,6 @@
         $scope.$watch('phone', validate);
         $scope.$watch('nationality', validate);;
         $scope.$watch('depositNumber', validate);
-        $scope.$watch('direccion.norte', validate);
-        $scope.$watch('direccion.sanCarlos', validate);
-        $scope.$watch('direccion.sarapiqui', validate);
-        $scope.$watch('direccion.occidente', validate);
-        $scope.$watch('direccion.other', validate);
         $scope.$watch('informed.email', validate);
         $scope.$watch('informed.facebook', validate);
         $scope.$watch('informed.webSite', validate);
@@ -56,13 +51,6 @@
             $scope.email = 'fauri.1994@gmail.com';
             $scope.phone = '';
             $scope.nationality = '';
-            $scope.direccion = {
-                norte: '',
-                sanCarlos: '',
-                sarapiqui: '',
-                occidente: '',
-                other: ''
-            };
             $scope.informed = {
                 email: '',
                 facebook: '',
@@ -92,9 +80,7 @@
 
         function validate() {
             if (!$scope.id.length || !$scope.pass.length || !$scope.name.length || !$scope.group.length ||
-                !$scope.email.length || !$scope.phone.length || !$scope.nationality.length || 
-                !($scope.direccion.norte.length || $scope.direccion.sanCarlos.length || $scope.direccion.sarapiqui.length || 
-                    $scope.direccion.occidente.length || $scope.direccion.other.length) || !($scope.informed.email.length || 
+                !$scope.email.length || !$scope.phone.length || !$scope.nationality.length || !($scope.informed.email.length || 
                     $scope.informed.facebook.length || $scope.informed.webSite.length || $scope.informed.colleague.length || 
                     $scope.informed.other.length) || !($scope.academic.student.length || $scope.academic.associate.length || 
                     $scope.academic.bachelor.length || $scope.academic.licentiate.length || $scope.academic.master.length || 
@@ -104,20 +90,6 @@
             } else { // Habilita
                 $scope.emptyData = false;
             }
-        }
-
-        function concatDireccion() {
-            var string = '';
-            var array = [$scope.direccion.norte, $scope.direccion.sanCarlos, $scope.direccion.sarapiqui,
-                $scope.direccion.occidente, $scope.direccion.other
-            ];
-
-            array.forEach(function(value) {
-                if (value !== '')
-                    string += value + ', ';
-            });
-
-            return string.slice(0, string.length - 2);
         }
 
         function concatInformed() {
@@ -189,7 +161,6 @@
                 email: $scope.email,
                 phone: $scope.phone,
                 nationality: $scope.nationality,
-                direccion: concatDireccion(),
                 informed: concatInformed(),
                 academic: concatAcademic(),
                 population: concatPopulation(),

@@ -6,7 +6,7 @@
         .controller('loginCtrl', loginCtrl);
 
     function loginCtrl($scope, $http, $location, Auth) {
-        $scope.email = 'cs.salas94@gmail.com';
+        $scope.email = 'c@gmail.com';
         $scope.pass = '12345';
         $scope.emptyData = false;
         $scope.errorLogin = false;

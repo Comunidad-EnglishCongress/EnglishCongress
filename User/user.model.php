@@ -146,16 +146,6 @@
 		echo true;
 	}
 
-	function uploadReceipt() {
-		$imageName = $_REQUEST['id'];
-                
-        $archivo = $_FILES['imagen']['tmp_name'];
-        $nombreArchivo = $_FILES['imagen']['name'];
-        
-        unlink("/var/www/usuariosGitBook/$imageName");        
-        move_uploaded_file($archivo, "/var/www/usuariosGitBook/$imageName");
-	}
-
 	$connection = new Connection();
 	$conn = $connection->createConnection();
 
@@ -182,9 +172,6 @@
 		}
 		else if($action === "changeReceipt") {
 			changeReceiptState($conn);
-		}
-		else if($action === "upload") {
-			uploadReceipt();
 		}
 	}
 	else {

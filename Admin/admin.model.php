@@ -16,11 +16,12 @@
 	    foreach($array_data as &$row) {
 	    	$JSON[] = array(
 	    		'id' => $row['id'],
-	    		'name' => $row['fullName'],
+	    		'name' => utf8_encode($row['fullName']),
 	    		'email' => $row['email'],
 	    		'phoneNumber' => $row['phoneNumber'],
 	    		'nationality' => $row['nationality'],
-	    		'direccionRegional' => $row['direccionRegional']
+	    		'regionGroup' => utf8_encode($row['regionGroup']),
+	    		'receipt' => utf8_encode($row['receipt'])
 	    		);
 	    }
 	    
