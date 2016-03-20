@@ -15,6 +15,7 @@
         $scope.crashSession = false;
         $scope.error = false;
         $scope.upload = false;
+        $scope.showMySessions = false;
         $scope.uploadStyle = '';
         $scope.uploadMessage = '';
         $scope.blockSessions = dateOfLaunch.validate();
@@ -45,9 +46,13 @@
                 params: indata
             })
             .success(function(response) {
-
                 if(typeof(response) == 'object') {
-                    $scope.sessions = response;
+                    if(response.length) {
+                        sortList(response);
+                        $scope.showMySessions = true;
+                    }
+                    else
+                        $scope.showMySessions = false;
                 }
                 else {
                     errorConnection();
@@ -237,6 +242,53 @@
             $('html, body').animate({
                 scrollTop: 0
             }, 500);
+        }
+
+        function compareHours(hour1, hour2) { 
+            var arrayHour1 = hour1.split(":"); 
+            var arrayHour2 = hour2.split(":"); 
+             
+            // Get hours and minutes (hour 1) 
+            var hh1 = parseInt(arrayHour1[0],10); 
+            var mm1 = parseInt(arrayHour1[1],10); 
+
+            // Get hours and minutes (hour 2) 
+            var hh2 = parseInt(arrayHour2[0],10); 
+            var mm2 = parseInt(arrayHour2[1],10); 
+
+            // Compare
+            if (hh1<hh2 || (hh1==hh2 && mm1<mm2)) // hour1 < hour 2
+                return true; 
+            else  // hour1 >= hour2
+                return false;
+        }
+
+        function sortList(list) {
+            $scope.sessions = {
+                first: {
+                    morning: [],
+                    afternoon: []
+                },
+                second: {
+                    morning: [],
+                    afternoon: []
+                }
+            };
+
+            angular.forEach(list, function(session, key) {
+                if(session.date === '2016-03-20') {
+                    if(compareHours(session.hourStart, '12:00'))
+                        $scope.sessions.first.morning.push(session);
+                    else
+                        $scope.sessions.first.afternoon.push(session);
+                }
+                else {
+                    if(compareHours(session.hourStart, '12:00'))
+                        $scope.sessions.second.morning.push(session);
+                    else
+                        $scope.sessions.second.afternoon.push(session);
+                }
+            });
         }
     }
 })();

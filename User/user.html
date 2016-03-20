@@ -37,31 +37,127 @@
 		<div ng-switch-when="mySessions">
 			<label class="title montserrat">My sessions</label>
 			<div ng-show="!blockSessions">
-				<div class="alert alert-info text-center box" ng-show="!sessions.length">
+				<div class="alert alert-info text-center box" ng-show="!showMySessions">
 					Your sessions part is empty, please click <a href="" ng-click="loadAllSessions();">here</a> to register to the sessions.
 				</div>
-				<table class="table table-striped box" ng-show="sessions.length">
-			        <thead>
-			            <tr>
-			                <th><label class="subtitle">Name</label></th>
-			                <th><label class="subtitle">Location</label></th>
-			                <th><label class="subtitle">Date</label></th>
-			                <th><label class="subtitle">Start time</label></th>
-			                <th><label class="subtitle">Finish time</label></th>
-			                <th><label class="subtitle">Remove</label></th>
-			            </tr>
-			        </thead>
-			        <tbody>
-			            <tr ng-repeat="session in sessions">
-			                <td>{{session.name}}</td>
-			                <td>{{session.location}}</td>
-			                <td>{{session.date}}</td>
-			                <td>{{session.hourStart}}</td>
-			                <td>{{session.hourFinish}}</td>
-			                <td><button class="btn btn-danger" ng-click="removeFromMySessions($event, session.idPersonSession,session.id)" title="Remove from my sessions"><span class="glyphicon glyphicon-remove"></span></button></td>
-			            </tr>
-			        </tbody>
-		      	</table>
+				<div ng-show="showMySessions">
+					<div class="box">
+						<div ng-if="sessions.first.morning.length">
+							<div>
+								<label class="subtitle">First day at morning</label>
+							</div>
+							<table class="table table-striped">
+						        <thead>
+						            <tr>
+						                <th><label>Name</label></th>
+						                <th><label>Location</label></th>
+						                <th><label>Date</label></th>
+						                <th><label>Start time</label></th>
+						                <th><label>Finish time</label></th>
+						                <th><label>Remove</label></th>
+						            </tr>
+						        </thead>
+						        <tbody>
+						            <tr ng-repeat="session in sessions.first.morning">
+						                <td>{{session.name}}</td>
+						                <td>{{session.location}}</td>
+						                <td>{{session.date}}</td>
+						                <td>{{session.hourStart}}</td>
+						                <td>{{session.hourFinish}}</td>
+						                <td><button class="btn btn-danger" ng-click="removeFromMySessions($event, session.idPersonSession,session.id)" title="Remove from my sessions"><span class="glyphicon glyphicon-remove"></span></button></td>
+						            </tr>
+						        </tbody>
+					      	</table>
+				      	</div>
+			      	</div>
+			      	<div class="box">
+			      		<div ng-if="sessions.first.afternoon.length">
+							<div>
+								<label class="subtitle">First day at afternoon</label>
+							</div>
+							<table class="table table-striped">
+						        <thead>
+						            <tr>
+						                <th><label>Name</label></th>
+						                <th><label>Location</label></th>
+						                <th><label>Date</label></th>
+						                <th><label>Start time</label></th>
+						                <th><label>Finish time</label></th>
+						                <th><label>Remove</label></th>
+						            </tr>
+						        </thead>
+						        <tbody>
+						            <tr ng-repeat="session in sessions.first.afternoon">
+						                <td>{{session.name}}</td>
+						                <td>{{session.location}}</td>
+						                <td>{{session.date}}</td>
+						                <td>{{session.hourStart}}</td>
+						                <td>{{session.hourFinish}}</td>
+						                <td><button class="btn btn-danger" ng-click="removeFromMySessions($event, session.idPersonSession,session.id)" title="Remove from my sessions"><span class="glyphicon glyphicon-remove"></span></button></td>
+						            </tr>
+						        </tbody>
+					      	</table>
+				      	</div>
+			      	</div>
+			      	<div class="box">
+			      		<div ng-if="sessions.second.morning.length">
+							<div>
+								<label class="subtitle">Second day at morning</label>
+							</div>
+							<table class="table table-striped">
+						        <thead>
+						            <tr>
+						                <th><label>Name</label></th>
+						                <th><label>Location</label></th>
+						                <th><label>Date</label></th>
+						                <th><label>Start time</label></th>
+						                <th><label>Finish time</label></th>
+						                <th><label>Remove</label></th>
+						            </tr>
+						        </thead>
+						        <tbody>
+						            <tr ng-repeat="session in sessions.second.morning">
+						                <td>{{session.name}}</td>
+						                <td>{{session.location}}</td>
+						                <td>{{session.date}}</td>
+						                <td>{{session.hourStart}}</td>
+						                <td>{{session.hourFinish}}</td>
+						                <td><button class="btn btn-danger" ng-click="removeFromMySessions($event, session.idPersonSession,session.id)" title="Remove from my sessions"><span class="glyphicon glyphicon-remove"></span></button></td>
+						            </tr>
+						        </tbody>
+					      	</table>
+				      	</div>
+			      	</div>
+			      	<div class="box">
+			      		<div ng-if="sessions.second.afternoon.length">
+							<div>
+								<label class="subtitle">Second day at afternoon</label>
+							</div>
+							<table class="table table-striped">
+						        <thead>
+						            <tr>
+						                <th><label>Name</label></th>
+						                <th><label>Location</label></th>
+						                <th><label>Date</label></th>
+						                <th><label>Start time</label></th>
+						                <th><label>Finish time</label></th>
+						                <th><label>Remove</label></th>
+						            </tr>
+						        </thead>
+						        <tbody>
+						            <tr ng-repeat="session in sessions.second.afternoon">
+						                <td>{{session.name}}</td>
+						                <td>{{session.location}}</td>
+						                <td>{{session.date}}</td>
+						                <td>{{session.hourStart}}</td>
+						                <td>{{session.hourFinish}}</td>
+						                <td><button class="btn btn-danger" ng-click="removeFromMySessions($event, session.idPersonSession,session.id)" title="Remove from my sessions"><span class="glyphicon glyphicon-remove"></span></button></td>
+						            </tr>
+						        </tbody>
+					      	</table>
+				      	</div>
+			      	</div>
+				</div>
 	      	</div>
 	      	<div class="alert alert-info text-center box" ng-show="blockSessions">
 				All sessions will open on June 1st!
