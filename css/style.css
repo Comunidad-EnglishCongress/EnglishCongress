@@ -50,41 +50,38 @@ a:link {
     cursor: pointer;
 }
 .btn {
-    transition: 0.3s;
+    transition: 0.2s;
     font-weight: 600;
 }
 .btn:hover {
     transform: scale(1.1);
 }
 .btn-danger {
-    border: 2px solid #D74932;
+    border: 1px solid #D74932;
     background-color: transparent;
     color: black;
 }
 .btn-danger:hover {
     color: white;
     background-color: #D74932;
-    border: 2px solid #D74932;
 }
 .btn-primary {
-    border: 2px solid #337ab7;
+    border: 1px solid #337ab7;
     background-color: transparent;
     color: black;
 }
 .btn-primary:hover {
     color: white;
     background-color: #337ab7;
-    border: 2px solid #337ab7;
 }
 /*.btn-default {
-    border: 2px solid #C9C9C9;
+    border: 1px solid #C9C9C9;
     background-color: transparent;
     color: black;
 }
 .btn-default:hover {
     color: white;
     background-color: #C9C9C9;
-    border: 2px solid #C9C9C9;
 }*/
 .title {
     font-size: 25px;
@@ -117,6 +114,12 @@ a:link {
 .btn-file {
     position: relative;
     overflow: hidden;
+    background: #E6E6E6;
+}
+.btn-file:hover {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #C9C9C9;
 }
 .btn-file input[type=file] {
     position: absolute;
@@ -129,7 +132,6 @@ a:link {
     filter: alpha(opacity=0);
     opacity: 0;
     outline: none;
-    background: white;
     cursor: inherit;
     display: block;
 }

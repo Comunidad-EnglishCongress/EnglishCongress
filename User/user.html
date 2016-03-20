@@ -51,11 +51,13 @@
 							        <div class="inner">
 								        <div class="title-card">
 								        	<label class="subtitle">{{session.name}}</label>
-								        	<span class="glyphicon glyphicon-trash" ng-click="removeFromMySessions($event, session.idPersonSession,session.id)" title="Remove from my sessions"></span>
 							        	</div>
 							        	<div class="body-card">
 						      				<p class="card-text">In {{session.location}} from {{session.hourStart}} to {{session.hourFinish}}.</p>
-						      				<p class="card-text">When? {{session.date}}.</p>
+						      				<p class="card-text">
+						      					When? {{session.date}}.
+						      					<span class="glyphicon glyphicon-trash" ng-click="removeFromMySessions($event, session.idPersonSession,session.id)" title="Remove from my sessions"></span>
+					      					</p>
 						    			</div>
 							        </div>
 								</div>
@@ -72,11 +74,13 @@
 							        <div class="inner">
 								        <div class="title-card">
 								        	<label class="subtitle">{{session.name}}</label>
-								        	<span class="glyphicon glyphicon-trash" ng-click="removeFromMySessions($event, session.idPersonSession,session.id)" title="Remove from my sessions"></span>
 							        	</div>
 							        	<div class="body-card">
 						      				<p class="card-text">In {{session.location}} from {{session.hourStart}} to {{session.hourFinish}}.</p>
-						      				<p class="card-text">When? {{session.date}}.</p>
+						      				<p class="card-text">
+						      					When? {{session.date}}.
+						      					<span class="glyphicon glyphicon-trash" ng-click="removeFromMySessions($event, session.idPersonSession,session.id)" title="Remove from my sessions"></span>
+					      					</p>
 						    			</div>
 							        </div>
 								</div>
@@ -93,11 +97,13 @@
 							        <div class="inner">
 								        <div class="title-card">
 								        	<label class="subtitle">{{session.name}}</label>
-								        	<span class="glyphicon glyphicon-trash" ng-click="removeFromMySessions($event, session.idPersonSession,session.id)" title="Remove from my sessions"></span>
 							        	</div>
 							        	<div class="body-card">
 						      				<p class="card-text">In {{session.location}} from {{session.hourStart}} to {{session.hourFinish}}.</p>
-						      				<p class="card-text">When? {{session.date}}.</p>
+						      				<p class="card-text">
+						      					When? {{session.date}}.
+						      					<span class="glyphicon glyphicon-trash" ng-click="removeFromMySessions($event, session.idPersonSession,session.id)" title="Remove from my sessions"></span>
+					      					</p>
 						    			</div>
 							        </div>
 								</div>
@@ -114,11 +120,13 @@
 							        <div class="inner">
 								        <div class="title-card">
 								        	<label class="subtitle">{{session.name}}</label>
-								        	<span class="glyphicon glyphicon-trash" ng-click="removeFromMySessions($event, session.idPersonSession,session.id)" title="Remove from my sessions"></span>
 							        	</div>
 							        	<div class="body-card">
 						      				<p class="card-text">In {{session.location}} from {{session.hourStart}} to {{session.hourFinish}}.</p>
-						      				<p class="card-text">When? {{session.date}}.</p>
+						      				<p class="card-text">
+						      					When? {{session.date}}.
+						      					<span class="glyphicon glyphicon-trash" ng-click="removeFromMySessions($event, session.idPersonSession,session.id)" title="Remove from my sessions"></span>
+					      					</p>
 						    			</div>
 							        </div>
 								</div>
@@ -168,7 +176,7 @@
 			<label class="title montserrat"><span class="glyphicon glyphicon-picture"></span>&nbsp;&nbsp;Add receipt</label>
             <div class="box">
 	            <span class="btn btn-default btn-file">
-	            	<span class="glyphicon glyphicon-file"></span>
+	            	<span class="glyphicon glyphicon-folder-open"></span>&nbsp;
     				Choose file <input type="file" accept="image/*" image="image">
 				</span>
 				&nbsp;&nbsp;
