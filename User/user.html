@@ -35,9 +35,8 @@
 
 	<div ng-switch on="activeNav">
 		<div ng-switch-when="mySessions">
-			<h2><span class="glyphicon glyphicon-tasks"></span>&nbsp;&nbsp;My sessions</h2>
-			<br>
-			<table class="table table-striped">
+			<label class="title montserrat"><span class="glyphicon glyphicon-tasks"></span>&nbsp;&nbsp;My sessions</label>
+			<table class="table table-striped box">
 	        <thead>
 	            <tr>
 	                <th><h4><b>Name</b></h4></th>
@@ -61,9 +60,9 @@
 	      </table>
 		</div>
 		<div ng-switch-when="allSessions">
-			<h2><span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;All sessions</h2>
+			<label class="title montserrat"><span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;All sessions</label>
 			<br>
-			<table class="table table-striped">
+			<table class="table table-striped box">
 	        <thead>
 	            <tr>
 	                <th><h4><b>Name</b></h4></th>
@@ -90,9 +89,8 @@
 		</div>
 		<div ng-switch-when="addReceipt">
 			<div ng-show="upload" class="alert text-center" ng-class="uploadStyle">{{uploadMessage}}</div>
-			<h2><span class="glyphicon glyphicon-picture"></span>&nbsp;&nbsp;Add receipt</h2>
-			<br>
-            <div>
+			<label class="title montserrat"><span class="glyphicon glyphicon-picture"></span>&nbsp;&nbsp;Add receipt</label>
+            <div class="box">
 	            <span class="btn btn-default btn-file">
 	            	<span class="glyphicon glyphicon-file"></span>
     				Choose file <input type="file" accept="image/*" image="image">
