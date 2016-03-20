@@ -4,17 +4,21 @@
 	angular
 		.module('myApp', ['ngRoute', 'ngCookies', 'ngMaterial', 'imageupload'])
 	    .factory('Auth', Auth)
+	    .factory('dateOfLaunch', dateOfLaunch)
 	    .directive('backImg', backImg)
+	    .filter('receipt', receipt)
 	    .config(config)
 	    .run(run);
 
 	function Auth($cookies, $location) {
-	    return {
+	    var factory = {
 	        logIn: logIn,
 	        logOut: logOut,
 	        checkStatus: checkStatus,
 	        inArray: inArray
-	    }
+	    };
+
+	    return factory;
 
 	    function logIn(user) {
             $cookies.putObject('session', user);
@@ -59,6 +63,21 @@
         }
 	}
 
+	function dateOfLaunch() {
+		var factory = {
+			validate: validate
+		};
+
+		return factory;
+
+		function validate() {
+			var actualDate = new Date();
+            var congressDate = new Date('01 Jun 2016');
+            
+            return actualDate < congressDate;
+		}
+	}
+
 	function backImg() {
 		return function(scope, element, attrs) {
 			attrs.$observe('backImg', function(value) {
@@ -70,6 +89,17 @@
 			});
 		};
 	}
+
+	function receipt() {
+        var filter = function(receipt) {
+            if(receipt === '1')
+                return 'Yes';
+            else
+                return 'No';
+        }
+
+        return filter;
+    }
 
 	function config($routeProvider) {
 		$routeProvider

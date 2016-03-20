@@ -19,7 +19,7 @@
 	    		'name' => utf8_encode($row['fullName']),
 	    		'email' => $row['email'],
 	    		'phoneNumber' => $row['phoneNumber'],
-	    		'nationality' => $row['nationality'],
+	    		'workplace' => $row['workplace'],
 	    		'regionGroup' => utf8_encode($row['regionGroup']),
 	    		'receipt' => utf8_encode($row['receipt'])
 	    		);

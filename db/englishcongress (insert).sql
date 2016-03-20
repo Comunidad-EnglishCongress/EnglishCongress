@@ -61,7 +61,7 @@ CREATE TABLE IF NOT EXISTS `person` (
   `regionGroup` varchar(50) NOT NULL,
   `email` varchar(75) NOT NULL,
   `phoneNumber` varchar(15) NOT NULL,
-  `nationality` varchar(50) NOT NULL,
+  `workplace` varchar(100) NOT NULL,
   `receipt` tinyint(1) NOT NULL,
   `informed` varchar(150) NOT NULL,
   `academicDegree` varchar(150) NOT NULL,
@@ -73,9 +73,9 @@ CREATE TABLE IF NOT EXISTS `person` (
 -- Volcado de datos para la tabla `person`
 --
 
-INSERT INTO `person` (`id`, `pass`, `fullName`, `regionGroup`, `email`, `phoneNumber`, `nationality`, `receipt`, `informed`, `academicDegree`, `teachingPopulation`, `type`) VALUES
-('2-0000-0000', '827ccb0eea8a706c4c34a16891f84e7b', 'Fauricio Rojas Hernandez', 'CQ', 'fauri-94@hotmail.com', '88888888', 'Costa Rican', 0, 'Website', 'Student', 'Higher education', 'A'),
-('2-0000-0001', '827ccb0eea8a706c4c34a16891f84e7b', 'Cristian Salas Salazar', 'CQ', 'cs.salas94@gmail.com', '88888888', 'Costa Rican', 0, 'Website', 'Student', 'High school', 'U');
+INSERT INTO `person` (`id`, `pass`, `fullName`, `regionGroup`, `email`, `phoneNumber`, `workplace`, `receipt`, `informed`, `academicDegree`, `teachingPopulation`, `type`) VALUES
+('2-0000-0000', '827ccb0eea8a706c4c34a16891f84e7b', 'Fauricio Rojas Hernandez', 'CQ', 'fauri-94@hotmail.com', '88888888', 'TEC', 0, 'Website', 'Student', 'Higher education', 'A'),
+('2-0000-0001', '827ccb0eea8a706c4c34a16891f84e7b', 'Cristian Salas Salazar', 'CQ', 'cs.salas94@gmail.com', '88888888', 'TEC', 0, 'Website', 'Student', 'High school', 'U');
 
 -- --------------------------------------------------------
 

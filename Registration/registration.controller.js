@@ -18,20 +18,13 @@
         $scope.$watch('group', validate);
         $scope.$watch('email', validate);
         $scope.$watch('phone', validate);
-        $scope.$watch('nationality', validate);;
+        $scope.$watch('workplace', validate);;
         $scope.$watch('depositNumber', validate);
         $scope.$watch('informed.email', validate);
         $scope.$watch('informed.facebook', validate);
         $scope.$watch('informed.webSite', validate);
         $scope.$watch('informed.colleague', validate);
         $scope.$watch('informed.other', validate);
-        $scope.$watch('academic.student', validate);
-        $scope.$watch('academic.associate', validate);
-        $scope.$watch('academic.bachelor', validate);
-        $scope.$watch('academic.licentiate', validate);
-        $scope.$watch('academic.master', validate);
-        $scope.$watch('academic.doctorate', validate);
-        $scope.$watch('academic.other', validate);
         $scope.$watch('population.elementary', validate);
         $scope.$watch('population.highSchool', validate);
         $scope.$watch('population.higherEducation', validate);
@@ -48,9 +41,9 @@
             $scope.pass = '';
             $scope.name = '';
             $scope.group = '';
-            $scope.email = 'fauri.1994@gmail.com';
+            $scope.email = '';
             $scope.phone = '';
-            $scope.nationality = '';
+            $scope.workplace = '';
             $scope.informed = {
                 email: '',
                 facebook: '',
@@ -58,33 +51,24 @@
                 colleague: '',
                 other: ''
             };
-            $scope.academic = {
-                student: '',
-                associate: '',
-                bachelor: '',
-                licentiate: '',
-                master: '',
-                doctorate: '',
-                other: ''
-            };
+            $scope.academic = 'Student';
             $scope.population = {
                 elementary: '',
                 highSchool: '',
                 higherEducation: '',
                 other: ''
             };
-            $scope.confirmation = false;
+            $scope.agreePay = false;
+            $scope.agreeInfo = false;
         }
 
         declare();
 
         function validate() {
             if (!$scope.id.length || !$scope.pass.length || !$scope.name.length || !$scope.group.length ||
-                !$scope.email.length || !$scope.phone.length || !$scope.nationality.length || !($scope.informed.email.length || 
+                !$scope.email.length || !$scope.phone.length || !$scope.workplace.length || !($scope.informed.email.length || 
                     $scope.informed.facebook.length || $scope.informed.webSite.length || $scope.informed.colleague.length || 
-                    $scope.informed.other.length) || !($scope.academic.student.length || $scope.academic.associate.length || 
-                    $scope.academic.bachelor.length || $scope.academic.licentiate.length || $scope.academic.master.length || 
-                    $scope.academic.doctorate.length || $scope.academic.other.length) || !($scope.population.elementary.length || 
+                    $scope.informed.other.length) || !($scope.population.elementary.length || 
                     $scope.population.highSchool.length || $scope.population.higherEducation.length || $scope.population.other.length)) {
                 $scope.emptyData = true;
             } else { // Habilita
@@ -96,21 +80,6 @@
             var string = '';
             var array = [$scope.informed.email, $scope.informed.facebook, $scope.informed.webSite,
                 $scope.informed.colleague, $scope.informed.other
-            ];
-
-            array.forEach(function(value) {
-                if (value !== '')
-                    string += value + ', ';
-            });
-
-            return string.slice(0, string.length - 2);
-        }
-
-        function concatAcademic() {
-            var string = '';
-            var array = [$scope.academic.student, $scope.academic.associate, $scope.academic.bachelor,
-                $scope.academic.licentiate, $scope.academic.master, $scope.academic.doctorate,
-                $scope.academic.other
             ];
 
             array.forEach(function(value) {
@@ -160,9 +129,9 @@
                 regionGroup: $scope.group,
                 email: $scope.email,
                 phone: $scope.phone,
-                nationality: $scope.nationality,
+                workplace: $scope.workplace,
                 informed: concatInformed(),
-                academic: concatAcademic(),
+                academic: $scope.academic,
                 population: concatPopulation(),
                 type: "U",
                 action: "insert"

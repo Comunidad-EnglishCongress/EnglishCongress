@@ -9,14 +9,14 @@
 		$regionGroup = utf8_decode($_REQUEST['regionGroup']);
 		$email = $_REQUEST['email'];
 		$phone = $_REQUEST['phone'];
-		$nationality = $_REQUEST['nationality'];
+		$workplace = $_REQUEST['workplace'];
 		$informed = $_REQUEST['informed'];
 		$academic = $_REQUEST['academic'];
 		$population = $_REQUEST['population'];
 		$type = $_REQUEST['type'];
 
-		$query = "INSERT INTO Person (id, pass, fullName, regionGroup, email, phoneNumber, nationality, receipt, informed, academicDegree, teachingPopulation, type)
-		                       VALUES('$id','$pass','$fullName','$regionGroup','$email','$phone','$nationality', 0,'$informed',\"$academic\",'$population','$type')";
+		$query = "INSERT INTO Person (id, pass, fullName, regionGroup, email, phoneNumber, workplace, receipt, informed, academicDegree, teachingPopulation, type)
+		                       VALUES('$id','$pass','$fullName','$regionGroup','$email','$phone','$workplace', 0,'$informed',\"$academic\",'$population','$type')";
 		$result = $conn->query($query);
 
 		echo true;

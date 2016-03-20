@@ -49,7 +49,7 @@ CREATE TABLE IF NOT EXISTS `person` (
   `regionGroup` varchar(50) NOT NULL,
   `email` varchar(75) NOT NULL,
   `phoneNumber` varchar(15) NOT NULL,
-  `nationality` varchar(50) NOT NULL,
+  `workplace` varchar(100) NOT NULL,
   `receipt` tinyint(1) NOT NULL,
   `informed` varchar(150) NOT NULL,
   `academicDegree` varchar(150) NOT NULL,

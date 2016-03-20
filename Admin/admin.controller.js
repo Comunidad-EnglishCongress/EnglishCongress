@@ -7,6 +7,7 @@
 
 	function adminCtrl($scope, $http, $timeout, $location, $cookies, Auth) {
 		$scope.admin = $cookies.getObject('session');
+		$scope.admin.name = $scope.admin.fullName.split(' ')[0];
 		$scope.activeNav = '';
 		$scope.error = false;
 

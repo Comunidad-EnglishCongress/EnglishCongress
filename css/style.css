@@ -1,5 +1,7 @@
 body {
-    font-family: 'Lato', sans-serif;
+    /*font-family: 'Lato', sans-serif;*/
+    /*font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;*/
+    font-family: Verdana, Geneva, sans-serif;
 	font-size: 16px;
 	text-align: justify;
     
@@ -30,6 +32,9 @@ body {
 }
 a:link {   
     text-decoration: none;   
+}
+.alert a {
+    color: #DC143C;
 }
 .infoContent .block .icon-social{
     font-size: 30px;
@@ -164,17 +169,10 @@ footer {
     overflow: hidden;
     margin-top: 20px;
 }
-footer ul {
-    list-style: none;
-}
-footer ul li {
-    display: inline-block;
-    margin-right: 5px;
-}
-footer ul li a {
+footer p a {
     color: #666;
 }
-footer ul li a:hover {
+footer p a:hover {
     color: #666;
     text-decoration: underline;
 }
@@ -193,6 +191,17 @@ footer ul li a:hover {
     display: inline-block;
 }
 
+@media screen and (min-width: 240px) {
+    .circle {
+        border-radius: 50%;
+        width: 250px;
+        height: 250px;
+    }
+    table {
+        overflow-x: auto;
+        display: block;
+    }
+}
 @media screen and (min-width: 360px) {
     .circle {
         border-radius: 50%;
@@ -259,15 +268,16 @@ footer ul li a:hover {
 }
 
 /* style icon */
-.inner-addon .glyphicon {
+.inner-addon .glyphicon, .inner-addon .fa {
   position: absolute;
   padding: 10px;
   pointer-events: none;
+  color: #B3B3B3;
 }
 
 /* align icon */
-.left-addon .glyphicon  { left:  0px;}
-.right-addon .glyphicon { right: 0px;}
+.left-addon .glyphicon, .left-addon .fa  { left:  0px;}
+.right-addon .glyphicon, .right-addon .fa { right: 0px;}
 
 /* add padding  */
 .left-addon input  { padding-left:  30px; }

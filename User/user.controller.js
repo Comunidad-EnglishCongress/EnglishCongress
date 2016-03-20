@@ -5,8 +5,9 @@
         .module('myApp')
         .controller('userCtrl', userCtrl);
 
-    function userCtrl($scope, $http, $timeout, $location, $cookies, $mdDialog, $mdMedia, Auth) {
+    function userCtrl($scope, $http, $timeout, $location, $cookies, $mdDialog, $mdMedia, Auth, dateOfLaunch) {
         $scope.user = $cookies.getObject('session');
+        $scope.user.name = $scope.user.fullName.split(' ')[0];
         $scope.activeNav = '';
         $scope.remove = false;
         $scope.add = false;
@@ -16,6 +17,7 @@
         $scope.upload = false;
         $scope.uploadStyle = '';
         $scope.uploadMessage = '';
+        $scope.blockSessions = dateOfLaunch.validate();
 
         $scope.logOut = logOut;
         $scope.loadMySessions = loadMySessions;
@@ -43,6 +45,7 @@
                 params: indata
             })
             .success(function(response) {
+
                 if(typeof(response) == 'object') {
                     $scope.sessions = response;
                 }

@@ -16,7 +16,7 @@
                 <li ng-click="loadPersons()"><a class="first">ALL PERSONS</a></li>
                 <li ng-click="loadSessions()"><a>ALL SESSIONS</a></li>
                 <li class="dropdown">
-                    <a href="" class="dropdown-toggle" data-toggle="dropdown">{{admin.fullName | uppercase}} <b class="caret"></b></a>
+                    <a href="" class="dropdown-toggle" data-toggle="dropdown">{{admin.name | uppercase}} <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li ng-click="logOut()"><a><span class="glyphicon glyphicon-off"></span>&nbsp;&nbsp;LOG OUT</a></li>
                     </ul>
@@ -37,7 +37,7 @@
                     <th><label class="subtitle">Date</label></th>
                     <th><label class="subtitle">Start time</label></th>
                     <th><label class="subtitle">Finish time</label></th>
-                    <th><label class="subtitle">Capacity</label></th>
+                    <th><label class="subtitle">Availability</label></th>
                 </tr>
             </thead>
             <tbody>
@@ -47,7 +47,7 @@
                     <td>{{session.date}}</td>
                     <td>{{session.hourStart}}</td>
                     <td>{{session.hourFinish}}</td>
-                    <td>{{session.capacity}}/{{session.maxCapacity}}</td>
+                    <td>{{session.capacity}} of {{session.maxCapacity}}</td>
                 </tr>
             </tbody>
       </table>
@@ -62,14 +62,15 @@
                 </div>  
             </div>
         </div>
+        <br>
 		<table class="table table-striped box">
             <thead>
                 <tr>
                     <th><label class="subtitle">ID</label></th>
                     <th><label class="subtitle">Name</label></th>
                     <th><label class="subtitle">Email</label></th>
-                    <th><label class="subtitle">Phone number</label></th>
-                    <th><label class="subtitle">Nationality</label></th>
+                    <th><label class="subtitle">Phone</label></th>
+                    <th><label class="subtitle">Workplace</label></th>
                     <th><label class="subtitle">Place</label></th>
                     <th><label class="subtitle">Receipt</label></th>
                 </tr>
@@ -80,9 +81,9 @@
                     <td>{{person.name}}</td>
                     <td>{{person.email}}</td>
                     <td>{{person.phoneNumber}}</td>
-                    <td>{{person.nationality}}</td>
+                    <td>{{person.workplace}}</td>
                     <td>{{person.regionGroup}}</td>
-                    <td>{{person.receipt}}</td>
+                    <td>{{person.receipt | receipt}}</td>
                 </tr>
             </tbody>
       </table>

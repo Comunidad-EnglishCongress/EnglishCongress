@@ -16,7 +16,7 @@
     			<li ng-click="loadMySessions();"><a class="first">MY SESSIONS</a></li>
 		        <li ng-click="loadAllSessions();"><a>ALL SESSIONS</a></li>
 		        <li class="dropdown">
-		        	<a href="" class="dropdown-toggle" data-toggle="dropdown">{{user.fullName | uppercase}} <b class="caret"></b></a>
+		        	<a href="" class="dropdown-toggle" data-toggle="dropdown">{{user.name | uppercase}} <b class="caret"></b></a>
 		        	<ul class="dropdown-menu">
 		        		<li ng-if="user.receipt == '0'" ng-click="changeReceipt();"><a><span class="glyphicon glyphicon-picture"></span>&nbsp;&nbsp;ADD RECEIPT</a></li>
 		          		<li ng-click="logOut();"><a><span class="glyphicon glyphicon-log-out"></span>&nbsp;&nbsp;LOG OUT</a></li>
@@ -35,57 +35,69 @@
 
 	<div ng-switch on="activeNav">
 		<div ng-switch-when="mySessions">
-			<label class="title montserrat"><span class="glyphicon glyphicon-tasks"></span>&nbsp;&nbsp;My sessions</label>
-			<table class="table table-striped box">
-	        <thead>
-	            <tr>
-	                <th><h4><b>Name</b></h4></th>
-	                <th><h4><b>Location</b></h4></th>
-	                <th><h4><b>Date</b></h4></th>
-	                <th><h4><b>Start time</b></h4></th>
-	                <th><h4><b>Finish time</b></h4></th>
-	                <th><h4><b>Remove from my sessions</b></h4></th>
-	            </tr>
-	        </thead>
-	        <tbody>
-	            <tr ng-repeat="session in sessions">
-	                <td>{{session.name}}</td>
-	                <td>{{session.location}}</td>
-	                <td>{{session.date}}</td>
-	                <td>{{session.hourStart}}</td>
-	                <td>{{session.hourFinish}}</td>
-	                <td><button class="btn btn-danger" ng-click="removeFromMySessions($event, session.idPersonSession,session.id)"><span class="glyphicon glyphicon-remove"></span></button></td>
-	            </tr>
-	        </tbody>
-	      </table>
+			<label class="title montserrat">My sessions</label>
+			<div ng-show="!blockSessions">
+				<div class="alert alert-info text-center box" ng-show="!sessions.length">
+					Your sessions part is empty, please click <a href="" ng-click="loadAllSessions();">here</a> to register to the sessions.
+				</div>
+				<table class="table table-striped box" ng-show="sessions.length">
+			        <thead>
+			            <tr>
+			                <th><label class="subtitle">Name</label></th>
+			                <th><label class="subtitle">Location</label></th>
+			                <th><label class="subtitle">Date</label></th>
+			                <th><label class="subtitle">Start time</label></th>
+			                <th><label class="subtitle">Finish time</label></th>
+			                <th><label class="subtitle">Remove</label></th>
+			            </tr>
+			        </thead>
+			        <tbody>
+			            <tr ng-repeat="session in sessions">
+			                <td>{{session.name}}</td>
+			                <td>{{session.location}}</td>
+			                <td>{{session.date}}</td>
+			                <td>{{session.hourStart}}</td>
+			                <td>{{session.hourFinish}}</td>
+			                <td><button class="btn btn-danger" ng-click="removeFromMySessions($event, session.idPersonSession,session.id)" title="Remove from my sessions"><span class="glyphicon glyphicon-remove"></span></button></td>
+			            </tr>
+			        </tbody>
+		      	</table>
+	      	</div>
+	      	<div class="alert alert-info text-center box" ng-show="blockSessions">
+				All sessions will open on June 1st!
+			</div>
 		</div>
 		<div ng-switch-when="allSessions">
 			<label class="title montserrat"><span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;All sessions</label>
-			<br>
-			<table class="table table-striped box">
-	        <thead>
-	            <tr>
-	                <th><h4><b>Name</b></h4></th>
-	                <th><h4><b>Location</b></h4></th>
-	                <th><h4><b>Date</b></h4></th>
-	                <th><h4><b>Start time</b></h4></th>
-	                <th><h4><b>Finish time</b></h4></th>
-	                <th><h4><b>Capacity</b></h4></th>
-	                <th><h4><b>Add to my sessions</b></h4></th>
-	            </tr>
-	        </thead>
-	        <tbody>
-	            <tr ng-repeat="session in sessions">
-	                <td>{{session.name}}</td>
-	                <td>{{session.location}}</td>
-	                <td>{{session.date}}</td>
-	                <td>{{session.hourStart}}</td>
-	                <td>{{session.hourFinish}}</td>
-	                <td>{{session.capacity}}/{{session.maxCapacity}}</td>
-	                <td><button class="btn btn-primary" ng-click="addToMySessions(session.id)"><span class="glyphicon glyphicon-ok"></span></button></td>
-	            </tr>
-	        </tbody>
-	      </table>
+			<div ng-show="!blockSessions">
+				<table class="table table-striped box">
+			        <thead>
+			            <tr>
+			                <th><label class="subtitle">Name</label></th>
+			                <th><label class="subtitle">Location</label></th>
+			                <th><label class="subtitle">Date</label></th>
+			                <th><label class="subtitle">Start time</label></th>
+			                <th><label class="subtitle">Finish time</label></th>
+			                <th><label class="subtitle">Availability</label></th>
+			                <th><label class="subtitle">Add</label></th>
+			            </tr>
+			        </thead>
+			        <tbody>
+			            <tr ng-repeat="session in sessions">
+			                <td>{{session.name}}</td>
+			                <td>{{session.location}}</td>
+			                <td>{{session.date}}</td>
+			                <td>{{session.hourStart}}</td>
+			                <td>{{session.hourFinish}}</td>
+			                <td>{{session.capacity}}</td>
+			                <td><button class="btn btn-primary" ng-click="addToMySessions(session.id)" title="Add to my sessions"><span class="glyphicon glyphicon-ok"></span></button></td>
+			            </tr>
+			        </tbody>
+		      </table>
+	        </div>
+	        <div class="alert alert-info text-center box" ng-show="blockSessions">
+				All sessions will open on June 1st!
+			</div>
 		</div>
 		<div ng-switch-when="addReceipt">
 			<div ng-show="upload" class="alert text-center" ng-class="uploadStyle">{{uploadMessage}}</div>
