@@ -71,7 +71,7 @@
 		return factory;
 
 		function validate() {
-			var actualDate = new Date();
+			var actualDate = new Date('01 Jun 2016');
             var congressDate = new Date('01 Jun 2016');
             
             return actualDate < congressDate;
