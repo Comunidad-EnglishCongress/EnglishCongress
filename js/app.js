@@ -2,9 +2,8 @@
 	'use strict';
 
 	angular
-		.module('myApp', ['ngRoute', 'ngCookies', 'ngMaterial', 'imageupload'])
+		.module('congressApp', ['ngRoute', 'ngCookies', 'ngMaterial', 'imageupload'])
 	    .factory('Auth', Auth)
-	    .factory('dateOfLaunch', dateOfLaunch)
 	    .directive('backImg', backImg)
 	    .filter('receipt', receipt)
 	    .config(config)
@@ -61,21 +60,6 @@
             }
             return false;
         }
-	}
-
-	function dateOfLaunch() {
-		var factory = {
-			validate: validate
-		};
-
-		return factory;
-
-		function validate() {
-			var actualDate = new Date('01 Jun 2016');
-            var congressDate = new Date('01 Jun 2016');
-            
-            return actualDate < congressDate;
-		}
 	}
 
 	function backImg() {

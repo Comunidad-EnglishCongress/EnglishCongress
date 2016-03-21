@@ -7,26 +7,28 @@
 	                <label class="title"><span class="glyphicon glyphicon-log-in"></span>&nbsp;&nbsp;Log in</label>
 	            </div>
 	            <div class="modal-body">
-	                <form role="form">
-	                    <div class="form-group">
-	                        <div class="inner-addon right-addon">
+	            	<form name="formLogin" class="form-login form-horizontal" novalidate="">
+			            <div class="margin-login">
+			            	<div class="inner-addon right-addon">
 			                    <i class="glyphicon glyphicon-envelope"></i>
-			                    <input ng-model="email" ng-keydown="enterLogin($event);" type="text" class="form-control" placeholder="E-mail address">
+			                    <input type="text" id="inputEmail" class="form-control" name="inputEmail" placeholder="E-mail address" ng-model="email" ng-required="true">
 			                </div>
-	                    </div> 
-	                    <div class="form-group">
+			                <span class="help-inline red" ng-show="formLogin.inputEmail.$invalid && formLogin.inputEmail.$touched">E-mail address is required.</span>
+			            </div>
+			            <div class="margin-login">
 	                        <div class="inner-addon right-addon">
 			                    <i class="fa fa-key"></i>
-			                    <input ng-model="pass" ng-keydown="enterLogin($event);" type="password" class="form-control" placeholder="Password">
+			                    <input type="password" id="inputPass" class="form-control" name="inputPass" placeholder="Password" ng-model="pass" ng-required="true">
 			                </div>
-	                    </div>
-	                </form>
-	            </div>
-	            <div class="modal-footer">
-	            	<div ng-show="errorLogin" class="alert alert-danger text-center">The email or password is incorrect.</div>
-	            	<div ng-show="error" class="alert alert-danger text-center">An unexpected error has occurred. Please try again.</div>
-	            	<button id="closeLogIn" type="button" class="btn btn-danger" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;Cancel</button>
-	                <button type="button" class="btn btn-primary" ng-disabled="emptyData" data-ng-click="login(); $event.stopPropagation()"><span class="glyphicon glyphicon-log-in"></span>&nbsp;&nbsp;Log in</button>
+			                <span class="help-inline red" ng-show="formLogin.inputPass.$invalid && formLogin.inputPass.$touched">Password is required.</span>
+			            </div>
+			            <div class="modal-footer">
+			            <div ng-show="errorLogin" class="alert alert-danger text-center">The email or password is incorrect.</div>
+		            	<div ng-show="error" class="alert alert-danger text-center">An unexpected error has occurred. Please try again.</div>
+		            	<button id="closeLogIn" type="button" class="btn btn-danger" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;Cancel</button>
+		                <button class="btn btn-primary" ng-disabled="formLogin.$invalid" data-ng-click="login(); $event.stopPropagation()"><span class="glyphicon glyphicon-log-in"></span>&nbsp;&nbsp;Log in</button>
+		                </div>
+			        </form>
 	            </div>
 	        </div>
 	    </div>

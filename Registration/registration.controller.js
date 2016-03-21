@@ -2,10 +2,10 @@
     'use strict';
 
     angular
-        .module('myApp')
+        .module('congressApp')
         .controller('registrationCtrl', registrationCtrl);
 
-    function registrationCtrl($scope, $http, $timeout) {
+    function registrationCtrl($scope, $timeout, registrationFactory) {
         $scope.registrationOk = false;
         $scope.registrationError = false;
         $scope.groupError = false;
@@ -105,24 +105,20 @@
         }
 
         function decrementCapacity() {
-            var indata = {
+            var data = {
                 action: "decrement",
                 group: $scope.group
             };
 
-            $http({
-                    url: "./Registration/registration.model.php",
-                    method: "POST",
-                    params: indata
-                })
-            .success(function(response) {});
+            registrationFactory.decrementCapacity(data)
+            .then(function(response) {});
         }
 
         function registration() {
             $scope.registrationOk = false;
             $scope.registrationError = false;
             $scope.groupError = false;
-            var indata = {
+            var data = {
                 id: $scope.id,
                 pass: calcMD5($scope.pass),
                 fullName: $scope.name,
@@ -137,12 +133,8 @@
                 action: "insert"
             };
 
-            $http({
-                url: "./Registration/registration.model.php",
-                method: "POST",
-                params: indata
-            })
-            .success(function(response) {
+            registrationFactory.registration(data)
+            .then(function(response) {
                 if (response == true) {
                     decrementCapacity();
                     $scope.registrationOk = true;
@@ -160,17 +152,13 @@
 
         function validateId() {
             $scope.errorId = false;
-            var indata = {
+            var data = {
                 action: "validateId",
                 id: $scope.id
             };
 
-            $http({
-                    url: "./Registration/registration.model.php",
-                    method: "POST",
-                    params: indata
-                })
-            .success(function(response) {
+            registrationFactory.validateId(data)
+            .then(function(response) {
                 if(typeof(response) == 'string') {
                     $scope.errorId = true;
                     $scope.messageId = 'An unexpected error occurred while identification is validated. Please try again.';
@@ -184,31 +172,27 @@
 
         function validateEmail() {
             $scope.errorEmail = false;
-			if( !/^([\da-z_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/.test($scope.email)){
+			if(!/^([\da-z_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/.test($scope.email)) {
 				$scope.errorEmail = true;
                 $scope.messageEmail = 'E-mail address has a wrong format.';
 			}
-			else{
-				var indata = {
+			else {
+				var data = {
 					action: "validateEmail",
 					email: $scope.email
 				};
 
-				$http({
-						url: "./Registration/registration.model.php",
-						method: "POST",
-						params: indata
-					})
-				.success(function(response) {
-					if(typeof(response) == 'string') {
-						$scope.errorEmail = true;
-						$scope.messageEmail = 'An unexpected error occurred while e-mail address is validated. Please try again.';
-					}
-					else if (response[0]) {
-						$scope.errorEmail = true;
-						$scope.messageEmail = 'E-mail address is already registered.';
-					}
-				});
+                registrationFactory.validateEmail(data)
+                .then(function(response) {
+                    if(typeof(response) == 'string') {
+                        $scope.errorEmail = true;
+                        $scope.messageEmail = 'An unexpected error occurred while e-mail address is validated. Please try again.';
+                    }
+                    else if (response[0]) {
+                        $scope.errorEmail = true;
+                        $scope.messageEmail = 'E-mail address is already registered.';
+                    }
+                });
 			}
         }
 
@@ -216,17 +200,13 @@
             $scope.errorGroup = false;
             
             if($scope.group !== '') {
-                var indata = {
+                var data = {
                     action: "validateGroup",
                     group: $scope.group
                 };
 
-                $http({
-                        url: "./Registration/registration.model.php",
-                        method: "POST",
-                        params: indata
-                    })
-                .success(function(response) {
+                registrationFactory.validateGroup(data)
+                .then(function(response) {
                     if (typeof(response) == 'string') {
                         $scope.errorGroup = true;
                         $scope.messageGroup = 'An unexpected error occurred while group is validated. Please try again.';

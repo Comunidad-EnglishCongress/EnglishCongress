@@ -9,6 +9,13 @@ body {
 .montserrat {
     font-family: 'Montserrat', sans-serif;
 }
+.red {
+    color: #E74C3C;
+    font-size: 14px;
+}
+.margin-login {
+    margin-bottom: 10px;
+}
 
 /* Flecha ir arriba */
 .fa-arrow-up {

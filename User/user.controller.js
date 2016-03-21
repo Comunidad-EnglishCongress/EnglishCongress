@@ -2,10 +2,10 @@
     'use strict';
 
     angular
-        .module('myApp')
+        .module('congressApp')
         .controller('userCtrl', userCtrl);
 
-    function userCtrl($scope, $http, $timeout, $location, $cookies, $mdDialog, $mdMedia, Auth, dateOfLaunch) {
+    function userCtrl($scope, $timeout, $cookies, $mdDialog, Auth, userFactory) {
         $scope.user = $cookies.getObject('session');
         $scope.user.name = $scope.user.fullName.split(' ')[0];
         $scope.activeNav = '';
@@ -18,7 +18,7 @@
         $scope.showMySessions = false;
         $scope.uploadStyle = '';
         $scope.uploadMessage = '';
-        $scope.blockSessions = dateOfLaunch.validate();
+        $scope.blockSessions = userFactory.dateOfLaunch();
 
         $scope.logOut = logOut;
         $scope.loadMySessions = loadMySessions;
@@ -35,18 +35,14 @@
 
         function loadMySessions() {
             $scope.activeNav = 'mySessions';
-            var indata = {
+            var data = {
                 idPerson: $scope.user.id,
                 action: "mySessions"
             };
 
-            $http({
-                url: "./User/user.model.php",
-                method: "POST",
-                params: indata
-            })
-            .success(function(response) {
-                if(typeof(response) == 'object') {
+            userFactory.loadMySessions(data)
+            .then(function(response) {
+                 if(typeof(response) == 'object') {
                     if(response.length) {
                         sortList(response);
                         $scope.showMySessions = true;
@@ -62,16 +58,12 @@
 
         function loadAllSessions() {
             $scope.activeNav = 'allSessions';
-            var indata = {
+            var data = {
                 action: "allSessions"
-            };	
+            };
 
-            $http({
-                url: "./User/user.model.php",
-                method: "POST",
-                params: indata
-            })
-            .success(function(response) {
+            userFactory.loadAllSessions(data)
+            .then(function(response) {
                 if(typeof(response) == 'object') {
                     $scope.sessions = response;
                 }
@@ -91,32 +83,24 @@
             .cancel('No');
             
             $mdDialog.show(confirm).then(function() {
-                var indata = {
+                var data = {
                     id: id,
                     idSession: idSession,
                     action: "remove"
                 };
 
-                $http({
-                    url: "./User/user.model.php",
-                    method: "POST",
-                    params: indata
-                })            
-                .success(function(response) {
+                userFactory.removeFromMySessions(data)
+                .then(function(response) {
                     if (response == true) {
                         loadMySessions();
                         
-                        indata = {
+                        data = {
                             id: idSession,
                             action: "increment"
                         };
 
-                        $http({
-                            url: "./User/user.model.php",
-                            method: "POST",
-                            params: indata
-                        })                                                  
-                        .success(function(response) {
+                        userFactory.increment(data)
+                        .then(function(response) {
                             $scope.remove = true;
 
                             $timeout(function() {
@@ -128,24 +112,18 @@
                         errorConnection();
                     }
                 });
-            }, function() {
-                
-            });
+            }, function() {});
         }
 
         function addToMySessions(idSession) {
-			var indata = {
+			var data = {
 				idPerson:  $scope.user.id,
 				idSession: idSession,
 				action: "add"
 			};
 
-			$http({
-				url: "./User/user.model.php",
-				method: "POST",
-				params: indata
-			})            
-            .success(function(response) {
+            userFactory.addToMySessions(data)
+            .then(function(response) {
                 if (response === 'exists') {
                     $scope.repeatSession = true;
 
@@ -161,17 +139,13 @@
                     }, 5000);
                 } 
                 else if (response == true) {
-					indata = {
-						id: idSession,
-						action: "decrement"
-					}
+                    data = {
+                        id: idSession,
+                        action: "decrement"
+                    };
 
-					$http({
-						url: "./User/user.model.php",
-						method: "POST",
-						params: indata
-					})                        
-                    .success(function(response) {
+                    userFactory.decrement(data)
+                    .then(function(response) {
                         loadAllSessions();
                         $scope.add = true;
 
@@ -207,11 +181,8 @@
             var formData = new FormData();
             formData.append('file', file.file);
 
-            $http.post(uploadUrl, formData, {
-                transformRequest: angular.identity,
-                headers: {'Content-Type': undefined}
-            })
-            .success(function(response){
+            userFactory.uploadReceipt(uploadUrl, formData)
+            .then(function(response) {
                 $scope.upload = true;
 
                 if(response === 'success') {
@@ -222,15 +193,6 @@
                     $scope.uploadStyle = 'alert-danger';
                     $scope.uploadMessage = 'An error occurred when the image is uploaded.';
                 }
-
-                $timeout(function() {
-                    $scope.upload = false;
-                }, 5000);
-            })
-            .error(function(err){
-                $scope.upload = true;
-                $scope.uploadStyle = 'alert-danger';
-                $scope.uploadMessage = 'An error occurred when the image is uploaded. Please try again.';
 
                 $timeout(function() {
                     $scope.upload = false;

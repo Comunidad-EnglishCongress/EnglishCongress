@@ -2,10 +2,10 @@
 	'use strict';
 
 	angular
-		.module('myApp')
+		.module('congressApp')
 		.controller('adminCtrl', adminCtrl); 
 
-	function adminCtrl($scope, $http, $timeout, $location, $cookies, Auth) {
+	function adminCtrl($scope, $timeout, $cookies, Auth, adminFactory) {
 		$scope.admin = $cookies.getObject('session');
 		$scope.admin.name = $scope.admin.fullName.split(' ')[0];
 		$scope.activeNav = '';
@@ -22,16 +22,12 @@
 
 		function loadSessions() {
 			$scope.activeNav = 'sessions';
-			var indata = {
+			var data = {
 				action: "sessions"
 			};
 
-			$http({
-				url: "./Admin/admin.model.php",
-				method: "POST",
-				params: indata
-			})			
-			.success(function(response) {
+			adminFactory.loadSessions(data)
+			.then(function(response) {
 				if(typeof(response) == 'object') {
 					$scope.sessions = response;
 				}
@@ -43,23 +39,19 @@
 
 		function loadPersons() {
 			$scope.activeNav = 'persons';
-			var indata = {
+			var data = {
 				action: "persons"				
 			};
-			
-			$http({
-				url: "./Admin/admin.model.php",
-				method: "POST",
-				params: indata
-			})			
-			.success(function(response) {
+
+			adminFactory.loadPersons(data)
+			.then(function(response) {
 				if(typeof(response) == 'object') {
                 	$scope.persons = response;
 				}
 				else {
 					errorConnection();
 				}
-            });	
+			});
 		}
 
 		function errorConnection() {
@@ -70,12 +62,12 @@
             }, 5000);
         }
 
-		loadPersons();
-
 		function goTop() {
 			$('html, body').animate({
 	            scrollTop: 0
 	        }, 500);
 		}
+
+		loadPersons();
 	}
 })();
