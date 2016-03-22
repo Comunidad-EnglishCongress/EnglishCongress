@@ -6,11 +6,11 @@
         .controller('registrationCtrl', registrationCtrl);
 
     function registrationCtrl($scope, $timeout, registrationFactory) {
+        $scope.typeInputPass = 'password';
         $scope.registrationOk = false;
         $scope.registrationError = false;
         $scope.groupError = false;
         $scope.emptyData = false;
-        $scope.declare = declare;
 
         $scope.$watch('id', validate);
         $scope.$watch('pass', validate);
@@ -30,11 +30,13 @@
         $scope.$watch('population.higherEducation', validate);
         $scope.$watch('population.other', validate);
 
+        $scope.declare = declare;
         $scope.registration = registration;
         $scope.validateId = validateId;
         $scope.validateEmail = validateEmail;
         $scope.validateGroup = validateGroup;
 		$scope.validatePhone = validatePhone;
+        $scope.showPass = showPass;
 
         function declare() {			
             $scope.id = '';
@@ -226,6 +228,13 @@
 				$scope.errorPhone = true;
 				$scope.messagePhone = "The phone number has a wrong format. It must be only numbers."
 			}
-		};
+		}
+
+        function showPass() {
+            if($scope.checkPass)
+                $scope.typeInputPass = 'text';
+            else
+                $scope.typeInputPass = 'password';
+        }
     }
 })();

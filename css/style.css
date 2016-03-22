@@ -16,6 +16,9 @@ body {
 .margin-login {
     margin-bottom: 10px;
 }
+.input-group {
+    margin-top: -11px;
+}
 
 /* Flecha ir arriba */
 .fa-arrow-up {
@@ -53,7 +56,7 @@ a:link {
 	border-bottom: 1px solid black;
     margin-bottom: 20px;
 }
-.navbar-nav > li, select, .panel-title {
+.navbar-nav > li, select, .panel-title, input[type=checkbox] {
     cursor: pointer;
 }
 .btn {
@@ -272,7 +275,7 @@ footer p a:hover {
 
 /* Addons */
 /* enable absolute positioning */
-.inner-addon { 
+.inner-addon {
     position: relative; 
 }
 

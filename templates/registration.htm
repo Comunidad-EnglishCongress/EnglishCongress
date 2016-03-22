@@ -13,7 +13,12 @@
 		<div class="col-md-6">
 		    <p>
 		        <label>Password</label>
-		        <input ng-model="pass" class="form-control" type="password">
+		        <div class="input-group">
+					<input ng-model="pass" class="form-control" type="{{typeInputPass}}">
+				  	<span class="input-group-addon">
+			        	<input type="checkbox" value="true" ng-model="checkPass" ng-click="showPass();" title="Show password">
+			      	</span>
+				</div>
 		    </p>
 		</div>
 	</div>
