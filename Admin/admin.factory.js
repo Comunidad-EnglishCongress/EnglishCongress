@@ -5,6 +5,7 @@
 		.module('congressApp')
 		.factory('adminFactory', adminFactory);
 
+	adminFactory.$inject = ['$http', '$q'];
 	function adminFactory($http, $q) {
 		var data = {
 			loadSessions: loadSessions,
@@ -13,9 +14,15 @@
 
 		return data;
 
+		/*
+		* Gets all sessions from the database.
+		*
+ 		* @param
+ 		* 	data: Object with information about the action to realize in the model.
+ 		* @return Array with the sessions.
+ 		*/
 		function loadSessions(data) {
 			var defered = $q.defer();
-			var promise = defered.promise;
 
 			$http({
 				url: "./Admin/admin.model.php",
@@ -29,12 +36,17 @@
 				defered.reject(err);
 			});
 
-			return promise;
+			return defered.promise;
 		}
 
+		/* 
+		* Gets all the persons from the database.
+ 		* @param
+ 		* 	data: Object with information about the action to realize in the model.
+ 		* @return Array with the persons.
+ 		*/
 		function loadPersons(data) {
 			var defered = $q.defer();
-			var promise = defered.promise;
 			
 			$http({
 				url: "./Admin/admin.model.php",
@@ -48,7 +60,7 @@
             	defered.reject(err);
             });	
 
-            return promise;
+            return defered.promise;
 		}
 	}
 

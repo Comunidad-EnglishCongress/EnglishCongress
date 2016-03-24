@@ -2,6 +2,12 @@
 	
 	require '../db/connection.php';
 
+	/**
+	* Selects all the sessions from the database that have capacity more than 0.
+	*
+	* @param Connection $conn Connection with the database.
+	* @return JSON Information of the sessions.
+	*/
 	function loadAllSessions($conn) {
 		$JSON = array();
 		$array_data = array();
@@ -29,20 +35,32 @@
 		echo json_encode($JSON);
 	}
 
+	/**
+	* Insert in the database a session to the sessions of a user.
+	*
+	* @param Connection $conn Connection with the database.
+	* @return boolean true Inserted successfuly.
+	*         string The session crashed with another session of the user.
+	*         string The session exists in the sessions of the user.
+	*/
 	function addToMySessions($conn) {
+		// Gets the person ID and session ID received from the user factory.
 		$idPerson = $_REQUEST['idPerson'];
 		$idSession = $_REQUEST['idSession'];
 
+		// Verifies the person don't have the session
 		$query1 = "SELECT id FROM personsession WHERE idPerson='$idPerson' AND idSession=$idSession";
 		$result1 = $conn->query($query1);
 		$result1 = mysqli_fetch_row($result1);
 
+		// Verifies that the select query returns anything.
 		if($result1) {
 			echo "exists";
 		}
-		else {
+		else { // If the select query returns nothing.
 			$crash = false;
 
+			// Get the session with the session ID received from the user factory.
 			$query2 = "SELECT id,name,date,hourStart,hourFinish FROM session WHERE id=$idSession";
 			$result2 = $conn->query($query2);
 			$result2 = mysqli_fetch_row($result2);
@@ -74,10 +92,17 @@
 		}
 	}
 
+	/**
+	* Selects all the sessions of a user from the database.
+	*
+	* @param Connection $conn Connection with the database.
+	* @return JSON Information of the sessions.
+	*/
 	function loadMySessions($conn) {
 		$JSON = array();
 		$array_data = array();
 
+		// Gets the person ID received from the user factory.
 		$idPerson = $_REQUEST['idPerson'];
 
 		$query = "SELECT S.id, S.name, S.location, S.date, S.hourStart, S.hourFinish, PC.id as idPersonSession FROM session as S INNER JOIN personsession as PC ON PC.idSession=S.id WHERE PC.idPerson='$idPerson'";
@@ -102,7 +127,14 @@
 		echo json_encode($JSON);
 	}
 
+	/**
+	* Removes a session of the sessions of a user from the database.
+	*
+	* @param Connection $conn Connection with the database.
+	* @return boolean true Removed successfuly.
+	*/
 	function removeFromMySessions($conn) {
+		// Gets the session ID received from the user factory.
 		$id = $_REQUEST['id'];
 
 		$query = "DELETE FROM personsession WHERE id=$id";
@@ -111,7 +143,14 @@
 		echo true;
 	}
 
+	/**
+	* Increments the capacity of a session.
+	*
+	* @param Connection $conn Connection with the database.
+	* @return boolean true Incremented successfuly.
+	*/
 	function incrementCapacity($conn) {
+		// Gets the session ID received from the user factory.
 		$id = $_REQUEST['id'];
 		$query1 = "SELECT capacity FROM session WHERE id=$id";
 		$result1 = $conn->query($query1);
@@ -124,7 +163,14 @@
 		echo true;
 	}
 
+	/**
+	* Decrements the capacity of a session.
+	*
+	* @param Connection $conn Connection with the database.
+	* @return boolean true Decremented successfuly.
+	*/
 	function decrementCapacity($conn) {
+		// Gets the session ID received from the user factory.
 		$id = $_REQUEST['id'];
 		$query1 = "SELECT capacity FROM session WHERE id=$id";
 		$result1 = $conn->query($query1);
@@ -137,7 +183,14 @@
 		echo true;
 	}
 
+	/**
+	* Changes the receipt state of a user.
+	*
+	* @param Connection $conn Connection with the database.
+	* @return boolean true Decremented successfuly.
+	*/
 	function changeReceiptState($conn) {
+		// Gets the person ID received from the user factory.
 		$id = $_REQUEST['id'];
 
 		$query = "UPDATE person SET receipt=1 WHERE id='$id'";
@@ -146,10 +199,12 @@
 		echo true;
 	}
 
+	// Try to make the connection with the database.
 	$connection = new Connection();
 	$conn = $connection->createConnection();
 
 	if($conn) {
+		// Get the action from the user factory.
 		$action = $_REQUEST['action'];
 
 		if($action === "allSessions") {

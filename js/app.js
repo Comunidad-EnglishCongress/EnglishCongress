@@ -9,6 +9,7 @@
 	    .config(config)
 	    .run(run);
 
+	Auth.$inject = ['$cookies', '$location'];
 	function Auth($cookies, $location) {
 	    var factory = {
 	        logIn: logIn,
@@ -85,6 +86,7 @@
         return filter;
     }
 
+    config.$inject = ['$routeProvider'];
 	function config($routeProvider) {
 		$routeProvider
 			.when('/', {
@@ -102,6 +104,7 @@
 			.otherwise('/');
 	}
 
+	run.$inject = ['$rootScope', 'Auth'];
 	function run($rootScope, Auth) {
 	    $rootScope.$on('$routeChangeStart', function() {
 	        Auth.checkStatus();

@@ -1,7 +1,11 @@
-angular.module('imageupload', [])
-    .directive('image', function($q) {
-        'use strict'
+(function() {
+    'use strict';
+    angular
+        .module('imageupload', [])
+        .directive('image', image);
 
+    image.$inject = ['$q'];
+    function image($q) {
         var URL = window.URL || window.webkitURL;
 
         var getResizeArea = function () {
@@ -135,4 +139,5 @@ angular.module('imageupload', [])
                 });
             }
         };
-    });
+    }
+})();

@@ -5,6 +5,7 @@
 		.module('congressApp')
 		.factory('registrationFactory', registrationFactory);
 
+	registrationFactory.$inject = ['$http', '$q'];
 	function registrationFactory($http, $q) {
 		var data = {
 			decrementCapacity: decrementCapacity,
@@ -18,7 +19,6 @@
 
 		function decrementCapacity(data) {
 			var defered = $q.defer();
-			var promise = defered.promise;
 
 			$http({
                 url: "./Registration/registration.model.php",
@@ -32,12 +32,11 @@
             	defered.reject(err);
             });
 
-            return promise;
+            return defered.promise;
 		}
 
 		function registration(user) {
 			var defered = $q.defer();
-			var promise = defered.promise;
 
 			$http({
                 url: "./Registration/registration.model.php",
@@ -51,12 +50,11 @@
             	defered.reject(err);
             });
 
-            return promise;
+            return defered.promise;
 		}
 
 		function validateId(data) {
 			var defered = $q.defer();
-			var promise = defered.promise;
 
 			$http({
                 url: "./Registration/registration.model.php",
@@ -70,12 +68,11 @@
             	defered.reject(err);
             });
 
-            return promise;
+            return defered.promise;
 		}
 
 		function validateEmail(data) {
 			var defered = $q.defer();
-			var promise = defered.promise;
 
 			$http({
 				url: "./Registration/registration.model.php",
@@ -89,12 +86,11 @@
 				defered.reject(err);
 			});
 
-			return promise;
+			return defered.promise;
 		}
 
 		function validateGroup(data) {
 			var defered = $q.defer();
-			var promise = defered.promise;
 
 			$http({
                 url: "./Registration/registration.model.php",
@@ -108,7 +104,7 @@
             	defered.reject(err);
             });
 
-            return promise;
+            return defered.promise;
 		}
 	}
 

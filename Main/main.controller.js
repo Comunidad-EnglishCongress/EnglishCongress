@@ -5,6 +5,7 @@
 		.module('congressApp')
 		.controller('mainCtrl', mainCtrl);
 
+	mainCtrl.$inject = ['$scope'];
 	function mainCtrl($scope) {
 		$scope.activeNav = '';
 		$scope.goTop = goTop;
@@ -53,6 +54,12 @@
 			}
 		];
 
+		/* 
+		* Moves the scrool to the bottom.
+		*
+ 		* @param Nothing.
+ 		* @return Nothing.
+ 		*/
 		function goTop() {
 			$('html, body').animate({
 	            scrollTop: 0

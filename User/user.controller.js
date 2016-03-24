@@ -5,6 +5,7 @@
         .module('congressApp')
         .controller('userCtrl', userCtrl);
 
+    userCtrl.$inject = ['$scope', '$timeout', '$cookies', '$mdDialog', 'Auth', 'userFactory'];
     function userCtrl($scope, $timeout, $cookies, $mdDialog, Auth, userFactory) {
         $scope.user = $cookies.getObject('session');
         $scope.user.name = $scope.user.fullName.split(' ')[0];
@@ -19,7 +20,6 @@
         $scope.uploadStyle = '';
         $scope.uploadMessage = '';
         $scope.blockSessions = userFactory.dateOfLaunch();
-
         $scope.logOut = logOut;
         $scope.loadMySessions = loadMySessions;
         $scope.loadAllSessions = loadAllSessions;
@@ -200,6 +200,12 @@
             });
         }
 
+        /* 
+        * Moves the scrool to the bottom.
+        *
+        * @param Nothing.
+        * @return Nothing.
+        */
         function goTop() {
             $('html, body').animate({
                 scrollTop: 0

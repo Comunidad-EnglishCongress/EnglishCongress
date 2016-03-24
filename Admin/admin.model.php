@@ -2,6 +2,12 @@
 
 	require '../db/connection.php';
 
+	/**
+	* Selects all the persons from the database.
+	*
+	* @param Connection $conn Connection with the database.
+	* @return JSON Information of the persons.
+	*/
 	function loadPersons($conn) {
 		$JSON = array();
 		$array_data = array();
@@ -28,6 +34,12 @@
 		echo json_encode($JSON);
 	}
 
+	/**
+	* Selects all the sessions from the database.
+	*
+	* @param Connection $conn Connection with the database.
+	* @return JSON Information of the sessions.
+	*/
 	function loadSessions($conn) {
 		$JSON = array();
 		$array_data = array();
@@ -55,10 +67,13 @@
 		echo json_encode($JSON);
 	}
 
+	// Try to make the connection with the database.
 	$connection = new Connection();
 	$conn = $connection->createConnection();
 
+	// Connection successfuly.
 	if($conn) {
+		// Get the action from the admin factory.
 		$action = $_REQUEST['action'];
 
 		if($action === "persons") {

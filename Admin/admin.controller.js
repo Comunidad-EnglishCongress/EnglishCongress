@@ -5,6 +5,7 @@
 		.module('congressApp')
 		.controller('adminCtrl', adminCtrl); 
 
+	adminCtrl.$inject = ['$scope', '$timeout', '$cookies', 'Auth', 'adminFactory'];
 	function adminCtrl($scope, $timeout, $cookies, Auth, adminFactory) {
 		$scope.admin = $cookies.getObject('session');
 		$scope.admin.name = $scope.admin.fullName.split(' ')[0];
@@ -20,12 +21,19 @@
 			Auth.logOut();
 		}
 
+		/*
+		* Load all sessions from the database.
+		*
+ 		* @param Nothing.
+ 		* @return Nothing.
+ 		*/
 		function loadSessions() {
 			$scope.activeNav = 'sessions';
 			var data = {
 				action: "sessions"
 			};
 
+			// Call the load sessions method in the factory that returns the sessions.
 			adminFactory.loadSessions(data)
 			.then(function(response) {
 				if(typeof(response) == 'object') {
@@ -37,12 +45,19 @@
 			});
 		}
 
+		/* 
+		* Load all the persons from the database.
+		*
+ 		* @param Nothing.
+ 		* @return Nothing.
+ 		*/
 		function loadPersons() {
 			$scope.activeNav = 'persons';
 			var data = {
 				action: "persons"				
 			};
 
+			// Call the load persons method in the factory that returns the persons.
 			adminFactory.loadPersons(data)
 			.then(function(response) {
 				if(typeof(response) == 'object') {
@@ -54,6 +69,12 @@
 			});
 		}
 
+		/* 
+		* Show the message error box with a timeout.
+		*
+ 		* @param Nothing.
+ 		* @return Nothing.
+ 		*/
 		function errorConnection() {
             $scope.error = true;
 
@@ -62,6 +83,12 @@
             }, 5000);
         }
 
+        /* 
+		* Moves the scrool to the bottom.
+		*
+ 		* @param Nothing.
+ 		* @return Nothing.
+ 		*/
 		function goTop() {
 			$('html, body').animate({
 	            scrollTop: 0

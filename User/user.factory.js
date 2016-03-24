@@ -5,6 +5,7 @@
 		.module('congressApp')
 		.factory('userFactory', userFactory);
 
+	userFactory.$inject = ['$http', '$q'];
 	function userFactory($http, $q) {
 		var data = {
 			loadMySessions: loadMySessions,
@@ -21,7 +22,6 @@
 
 		function loadMySessions(data) {
 			var defered = $q.defer();
-			var promise = defered.promise;
 
 			$http({
                 url: "./User/user.model.php",
@@ -35,12 +35,11 @@
             	defered.reject(err);
             });
 
-			return promise;
+			return defered.promise;
 		}
 
 		function loadAllSessions(data) {
 			var defered = $q.defer();
-			var promise = defered.promise;
 
 			$http({
                 url: "./User/user.model.php",
@@ -54,12 +53,11 @@
             	defered.reject(err);
             });
 
-			return promise;
+			return defered.promise;
 		}
 
 		function removeFromMySessions(data) {
 			var defered = $q.defer();
-			var promise = defered.promise;
 
 			$http({
                 url: "./User/user.model.php",
@@ -73,12 +71,11 @@
             	defered.reject(err);
             });
 
-			return promise;
+			return defered.promise;
 		}
 
 		function addToMySessions(data) {
 			var defered = $q.defer();
-			var promise = defered.promise;
 
 			$http({
 				url: "./User/user.model.php",
@@ -92,12 +89,11 @@
             	defered.reject(err);
             });
 
-			return promise;
+			return defered.promise;
 		}
 
 		function uploadReceipt(uploadUrl, formData) {
 			var defered = $q.defer();
-			var promise = defered.promise;
 
 			$http.post(uploadUrl, formData, {
                 transformRequest: angular.identity,
@@ -110,7 +106,7 @@
                 defered.reject(err);
             });
 
-			return promise;
+			return defered.promise;
 		}
 
 		function dateOfLaunch() {
@@ -122,7 +118,6 @@
 
 		function decrement(data) {
 			var defered = $q.defer();
-			var promise = defered.promise;
 
 			$http({
 				url: "./User/user.model.php",
@@ -136,12 +131,11 @@
             	defered.reject(err);
             });
 
-			return promise;
+			return defered.promise;
 		}
 
 		function increment(data) {
 			var defered = $q.defer();
-			var promise = defered.promise;
 
 			$http({
                 url: "./User/user.model.php",
@@ -155,7 +149,7 @@
             	defered.reject(err);
             });
 
-			return promise;
+			return defered.promise;
 		}
 	}
 

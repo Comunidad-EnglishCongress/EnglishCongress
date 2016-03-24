@@ -5,6 +5,7 @@
         .module('congressApp')
         .controller('registrationCtrl', registrationCtrl);
 
+    registrationCtrl.$inject = ['$scope', '$timeout', 'registrationFactory'];
     function registrationCtrl($scope, $timeout, registrationFactory) {
         $scope.typeInputPass = 'password';
         $scope.registrationOk = false;

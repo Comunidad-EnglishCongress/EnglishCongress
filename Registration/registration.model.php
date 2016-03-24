@@ -2,7 +2,14 @@
 	
 	require '../db/connection.php';
 
+	/**
+	* Insert a new person at the database.
+	*
+	* @param Connection $conn Connection with the database.
+	* @return boolean true Added successfuly.
+	*/
 	function insertPerson($conn) {
+		// Gets all information received from the registration factory.
 		$id = $_REQUEST['id'];
 		$pass = $_REQUEST['pass'];
 		$fullName = utf8_decode($_REQUEST['fullName']);
@@ -22,7 +29,14 @@
 		echo true;
 	}
 
+	/**
+	* Validates that a ID is unique.
+	*
+	* @param Connection $conn Connection with the database.
+	* @return JSON Object with information.
+	*/
 	function validateId($conn) {
+		// Gets the ID received from the registration factory.
 		$id = $_REQUEST['id'];
 		$array_data = array();
 
@@ -36,7 +50,14 @@
 	    echo json_encode($array_data);
 	}
 
+	/**
+	* Validates that a e-mail is unique.
+	*
+	* @param Connection $conn Connection with the database.
+	* @return JSON Object with information.
+	*/
 	function validateEmail($conn) {
+		// Gets the e-mail received from the registration factory.
 		$email = $_REQUEST['email'];
 		$array_data = array();
 
@@ -50,7 +71,14 @@
 	    echo json_encode($array_data);
 	}
 
+	/**
+	* Validates that a group have capacity yet.
+	*
+	* @param Connection $conn Connection with the database.
+	* @return JSON Object with information.
+	*/
 	function validateGroup($conn) {
+		// Gets the group received from the registration factory.
 		$group = utf8_decode($_REQUEST['group']);
 		$array_data = array();
 
@@ -64,7 +92,14 @@
 	    echo json_encode($array_data);
 	}
 
+	/**
+	* Decrements the capacity of a group.
+	*
+	* @param Connection $conn Connection with the database.
+	* @return boolean true Decremented successfuly.
+	*/
 	function decrementCapacity($conn) {
+		// Gets the group received from the registration factory.
 		$group = utf8_decode($_REQUEST['group']);
 
 		$query1 = "SELECT capacity FROM groups WHERE name='$group'";
@@ -78,10 +113,12 @@
 		echo true;
 	}
 
+	// Try to make the connection with the database.
 	$connection = new Connection();
 	$conn = $connection->createConnection();
 
 	if($conn) {
+		// Get the action from the registration factory.
 		$action = $_REQUEST['action'];
 
 		if($action === 'insert') {
