@@ -39,6 +39,12 @@
 		$scope.validatePhone = validatePhone;
         $scope.showPass = showPass;
 
+        /*
+        * Declares the variables.
+        *
+        * @param Nothing.
+        * @return Nothing.
+        */
         function declare() {			
             $scope.id = '';
             $scope.pass = '';
@@ -67,6 +73,12 @@
 
         declare();
 
+        /*
+        * Validates that the variables of the register doesn't empty.
+        *
+        * @param Nothing.
+        * @return Nothing.
+        */
         function validate() {
             if (!$scope.id.length || !$scope.pass.length || !$scope.name.length || !$scope.group.length ||
                 !$scope.email.length || !$scope.phone.length || !$scope.workplace.length || !($scope.informed.email.length || 
@@ -79,6 +91,12 @@
             }
         }
 
+        /*
+        * Concat the selected options for the user in informed variable.
+        *
+        * @param Nothing.
+        * @return string All the options concatenated.
+        */
         function concatInformed() {
             var string = '';
             var array = [$scope.informed.email, $scope.informed.facebook, $scope.informed.webSite,
@@ -93,6 +111,12 @@
             return string.slice(0, string.length - 2);
         }
 
+        /*
+        * Concat the selected options for the user in population variable.
+        *
+        * @param Nothing.
+        * @return string All the options concatenated.
+        */
         function concatPopulation() {
             var string = '';
             var array = [$scope.population.elementary, $scope.population.highSchool,
@@ -107,16 +131,29 @@
             return string.slice(0, string.length - 2);
         }
 
+        /*
+        * Decrements the capacity of a group.
+        *
+        * @param Nothing.
+        * @return Nothing.
+        */
         function decrementCapacity() {
             var data = {
                 action: "decrement",
                 group: $scope.group
             };
 
+            // Calls the decrement capacity method in the registration factory.
             registrationFactory.decrementCapacity(data)
             .then(function(response) {});
         }
 
+        /*
+        * Register a new user in the database.
+        *
+        * @param Nothing.
+        * @return Nothing.
+        */
         function registration() {
             $scope.registrationOk = false;
             $scope.registrationError = false;
@@ -136,6 +173,7 @@
                 action: "insert"
             };
 
+            // Calls the registration method in the registration factory.
             registrationFactory.registration(data)
             .then(function(response) {
                 if (response == true) {
@@ -153,6 +191,12 @@
             });
         }
 
+        /*
+        * Validates an ID that doesn't exists.
+        *
+        * @param Nothing.
+        * @return Nothing.
+        */
         function validateId() {
             $scope.errorId = false;
             var data = {
@@ -160,6 +204,7 @@
                 id: $scope.id
             };
 
+            // Calls the validate ID method in the registration factory.
             registrationFactory.validateId(data)
             .then(function(response) {
                 if(typeof(response) == 'string') {
@@ -173,6 +218,12 @@
             });
         }
 
+        /*
+        * Validates an a-mail address that doesn't exists and comply with the format.
+        *
+        * @param Nothing.
+        * @return Nothing.
+        */
         function validateEmail() {
             $scope.errorEmail = false;
 			if(!/^([\da-z_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/.test($scope.email)) {
@@ -185,6 +236,7 @@
 					email: $scope.email
 				};
 
+                // Calls the validate e-mail method in the registration factory.
                 registrationFactory.validateEmail(data)
                 .then(function(response) {
                     if(typeof(response) == 'string') {
@@ -199,6 +251,12 @@
 			}
         }
 
+        /*
+        * Validates that a group still have capacity and doen't empty.
+        *
+        * @param Nothing.
+        * @return Nothing.
+        */
         function validateGroup() {
             $scope.errorGroup = false;
             
@@ -208,6 +266,7 @@
                     group: $scope.group
                 };
 
+                // Calls the validate group method in the registration factory.
                 registrationFactory.validateGroup(data)
                 .then(function(response) {
                     if (typeof(response) == 'string') {
@@ -222,6 +281,12 @@
             }
         }
 		
+        /*
+        * Validates that a phone number only have numbers.
+        *
+        * @param Nothing.
+        * @return Nothing.
+        */
 		function validatePhone () {
 			$scope.errorPhone = false;
 
@@ -231,6 +296,12 @@
 			}
 		}
 
+        /*
+        * Shows and hides the password in the UI.
+        *
+        * @param Nothing.
+        * @return Nothing.
+        */
         function showPass() {
             if($scope.checkPass)
                 $scope.typeInputPass = 'text';

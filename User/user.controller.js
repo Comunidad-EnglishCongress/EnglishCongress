@@ -29,10 +29,22 @@
         $scope.uploadReceipt = uploadReceipt;
         $scope.goTop = goTop;
 
+        /*
+        * Calls the log out method in the Auth factory.
+        *
+        * @param Nothing.
+        * @return Nothing.
+        */
         function logOut() {
             Auth.logOut();
         }
 
+        /*
+        * Loads the user's sessions.
+        *
+        * @param Nothing.
+        * @return Nothing.
+        */
         function loadMySessions() {
             $scope.activeNav = 'mySessions';
             var data = {
@@ -40,6 +52,7 @@
                 action: "mySessions"
             };
 
+            // Calls the load my sessions method in the user factory that returns the user's sessions.
             userFactory.loadMySessions(data)
             .then(function(response) {
                  if(typeof(response) == 'object') {
@@ -56,12 +69,19 @@
             });
         }
 
+        /*
+        * Loads all the sessions.
+        *
+        * @param Nothing.
+        * @return Nothing.
+        */
         function loadAllSessions() {
             $scope.activeNav = 'allSessions';
             var data = {
                 action: "allSessions"
             };
 
+            // Calls the load sessions method in the user factory that returns the sessions.
             userFactory.loadAllSessions(data)
             .then(function(response) {
                 if(typeof(response) == 'object') {
@@ -73,6 +93,15 @@
             });
         }
 
+        /*
+        * Removes a session of the user sessions from the database.
+        *
+        * @param
+        *   ev: The event.
+        *   id: User's id.
+        *   idSession: Session's id.
+        * @return Nothing.
+        */
         function removeFromMySessions(ev, id, idSession) {
             var confirm = $mdDialog.confirm()
             .title('Would you like to delete this session?')
@@ -89,6 +118,7 @@
                     action: "remove"
                 };
 
+                // Calls the remove sessions method in the user factory.
                 userFactory.removeFromMySessions(data)
                 .then(function(response) {
                     if (response == true) {
@@ -99,6 +129,7 @@
                             action: "increment"
                         };
 
+                        // Calls the increment method in the user factory.
                         userFactory.increment(data)
                         .then(function(response) {
                             $scope.remove = true;
@@ -115,6 +146,13 @@
             }, function() {});
         }
 
+        /*
+        * Adds a session into the user sessions from the database.
+        *
+        * @param
+        *   idSession: Session's id.
+        * @return Nothing.
+        */
         function addToMySessions(idSession) {
 			var data = {
 				idPerson:  $scope.user.id,
@@ -122,6 +160,7 @@
 				action: "add"
 			};
 
+            // Calls the add to my sessions method in the user factory.
             userFactory.addToMySessions(data)
             .then(function(response) {
                 if (response === 'exists') {
@@ -144,6 +183,7 @@
                         action: "decrement"
                     };
 
+                    // Calls the decrement method in the user factory.
                     userFactory.decrement(data)
                     .then(function(response) {
                         loadAllSessions();
@@ -160,6 +200,12 @@
             });
         }
 
+        /*
+        * Shows a message when ocurred a error connection.
+        *
+        * @param Nothing.
+        * @return Nothing.
+        */
         function errorConnection() {
             $scope.error = true;
 
@@ -168,12 +214,23 @@
             }, 5000);
         }
 
-        loadMySessions();
-
+        /*
+        * Changes the active nav for add receipt.
+        *
+        * @param Nothing.
+        * @return Nothing.
+        */
         function changeReceipt() {
             $scope.activeNav = 'addReceipt';
         }
 
+        /*
+        * Upload a picture into a specific folder of the project.
+        *
+        * @param
+        *   file: The picture.
+        * @return Nothing.
+        */
         function uploadReceipt(file) {
             $scope.upload = false;
 
@@ -212,6 +269,16 @@
             }, 500);
         }
 
+        /*
+        * Compares two hours.
+        *
+        * @param
+        *   hour1: First hour.
+        *   hour2: Second hour.
+        * @return
+        *   boolean true Hour 1 minus than hour 2.
+        *   boolean false Hour 1 plus or equal than hour 2.
+        */
         function compareHours(hour1, hour2) { 
             var arrayHour1 = hour1.split(":"); 
             var arrayHour2 = hour2.split(":"); 
@@ -231,6 +298,16 @@
                 return false;
         }
 
+        /*
+        * Sorts the user's sessions list by day.
+        *
+        * @param
+        *   hour1: First hour.
+        *   hour2: Second hour.
+        * @return
+        *   boolean true Hour 1 minus than hour 2.
+        *   boolean false Hour 1 plus or equal than hour 2.
+        */
         function sortList(list) {
             $scope.sessions = {
                 first: {
@@ -258,5 +335,7 @@
                 }
             });
         }
+
+        loadMySessions();
     }
 })();

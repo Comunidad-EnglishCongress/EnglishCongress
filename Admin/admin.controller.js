@@ -17,6 +17,12 @@
 		$scope.loadPersons = loadPersons;
 		$scope.goTop = goTop;
 
+		/*
+		* Calls the log out method in the Auth factory.
+		*
+ 		* @param Nothing.
+ 		* @return Nothing.
+ 		*/
 		function logOut() {
 			Auth.logOut();
 		}
@@ -33,7 +39,7 @@
 				action: "sessions"
 			};
 
-			// Call the load sessions method in the factory that returns the sessions.
+			// Calls the load sessions method in the admin factory that returns the sessions.
 			adminFactory.loadSessions(data)
 			.then(function(response) {
 				if(typeof(response) == 'object') {
@@ -57,7 +63,7 @@
 				action: "persons"				
 			};
 
-			// Call the load persons method in the factory that returns the persons.
+			// Calls the load persons method in the admin factory that returns the persons.
 			adminFactory.loadPersons(data)
 			.then(function(response) {
 				if(typeof(response) == 'object') {

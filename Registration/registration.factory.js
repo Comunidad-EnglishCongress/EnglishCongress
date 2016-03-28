@@ -17,6 +17,13 @@
 
 		return data;
 
+		/*
+		* Decrements the capacity of the specific group.
+		*
+ 		* @param
+ 		* 	data: Object with information about the action to realize in the model and the group's id.
+ 		* @return boolean Result of the action.
+ 		*/
 		function decrementCapacity(data) {
 			var defered = $q.defer();
 
@@ -35,6 +42,13 @@
             return defered.promise;
 		}
 
+		/*
+		* Inserts a new user into the database.
+		*
+ 		* @param
+ 		* 	data: Object with information about the action to realize in the model and the user's information.
+ 		* @return boolean Result of the action.
+ 		*/
 		function registration(user) {
 			var defered = $q.defer();
 
@@ -53,6 +67,13 @@
             return defered.promise;
 		}
 
+		/*
+		* Validates an ID that doesn't exists in the database.
+		*
+ 		* @param
+ 		* 	data: Object with information about the action to realize in the model and ID.
+ 		* @return boolean Result of the action.
+ 		*/
 		function validateId(data) {
 			var defered = $q.defer();
 
@@ -71,6 +92,13 @@
             return defered.promise;
 		}
 
+		/*
+		* Validates an e-mail address that doesn't exists in the database.
+		*
+ 		* @param
+ 		* 	data: Object with information about the action to realize in the model and e-mail address.
+ 		* @return boolean Result of the action.
+ 		*/
 		function validateEmail(data) {
 			var defered = $q.defer();
 
@@ -89,6 +117,13 @@
 			return defered.promise;
 		}
 
+		/*
+		* Validates that a group still have capacity in the database.
+		*
+ 		* @param
+ 		* 	data: Object with information about the action to realize in the model and group name.
+ 		* @return boolean Result of the action.
+ 		*/
 		function validateGroup(data) {
 			var defered = $q.defer();
 

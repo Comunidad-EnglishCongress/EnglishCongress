@@ -5,8 +5,8 @@
 
     if(isset($_FILES["file"]["type"])) { 
         $validExtensions = array("jpeg", "jpg", "png");
-        $temporary = explode(".", $_FILES["file"]["name"]); // Separa el nombre de la imagen
-        $file_extension = end($temporary); // Tipo de imagen
+        $temporary = explode(".", $_FILES["file"]["name"]); // Gets the picture name.
+        $file_extension = end($temporary); // Gets the picture's extension.
 
         if ( (($_FILES["file"]["type"] == "image/png") || 
               ($_FILES["file"]["type"] == "image/jpg") || 
@@ -17,8 +17,8 @@
             } 
             else {
                 $sourcePath = $_FILES['file']['tmp_name']; // Storing source path of the file in a variable
-                $targetPath = $upload_dir.$id_user.'.'.$file_extension; // Nombre de la imagen
-                move_uploaded_file($sourcePath,$targetPath) ; // Moving Uploaded file
+                $targetPath = $upload_dir.$id_user.'.'.$file_extension; // Picture's name.
+                move_uploaded_file($sourcePath,$targetPath) ; // Moves the upload file to a specified folder.
 
                 echo 'success';
             }
