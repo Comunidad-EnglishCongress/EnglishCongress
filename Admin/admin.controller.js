@@ -5,8 +5,8 @@
 		.module('congressApp')
 		.controller('adminCtrl', adminCtrl); 
 
-	adminCtrl.$inject = ['$scope', '$timeout', '$cookies', 'Auth', 'adminFactory'];
-	function adminCtrl($scope, $timeout, $cookies, Auth, adminFactory) {
+	adminCtrl.$inject = ['$scope', '$timeout', '$cookies', '$mdDialog', 'Auth', 'adminFactory'];
+	function adminCtrl($scope, $timeout, $cookies, $mdDialog, Auth, adminFactory) {
 		$scope.admin = $cookies.getObject('session');
 		$scope.admin.name = $scope.admin.fullName.split(' ')[0];
 		$scope.activeNav = '';
@@ -15,6 +15,7 @@
 		$scope.logOut = logOut;
 		$scope.loadSessions = loadSessions;
 		$scope.loadPersons = loadPersons;
+		$scope.removePerson = removePerson;
 		$scope.goTop = goTop;
 
 		/*
@@ -73,6 +74,52 @@
 					errorConnection();
 				}
 			});
+		}
+
+		/* 
+		* Removes a person from the database.
+		*
+ 		* @param
+ 		*   ev: The event.
+ 		*   id: User's id.
+ 		* @return Nothing.
+ 		*/
+		function removePerson(ev, id, group) {
+			var confirm = $mdDialog.confirm()
+            .title('Would you like to delete this person?')
+            .textContent("If you remove the person, she/he can't enter the system.")
+            .ariaLabel('Lucky day')
+            .targetEvent(ev)
+            .ok('Yes')
+            .cancel('No');
+            
+            $mdDialog.show(confirm)
+            .then(function() {
+                var data = {
+					action: 'remove',
+					id: id
+				};
+
+				// Calls the remove person method in the admin factory.
+				adminFactory.removePerson(data)
+				.then(function(response) {
+					if(response === '1') {
+						data = {
+							action: 'increment',
+							group: group
+						};
+
+						// Calls the increment capacity method in the admin factory.
+						adminFactory.incrementCapacity(data)
+						.then(function(response) {
+							loadPersons();
+						});
+					}
+					else {
+						errorConnection();
+					}
+				});
+            }, function() {});
 		}
 
 		/* 

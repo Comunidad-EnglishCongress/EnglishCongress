@@ -67,6 +67,43 @@
 		echo json_encode($JSON);
 	}
 
+	/**
+	* Removes a user from the database.
+	*
+	* @param Connection $conn Connection with the database.
+	* @return boolean Result of the removes.
+	*/
+	function removePerson($conn) {
+		// Gets the user's ID received from the admin factory.
+		$id = $_REQUEST['id'];
+
+		$query = "DELETE FROM person WHERE id=$id";
+		$result = $conn->query($query);
+	    
+		echo true;
+	}
+
+	/**
+	* Increments the capacity of a group.
+	*
+	* @param Connection $conn Connection with the database.
+	* @return boolean true Decremented successfuly.
+	*/
+	function incrementCapacity($conn) {
+		// Gets the group received from the registration factory.
+		$group = utf8_decode($_REQUEST['group']);
+
+		$query1 = "SELECT capacity FROM groups WHERE name='$group'";
+		$result1 = $conn->query($query1);
+		$result1 = mysqli_fetch_row($result1);
+		$capacity = $result1[0]+1;
+
+		$query2 = "UPDATE groups SET capacity=$capacity WHERE name='$group'";
+		$result2 = $conn->query($query2);
+	    
+		echo true;
+	}
+
 	// Try to make the connection with the database.
 	$connection = new Connection();
 	$conn = $connection->createConnection();
@@ -81,6 +118,12 @@
 		}
 		else if($action === 'sessions') {
 			loadSessions($conn);
+		}
+		else if($action === 'remove') {
+			removePerson($conn);
+		}
+		else if($action === 'increment') {
+			incrementCapacity($conn);
 		}
 	}
 	else {

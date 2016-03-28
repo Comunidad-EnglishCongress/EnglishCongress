@@ -9,7 +9,9 @@
 	function adminFactory($http, $q) {
 		var data = {
 			loadSessions: loadSessions,
-			loadPersons: loadPersons
+			loadPersons: loadPersons,
+			removePerson: removePerson,
+			incrementCapacity: incrementCapacity
 		};
 
 		return data;
@@ -25,8 +27,8 @@
 			var defered = $q.defer();
 
 			$http({
-				url: "./Admin/admin.model.php",
-				method: "POST",
+				url: './Admin/admin.model.php',
+				method: 'POST',
 				params: data
 			})			
 			.success(function(response) {
@@ -49,8 +51,8 @@
 			var defered = $q.defer();
 			
 			$http({
-				url: "./Admin/admin.model.php",
-				method: "POST",
+				url: './Admin/admin.model.php',
+				method: 'POST',
 				params: data
 			})			
 			.success(function(response) {
@@ -61,6 +63,55 @@
             });	
 
             return defered.promise;
+		}
+
+		/* 
+		* Removes a person from the database.
+ 		* @param
+ 		* 	data: Object with information about the action to realize in the model and the user's ID.
+ 		* @return boolean Result of the removes.
+ 		*/
+		function removePerson(data) {
+			var defered = $q.defer();
+
+			$http({
+				url: './Admin/admin.model.php',
+				method: 'POST',
+				params: data
+			})
+			.success(function(response) {
+				defered.resolve(response);
+			})
+			.error(function(err) {
+				defered.reject(err);
+			});
+
+			return defered.promise;
+		}
+
+		/*
+		* Increments the capacity of the specific group.
+		*
+ 		* @param
+ 		* 	data: Object with information about the action to realize in the model and the group's id.
+ 		* @return boolean Result of the action.
+ 		*/
+		function incrementCapacity(data) {
+			var defered = $q.defer();
+
+			$http({
+				url: './Admin/admin.model.php',
+				method: 'POST',
+				params: data
+			})
+			.success(function(response) {
+				defered.resolve(response);
+			})
+			.error(function(err) {
+				defered.reject(err);
+			});
+
+			return defered.promise;
 		}
 	}
 

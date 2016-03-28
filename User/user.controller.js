@@ -111,7 +111,8 @@
             .ok('Yes')
             .cancel('No');
             
-            $mdDialog.show(confirm).then(function() {
+            $mdDialog.show(confirm)
+            .then(function() {
                 var data = {
                     id: id,
                     idSession: idSession,
