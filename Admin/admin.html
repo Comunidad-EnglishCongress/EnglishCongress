@@ -73,7 +73,7 @@
                     <th><label class="subtitle">Workplace</label></th>
                     <th><label class="subtitle">Place</label></th>
                     <th><label class="subtitle">Receipt</label></th>
-                    <th><label class="subtitle">Actions</label></th>
+                    <th><label class="subtitle">Remove</label></th>
                 </tr>
             </thead>
             <tbody>
@@ -84,7 +84,7 @@
                     <td>{{person.phoneNumber}}</td>
                     <td>{{person.workplace}}</td>
                     <td>{{person.regionGroup}}</td>
-                    <td>{{person.receipt | receipt}}</td>
+                    <td><span ng-class="{'fa fa-square': person.receipt == 1, 'fa fa-square-o': person.receipt == 0}" ng-click="changeReceiptState(person.id, person.receipt);" title="Change receipt state"></span></td>
                     <td><span class="glyphicon glyphicon-trash" ng-click="removePerson($event, person.id, person.regionGroup);" title="Remove person"></span></td>
                 </tr>
             </tbody>

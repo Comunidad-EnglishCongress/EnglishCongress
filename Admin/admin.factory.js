@@ -11,7 +11,8 @@
 			loadSessions: loadSessions,
 			loadPersons: loadPersons,
 			removePerson: removePerson,
-			incrementCapacity: incrementCapacity
+			incrementCapacity: incrementCapacity,
+			changeReceiptState: changeReceiptState
 		};
 
 		return data;
@@ -93,10 +94,35 @@
 		* Increments the capacity of the specific group.
 		*
  		* @param
- 		* 	data: Object with information about the action to realize in the model and the group's id.
+ 		* 	data: Object with information about the action to realize in the model and the group's name.
  		* @return boolean Result of the action.
  		*/
 		function incrementCapacity(data) {
+			var defered = $q.defer();
+
+			$http({
+				url: './Admin/admin.model.php',
+				method: 'POST',
+				params: data
+			})
+			.success(function(response) {
+				defered.resolve(response);
+			})
+			.error(function(err) {
+				defered.reject(err);
+			});
+
+			return defered.promise;
+		}
+
+		/*
+		* Changes the receipt state of a user in the database.
+		*
+ 		* @param
+ 		* 	data: Object with information about the action to realize in the model, user's id and the new receipt state.
+ 		* @return boolean Result of the action.
+ 		*/
+		function changeReceiptState(data) {
 			var defered = $q.defer();
 
 			$http({

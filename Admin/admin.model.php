@@ -77,7 +77,7 @@
 		// Gets the user's ID received from the admin factory.
 		$id = $_REQUEST['id'];
 
-		$query = "DELETE FROM person WHERE id=$id";
+		$query = "DELETE FROM person WHERE id='$id'";
 		$result = $conn->query($query);
 	    
 		echo true;
@@ -104,6 +104,23 @@
 		echo true;
 	}
 
+	/**
+	* Changes the receipt state of a user in the database.
+	*
+	* @param Connection $conn Connection with the database.
+	* @return boolean true Decremented successfuly.
+	*/
+	function changeReceiptState($conn) {
+		// Gets the person ID received from the user factory.
+		$id = $_REQUEST['id'];
+		$receipt = $_REQUEST['receipt'];
+
+		$query = "UPDATE person SET receipt=$receipt WHERE id='$id'";
+		$result = $conn->query($query);
+	    
+		echo true;
+	}
+
 	// Try to make the connection with the database.
 	$connection = new Connection();
 	$conn = $connection->createConnection();
@@ -124,6 +141,9 @@
 		}
 		else if($action === 'increment') {
 			incrementCapacity($conn);
+		}
+		else if($action === "changeReceiptState") {
+			changeReceiptState($conn);
 		}
 	}
 	else {

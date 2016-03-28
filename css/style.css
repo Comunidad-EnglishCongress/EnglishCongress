@@ -327,6 +327,10 @@ footer p a:hover {
 .card-text .glyphicon-trash {
     float: right;
 }
-.glyphicon-trash:hover {
+.glyphicon-trash:hover, .fa-square:hover, .fa-square-o:hover {
     transform: scale(1.2);
+}
+
+.fa-square, .fa-square-o {
+    font-size: 22px;
 }

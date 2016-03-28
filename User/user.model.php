@@ -183,22 +183,6 @@
 		echo true;
 	}
 
-	/**
-	* Changes the receipt state of a user.
-	*
-	* @param Connection $conn Connection with the database.
-	* @return boolean true Decremented successfuly.
-	*/
-	function changeReceiptState($conn) {
-		// Gets the person ID received from the user factory.
-		$id = $_REQUEST['id'];
-
-		$query = "UPDATE person SET receipt=1 WHERE id='$id'";
-		$result = $conn->query($query);
-	    
-		echo true;
-	}
-
 	// Try to make the connection with the database.
 	$connection = new Connection();
 	$conn = $connection->createConnection();
@@ -224,9 +208,6 @@
 		}
 		else if($action === "decrement") {
 			decrementCapacity($conn);
-		}
-		else if($action === "changeReceipt") {
-			changeReceiptState($conn);
 		}
 	}
 	else {

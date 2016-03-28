@@ -16,6 +16,7 @@
 		$scope.loadSessions = loadSessions;
 		$scope.loadPersons = loadPersons;
 		$scope.removePerson = removePerson;
+		$scope.changeReceiptState = changeReceiptState;
 		$scope.goTop = goTop;
 
 		/*
@@ -37,7 +38,7 @@
 		function loadSessions() {
 			$scope.activeNav = 'sessions';
 			var data = {
-				action: "sessions"
+				action: 'sessions'
 			};
 
 			// Calls the load sessions method in the admin factory that returns the sessions.
@@ -61,7 +62,7 @@
 		function loadPersons() {
 			$scope.activeNav = 'persons';
 			var data = {
-				action: "persons"				
+				action: 'persons'		
 			};
 
 			// Calls the load persons method in the admin factory that returns the persons.
@@ -120,6 +121,32 @@
 					}
 				});
             }, function() {});
+		}
+
+		/* 
+		* Changes the receipt state of a person from the database.
+		*
+ 		* @param
+ 		*   id: User's id.
+ 		*   receiptState: Receipt's state.
+ 		* @return Nothing.
+ 		*/
+		function changeReceiptState(id, receiptState) {
+			var data = {
+				action: 'changeReceiptState',
+				id: id,
+				receipt: 1 - receiptState
+			}
+			
+			adminFactory.changeReceiptState(data)
+			.then(function(response) {
+				if(response === '1') {
+					loadPersons();
+				}
+				else {
+					errorConnection();
+				}
+			});
 		}
 
 		/* 
