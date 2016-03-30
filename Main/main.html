@@ -13,44 +13,44 @@
   		</div>
   		<div class="navbar-collapse collapse navBar">
     		<ul class="nav navbar-nav navbar-right">
-      			<li ng-click="activeNav=''"><a href="#/" class="active">HOMEPAGE</a></li>
 		      	<li class="dropdown">
-		        	<a href="" class="dropdown-toggle" data-toggle="dropdown">ABOUT US <b class="caret"></b></a>
+		        	<a href="" class="dropdown-toggle" data-toggle="dropdown" style="color: #FF770D;">ABOUT US <b class="caret"></b></a>
 		        	<ul class="dropdown-menu">
-		          		<li ng-click="activeNav='presentation'"><a>PRESENTATION</a></li>
-		                <li ng-click="activeNav='misionVision'"><a>MISION & VISION</a></li>
-		                <li ng-click="activeNav='objectives'"><a>OBJECTIVES OF THE CONGRESS</a>
-		                <li ng-click="activeNav='population'"><a>TARGET POPULATION</a>
-		                <li ng-click="activeNav='importance'"><a>IMPORTANCE</a>
+		          		<li ng-click="activeNav='presentation'"><a style="color: #2E32BF;">PRESENTATION</a></li>
+		                <li ng-click="activeNav='misionVision'"><a style="color: #2E32BF;">MISION & VISION</a></li>
+		                <li ng-click="activeNav='objectives'"><a style="color: #2E32BF;">OBJECTIVES OF THE CONGRESS</a>
+		                <li ng-click="activeNav='population'"><a style="color: #2E32BF;">TARGET POPULATION</a>
+		                <li ng-click="activeNav='importance'"><a style="color: #2E32BF;">IMPORTANCE</a>
 		        	</ul>
 		      	</li>
 		      	<li class="dropdown">
-		        	<a href="" class="dropdown-toggle" data-toggle="dropdown">ACADEMIC FRAME <b class="caret"></b></a>
+		        	<a href="" class="dropdown-toggle" data-toggle="dropdown" style="color: #FF770D;">ACADEMIC FRAME <b class="caret"></b></a>
 		        	<ul class="dropdown-menu">
-		          		<li ng-click="activeNav='thematic'"><a>THEMATIC STRANDS</a></li>
-		                <li ng-click="activeNav='congressP'"><a>CONGRESS PRESENTATIONS</a></li>
+		          		<li ng-click="activeNav='thematic'"><a style="color: #2E32BF;">THEMATIC STRANDS</a></li>
+		                <li ng-click="activeNav='congressP'"><a style="color: #2E32BF;">CONGRESS PRESENTATIONS</a></li>
 		        	</ul>
 		      	</li>
 		      	<li class="dropdown">
-		        	<a href="" class="dropdown-toggle" data-toggle="dropdown">SPEAKERS <b class="caret"></b></a>
+		        	<a href="" class="dropdown-toggle" data-toggle="dropdown" style="color: #FF770D;">SPEAKERS <b class="caret"></b></a>
 		        	<ul class="dropdown-menu">
-		          		<li ng-click="activeNav='guestSpeakers'"><a>GUEST SPEAKERS</a></li>
-		                <li ng-click="activeNav='localSpeakers'"><a>LOCAL SPEAKERS</a></li>
+		          		<li ng-click="activeNav='guestSpeakers'"><a style="color: #2E32BF;">GUEST SPEAKERS</a></li>
+		                <li ng-click="activeNav='localSpeakers'"><a style="color: #2E32BF;">LOCAL SPEAKERS</a></li>
 		        	</ul>
 		      	</li>
 		      	<li class="dropdown">
-		        	<a href="" class="dropdown-toggle" data-toggle="dropdown">COMMITTEES <b class="caret"></b></a>
+		        	<a href="" class="dropdown-toggle" data-toggle="dropdown" style="color: #FF770D;">COMMITTEES <b class="caret"></b></a>
 		        	<ul class="dropdown-menu">
-		          		<li ng-click="activeNav='organizingC'"><a>ORGANIZING COMMITTEE</a></li>
-		                <li ng-click="activeNav='academicC'"><a>ACADEMIC COMMITTEE</a></li>
-		                <li ng-click="activeNav='scientificC'"><a>SCIENTIFIC COMMITTEE</a>
-		                <li ng-click="activeNav='logisticsC'"><a>LOGISTICS COMMITTEE</a>
-		                <li ng-click="activeNav='communicationC'"><a>COMMUNICATION COMMITTEE</a>
+		          		<li ng-click="activeNav='organizingC'"><a style="color: #2E32BF;">ORGANIZING COMMITTEE</a></li>
+		                <li ng-click="activeNav='academicC'"><a style="color: #2E32BF;">ACADEMIC COMMITTEE</a></li>
+		                <li ng-click="activeNav='scientificC'"><a style="color: #2E32BF;">SCIENTIFIC COMMITTEE</a>
+		                <li ng-click="activeNav='logisticsC'"><a style="color: #2E32BF;">LOGISTICS COMMITTEE</a>
+		                <li ng-click="activeNav='communicationC'"><a style="color: #2E32BF;">COMMUNICATION COMMITTEE</a>
 		        	</ul>
 		      	</li>
-		      	<li ng-click="activeNav='sponsors'"><a>SPONSORS</a></li>
-		      	<li ng-click="activeNav='registration'"><a>REGISTRATION</a>
-        		<li data-toggle="modal" data-target="#logIn"><a>LOG IN</a></li>
+		      	<li ng-click="activeNav='sponsors'"><a style="color: #FF770D;">SPONSORS</a></li>
+		      	<li ng-click="activeNav='information'"><a href="#/" style="color: #FF770D;">INFO</a></li>
+		      	<li ng-click="activeNav='registration'"><a style="color: #FF770D;">REGISTRATION</a>
+        		<li data-toggle="modal" data-target="#logIn"><a style="color: #FF770D;">LOG IN</a></li>
     		</ul>
  		</div>
 	</div>
@@ -105,6 +105,9 @@
 	</div>
 	<div ng-switch-when="sponsors">
 		<div ng-include="'./templates/sponsors.htm'"></div>
+	</div>
+	<div ng-switch-when="information">
+		<div ng-include="'./templates/information.htm'"></div>
 	</div>
 	<div ng-switch-when="registration">
 		<div ng-include="'./templates/registration.htm'"></div>

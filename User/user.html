@@ -13,13 +13,13 @@
   		</div>
   		<div class="navbar-collapse collapse navBar">
     		<ul class="nav navbar-nav navbar-right">
-    			<li ng-click="loadMySessions();"><a class="first">MY SESSIONS</a></li>
-		        <li ng-click="loadAllSessions();"><a>ALL SESSIONS</a></li>
+    			<li ng-click="loadMySessions();"><a style="color: #FF770D;">MY SESSIONS</a></li>
+		        <li ng-click="loadAllSessions();"><a style="color: #FF770D;">ALL SESSIONS</a></li>
 		        <li class="dropdown">
-		        	<a href="" class="dropdown-toggle" data-toggle="dropdown">{{user.name | uppercase}} <b class="caret"></b></a>
+		        	<a href="" class="dropdown-toggle" data-toggle="dropdown" style="color: #FF770D;">{{user.name | uppercase}} <b class="caret"></b></a>
 		        	<ul class="dropdown-menu">
-		        		<li ng-show="user.receipt == '0'" ng-click="changeReceipt();"><a><span class="glyphicon glyphicon-picture"></span>&nbsp;&nbsp;ADD RECEIPT</a></li>
-		          		<li ng-click="logOut();"><a><span class="glyphicon glyphicon-log-out"></span>&nbsp;&nbsp;LOG OUT</a></li>
+		        		<li ng-show="user.receipt == '0'" ng-click="changeReceipt();"><a style="color: #2E32BF;"><span class="glyphicon glyphicon-picture"></span>&nbsp;&nbsp;ADD RECEIPT</a></li>
+		          		<li ng-click="logOut();"><a style="color: #2E32BF;"><span class="glyphicon glyphicon-log-out"></span>&nbsp;&nbsp;LOG OUT</a></li>
 		        	</ul>
 		      	</li>
     		</ul>
@@ -140,7 +140,7 @@
 			</div>
 		</div>
 		<div ng-switch-when="allSessions">
-			<label class="title montserrat"><span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;All sessions</label>
+			<label class="title montserrat">All sessions</label>
 			<div ng-show="!blockSessions">
 				<table class="table table-striped box">
 			        <thead>

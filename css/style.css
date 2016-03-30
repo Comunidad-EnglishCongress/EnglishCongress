@@ -1,10 +1,7 @@
 body {
-    /*font-family: 'Lato', sans-serif;*/
-    /*font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;*/
     font-family: Verdana, Geneva, sans-serif;
 	font-size: 16px;
 	text-align: justify;
-    
 }
 .montserrat {
     font-family: 'Montserrat', sans-serif;
@@ -49,10 +46,6 @@ a:link {
 .be-black {
     color: #141419;
 }
-.underline-bottom {
-	border-bottom: 1px solid black;
-    margin-bottom: 20px;
-}
 .navbar-nav > li, select, .panel-title, input[type=checkbox] {
     cursor: pointer;
 }
@@ -85,6 +78,7 @@ a:link {
 .title {
     font-size: 25px;
     font-weight: normal;
+    margin-bottom: 15px;
 }
 .subtitle {
     font: bold;
@@ -142,6 +136,8 @@ a:link {
 /* Navigation */
 .navbar {
     padding: 30px;
+    background-color: white;
+    border-bottom: 2px solid #2E32BF;
 }
 .navbar-brand {
     padding: 0px;
@@ -163,17 +159,17 @@ a:link {
 footer {
     width: 100%;
     clear: both;
-    color: #666;
-    background: #141419;
+    color: white;
+    background: #2E32BF;
     line-height: 40px;
     overflow: hidden;
     margin-top: 20px;
 }
 footer p a {
-    color: #666;
+    color: white;
 }
 footer p a:hover {
-    color: #666;
+    color: white;
     text-decoration: underline;
 }
 

@@ -13,12 +13,12 @@
         </div>
         <div class="navbar-collapse collapse navBar">
             <ul class="nav navbar-nav navbar-right">
-                <li ng-click="loadPersons()"><a class="first">ALL PERSONS</a></li>
-                <li ng-click="loadSessions()"><a>ALL SESSIONS</a></li>
+                <li ng-click="loadPersons()"><a style="color: #FF770D;">ALL PERSONS</a></li>
+                <li ng-click="loadSessions()"><a style="color: #FF770D;">ALL SESSIONS</a></li>
                 <li class="dropdown">
-                    <a href="" class="dropdown-toggle" data-toggle="dropdown">{{admin.name | uppercase}} <b class="caret"></b></a>
+                    <a href="" class="dropdown-toggle" data-toggle="dropdown" style="color: #FF770D;">{{admin.name | uppercase}} <b class="caret"></b></a>
                     <ul class="dropdown-menu">
-                        <li ng-click="logOut()"><a><span class="glyphicon glyphicon-off"></span>&nbsp;&nbsp;LOG OUT</a></li>
+                        <li ng-click="logOut()"><a style="color: #2E32BF;"><span class="glyphicon glyphicon-log-out"></span>&nbsp;&nbsp;LOG OUT</a></li>
                     </ul>
                 </li>
             </ul>
