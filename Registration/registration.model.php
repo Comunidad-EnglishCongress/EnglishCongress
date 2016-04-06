@@ -16,10 +16,10 @@
 		$regionGroup = utf8_decode($_REQUEST['regionGroup']);
 		$email = $_REQUEST['email'];
 		$phone = $_REQUEST['phone'];
-		$workplace = $_REQUEST['workplace'];
-		$informed = $_REQUEST['informed'];
-		$academic = $_REQUEST['academic'];
-		$population = $_REQUEST['population'];
+		$workplace = utf8_decode($_REQUEST['workplace']);
+		$informed = utf8_decode($_REQUEST['informed']);
+		$academic = utf8_decode($_REQUEST['academic']);
+		$population = utf8_decode($_REQUEST['population']);
 		$type = $_REQUEST['type'];
 
 		$query = "INSERT INTO Person (id, pass, fullName, regionGroup, email, phoneNumber, workplace, receipt, informed, academicDegree, teachingPopulation, type)

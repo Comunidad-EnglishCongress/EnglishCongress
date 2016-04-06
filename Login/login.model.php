@@ -26,7 +26,7 @@
 	    foreach($array_data as &$row) {
 	    	$JSON[] = array(
 	    		'id' => $row['id'],
-	    		'fullName' => $row['fullName'],
+	    		'fullName' => utf8_encode($row['fullName']),
 	    		'email' => $row['email'],
 	    		'receipt' => $row['receipt'],
 	    		'type' => $row['type']

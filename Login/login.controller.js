@@ -22,13 +22,14 @@
             $scope.errorLogin = false;
             $scope.error = false;
             var data = {
-                email: $scope.email,
+                email: $scope.email.replace("''", "").replace("'",""),
                 pass: calcMD5($scope.pass)
             };
 
             // Call the login method in the factory that returns the person that try to enter in the system.
             loginFactory.login(data)
             .then(function(response) {
+                console.log(response);
                 if(!response) {
                     $scope.errorLogin = true;
                 }
