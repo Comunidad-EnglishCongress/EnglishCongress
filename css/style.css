@@ -46,7 +46,7 @@ a:link {
 .be-black {
     color: #141419;
 }
-.navbar-nav > li, select, .panel-title, input[type=checkbox] {
+.navbar-nav > li, select, .panel-title, input[type=checkbox], .nav-tabs li a {
     cursor: pointer;
 }
 .btn {

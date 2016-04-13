@@ -58,7 +58,7 @@
                 facebook: '',
                 webSite: '',
                 colleague: '',
-                other: ''
+                other: 'Email, Grupo de docentes en What’s App'
             };
             $scope.academic = 'Student';
             $scope.population = {
