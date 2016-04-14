@@ -3,28 +3,257 @@
 </div>
 <div>
 	<ul class="nav nav-tabs">
-    	<li class="active"><a data-toggle="tab" data-target="#bus">Bus schedule</a></li>
+    	<li class="active"><a data-toggle="tab" data-target="#buses">Bus schedule</a></li>
     	<li><a data-toggle="tab" data-target="#hotels">Hotels and cabins</a></li>
-    	<li><a data-toggle="tab" data-target="#bank">Bank branches and pharmacies</a></li>
+    	<li><a data-toggle="tab" data-target="#banks">Banks and ATM's</a></li>
+    	<li><a data-toggle="tab" data-target="#pharmacies">Pharmacies</a></li>
   	</ul>
 
   	<div class="tab-content">
-	    <div id="bus" class="tab-pane fade in active">
-	    	<div class="margin">
-	    		
-	    	</div>
-	    </div>
-	    <div id="hotels" class="tab-pane fade">
-	    	<div class="margin">
-	    		
+	    <div id="buses" class="tab-pane margin text-center fade in active">
+	    	<!-- Transportes San José-San Carlos -->
+	    	<div class="info-box">
+		    	<div class="margin">
+		    		<label class="subtitle">Transportes San José-San Carlos</label>
+	    		</div>
+		    	<table class="table">
+		    		<thead>
+		    			<tr>
+		    				<th>From La Fortuna to San José by Ciudad Quesada</th>
+		    			</tr>
+		    		</thead>
+		    		<tbody>
+		    			<tr ng-repeat="schedule in schedule_SJ_SC">
+		    				<td>{{schedule.hour}}</td>
+		    			</tr>
+		    		</tbody>
+		    	</table>
 	    	</div>
 
-	    </div>
-	    <div id="bank" class="tab-pane fade">
-	    	<div class="margin">
-	    		
+	    	<!-- Transportes Carbachez e Hijos EIRL -->
+	    	<div class="info-box">
+		    	<div class="margin">
+		    		<label class="subtitle">Transportes Carbachez e Hijos EIRL</label>
+	    		</div>
+		    	<table class="table">
+		    		<thead>
+		    			<tr>
+		    				<th>From La Fortuna to San Ramón</th>
+		    				<th>From San Ramón to La Fortuna</th>
+		    			</tr>
+		    		</thead>
+		    		<tbody>
+		    			<tr ng-repeat="schedule in scheduleCarbachez">
+		    				<td>{{schedule.F_SR}}</td>
+		    				<td>{{schedule.SR_F}}</td>
+		    			</tr>
+		    		</tbody>
+		    	</table>
 	    	</div>
 
+	    	<!-- Transportes Transpisa -->
+	    	<div class="info-box">
+		    	<div class="margin">
+		    		<label class="subtitle">Transportes Transpisa</label>
+	    		</div>
+	    		<!-- From La Fortuna to Ciudad Quesada -->
+	    		<div>
+	    			<label>From La Fortuna to Ciudad Quesada</label>
+	    		</div>
+		    	<table class="table">
+		    		<thead>
+		    			<tr>
+		    				<th>By El Tanque</th>
+		    				<th>By Chachagua</th>
+		    				<th>By Muelle</th>
+		    			</tr>
+		    		</thead>
+		    		<tbody>
+		    			<tr ng-repeat="schedule in scheduleTranspisa_F_CQ">
+		    				<td>{{schedule.tanque}}</td>
+		    				<td>{{schedule.chachagua}}</td>
+		    				<td>{{schedule.muelle}}</td>
+		    			</tr>
+		    		</tbody>
+		    	</table>
+		    	<!-- From Ciudad Quesada to La Fortuna -->
+		    	<div>
+	    			<label>From Ciudad Quesada to La Fortuna</label>
+	    		</div>
+		    	<table class="table">
+		    		<thead>
+		    			<tr>
+		    				<th>By El Tanque</th>
+		    				<th>By Chachagua</th>
+		    			</tr>
+		    		</thead>
+		    		<tbody>
+		    			<tr ng-repeat="schedule in scheduleTranspisa_CQ_F">
+		    				<td>{{schedule.tanque}}</td>
+		    				<td>{{schedule.chachagua}}</td>
+		    			</tr>
+		    		</tbody>
+		    	</table>
+		    	<!-- From Ciudad Quesada to Upala -->
+		    	<div>
+	    			<label>From Ciudad Quesada to Upala</label>
+	    		</div>
+		    	<table class="table">
+		    		<thead>
+		    			<tr>
+		    				<th>Departure</th>
+		    				<th>Passing through La Fortuna</th>
+		    			</tr>
+		    		</thead>
+		    		<tbody>
+		    			<tr ng-repeat="schedule in scheduleTranspisa_CQ_U">
+		    				<td>{{schedule.hour}}</td>
+		    				<td>{{schedule.fortuna}}</td>
+		    			</tr>
+		    		</tbody>
+		    	</table>
+		    	<!-- From Upala to Ciudad Quesada -->
+		    	<div>
+	    			<label>From Upala to Ciudad Quesada</label>
+	    		</div>
+		    	<table class="table">
+		    		<thead>
+		    			<tr>
+		    				<th>Departure</th>
+		    				<th>Passing through La Fortuna</th>
+		    			</tr>
+		    		</thead>
+		    		<tbody>
+		    			<tr ng-repeat="schedule in scheduleTranspisa_U_CQ">
+		    				<td>{{schedule.hour}}</td>
+		    				<td>{{schedule.fortuna}}</td>
+		    			</tr>
+		    		</tbody>
+		    	</table>
+		    	<!-- From Ciudad Quesada to Venado -->
+		    	<div>
+	    			<label>From Ciudad Quesada to Venado</label>
+	    		</div>
+		    	<table class="table">
+		    		<thead>
+		    			<tr>
+		    				<th>Departure</th>
+		    				<th>Passing through La Fortuna</th>
+		    			</tr>
+		    		</thead>
+		    		<tbody>
+		    			<tr ng-repeat="schedule in scheduleTranspisa_CQ_V">
+		    				<td>{{schedule.hour}}</td>
+		    				<td>{{schedule.fortuna}}</td>
+		    			</tr>
+		    		</tbody>
+		    	</table>
+		    	<!-- From Venado to Ciudad Quesada -->
+		    	<div>
+	    			<label>From Venado to Ciudad Quesada</label>
+	    		</div>
+		    	<table class="table">
+		    		<thead>
+		    			<tr>
+		    				<th>Departure</th>
+		    				<th>Passing through La Fortuna</th>
+		    			</tr>
+		    		</thead>
+		    		<tbody>
+		    			<tr ng-repeat="schedule in scheduleTranspisa_V_CQ">
+		    				<td>{{schedule.hour}}</td>
+		    				<td>{{schedule.fortuna}}</td>
+		    			</tr>
+		    		</tbody>
+		    	</table>
+	    	</div>
+
+	    	<!-- Transportes Ciudad Quesada-Tilarán -->
+	    	<div class="info-box">
+		    	<div class="margin">
+		    		<label class="subtitle">Transportes Ciudad Quesada-Tilarán</label>
+	    		</div>
+		    	<table class="table">
+		    		<thead>
+		    			<tr>
+		    				<th>From La Fortuna to Ciudad by Muelle</th>
+		    				<th>From La Fortuna to Ciudad by El Tanque</th>
+		    				<th>From La Fortuna to Tilarán</th>
+		    			</tr>
+		    		</thead>
+		    		<tbody>
+		    			<tr ng-repeat="schedule in schedule_CQ_T">
+		    				<td>{{schedule.F_CQ_M}}</td>
+		    				<td>{{schedule.F_CQ_T}}</td>
+		    				<td>{{schedule.F_T}}</td>
+		    			</tr>
+		    		</tbody>
+		    	</table>
+	    	</div>
+	    </div>
+	    <div id="hotels" class="tab-pane margin fade">
+	    	<div class="col-md-12 col-sm-12">
+		  		<div class="col-md-12 col-sm-12 card-box" ng-repeat="hotel in hotels">
+			        <div class="inner">
+				        <div class="title-card">
+				        	<label class="subtitle">{{hotel.name}}</label>
+			        	</div>
+			        	<div class="body-card">
+		      				<p class="card-text">{{hotel.address}}</p>
+		      				<p class="card-text">{{hotel.schedule}}</p>
+		    			</div>
+		    			<div class="footer-card-box">
+		    				<label>Contact:</label>
+		    				<p class="card-text">{{hotel.phone}}</p>
+		      				<p class="card-text">{{hotel.email}}</p>
+		      				<p class="card-text">{{hotel.website}}</p>
+		      				<p ng-show="hotel.facebook != ''"><a class="fa fa-facebook-official" href="{{hotel.facebook}}" target="_blank"></a></p>
+		    			</div>
+			        </div>
+				</div>
+			</div>
+	    </div>
+	    <div id="banks" class="tab-pane margin fade">
+	    	<div class="col-md-12 col-sm-12">
+		  		<div class="col-md-12 col-sm-12 card-box" ng-repeat="bank in banks">
+			        <div class="inner">
+				        <div class="title-card">
+				        	<label class="subtitle">{{bank.name}}</label>
+			        	</div>
+			        	<div class="body-card">
+		      				<p class="card-text">{{bank.address}}</p>
+		      				<p class="card-text">{{bank.schedule}}</p>
+		    			</div>
+		    			<div class="footer-card-box">
+		    				<label>Cajero automático (ATM):</label>
+		    				<p class="card-text">{{bank.addressATM}}</p>
+		    			</div>
+		    			<div class="footer-card-box">
+		    				<label>Contact:</label>
+		    				<p class="card-text">{{bank.phone}}</p>
+		    			</div>
+			        </div>
+				</div>
+			</div>
+	    </div>
+	    <div id="pharmacies" class="tab-pane margin fade">
+	    	<div class="col-md-12 col-sm-12">
+		  		<div class="col-md-12 col-sm-12 card-box" ng-repeat="pharmacy in pharmacies">
+			        <div class="inner">
+				        <div class="title-card">
+				        	<label class="subtitle">{{pharmacy.name}}</label>
+			        	</div>
+			        	<div class="body-card">
+		      				<p class="card-text">{{pharmacy.address}}</p>
+		      				<p class="card-text">{{pharmacy.schedule}}</p>
+		    			</div>
+		    			<div class="footer-card-box">
+		    				<label>Contact:</label>
+		    				<p class="card-text">{{pharmacy.phone}}</p>
+		    			</div>
+			        </div>
+				</div>
+			</div>
 	    </div>
   	</div>
 </div>

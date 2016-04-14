@@ -224,6 +224,339 @@
 			}
 		];
 
+		$scope.schedule_SJ_SC = [
+			{
+				hour: '12:45 pm' 
+			},
+			{
+				hour: '2:45 pm' 
+			}
+		];
+		$scope.scheduleCarbachez = [
+			{
+				F_SR: '5:30 am',
+				SR_F: '5:30 am'
+			},
+			{
+				F_SR: '9:00 am',
+				SR_F: '9:00 am'
+			},
+			{
+				F_SR: '1:00 pm',
+				SR_F: '12:30 pm'
+			},
+			{
+				F_SR: '4:00 pm',
+				SR_F: '12:30 pm'
+			},
+		];
+		$scope.scheduleTranspisa_F_CQ = [
+			{
+				tanque: '5:10 am',
+				chachagua: '5:15 am',
+				muelle: '4:30 am'
+			},
+			{
+				tanque: '5:50 am',
+				chachagua: '7:15 am',
+				muelle: ''
+			},
+			{
+				tanque: '6:30 am',
+				chachagua: '8:00 am',
+				muelle: ''
+			},
+			{
+				tanque: '10:50 am',
+				chachagua: '9:45 am',
+				muelle: ''
+			},
+			{
+				tanque: '2:45 pm',
+				chachagua: '11:30 am',
+				muelle: ''
+			},
+			{
+				tanque: '3:30 pm',
+				chachagua: '12:15 am',
+				muelle: ''
+			},
+			{
+				tanque: '4:45 pm',
+				chachagua: '3:15 am',
+				muelle: ''
+			},
+			{
+				tanque: '7:00 pm',
+				chachagua: '5:30 am',
+				muelle: ''
+			},
+			{
+				tanque: '',
+				chachagua: '6:30 am',
+				muelle: ''
+			}
+		];
+		$scope.scheduleTranspisa_CQ_F = [
+			{
+				tanque: '4:30 am',
+				chachagua: '5:00 am'
+			},
+			{
+				tanque: '5:30 am',
+				chachagua: '6:00 am'
+			},
+			{
+				tanque: '7:30 am',
+				chachagua: '8:00 am'
+			},
+			{
+				tanque: '9:00 am',
+				chachagua: '10:30 am'
+			},
+			{
+				tanque: '1:00 pm',
+				chachagua: '12:20 pm'
+			},
+			{
+				tanque: '3:30 pm',
+				chachagua: '3:30 pm'
+			},
+			{
+				tanque: '5:00 pm',
+				chachagua: '5:15 pm'
+			},
+			{
+				tanque: '6:00 pm',
+				chachagua: '8:00 pm'
+			},
+			{
+				tanque: '7:30 pm',
+				chachagua: ''
+			},
+			{
+				tanque: '10:10 pm',
+				chachagua: ''
+			}
+		];
+		$scope.scheduleTranspisa_CQ_U = [
+			{
+				hour: '4:25 am',
+				fortuna: 'No'
+			},
+			{
+				hour: '5:15 am',
+				fortuna: '6:30 am'
+			},
+			{
+				hour: '10:00 am',
+				fortuna: '11:15 am'
+			},
+			{
+				hour: '1:30 pm',
+				fortuna: 'No'
+			},
+			{
+				hour: '4:15 pm',
+				fortuna: 'No'
+			},
+			{
+				hour: '5:00 pm',
+				fortuna: '6:15 pm'
+			},
+			{
+				hour: '5:00 pm',
+				fortuna: '5:15 pm'
+			},
+			{
+				hour: '6:00 pm',
+				fortuna: '8:00 pm'
+			},
+			{
+				hour: '10:10 pm',
+				fortuna: '11:15 pm'
+			},
+		];
+		$scope.scheduleTranspisa_U_CQ = [
+			{
+				hour: '3:40 am',
+				fortuna: 'No'
+			},
+			{
+				hour: '4:15 am',
+				fortuna: '6:10 am'
+			},
+			{
+				hour: '5:45 am',
+				fortuna: '8:00 am'
+			},
+			{
+				hour: '7:40 am',
+				fortuna: '10:10 am'
+			},
+			{
+				hour: '12:15 pm',
+				fortuna: '2:30 pm'
+			},
+			{
+				hour: '1:30 pm',
+				fortuna: 'No'
+			},
+			{
+				hour: '4:25 pm',
+				fortuna: '6:30 pm'
+			},
+		];
+		$scope.scheduleTranspisa_CQ_V = [
+			{
+				hour: '7:50 am',
+				fortuna: '9:00 am'
+			},
+			{
+				hour: '2:20 pm',
+				fortuna: '3:30 pm'
+			}
+		];
+		$scope.scheduleTranspisa_V_CQ = [
+			{
+				hour: '6:50 am',
+				fortuna: '7:40 am'
+			},
+			{
+				hour: '1:00 pm',
+				fortuna: '2:00 pm'
+			}
+		];
+		$scope.schedule_CQ_T = [
+			{
+				F_CQ_M: '10:00 am',
+				F_CQ_T: '3:30 pm',
+				F_T: '8:00 am'
+			},
+			{
+				F_CQ_M: '',
+				F_CQ_T: '',
+				F_T: '5:30 pm'
+			}
+		];
+
+		$scope.hotels = [
+			{
+				name: 'Hotel Árbol Dorado',
+				address: 'Contiguo al Colegio Agropecuario de San Carlos, ETAI, Santa Clara.',
+				schedule: 'Lunes a domingo de 6:00 am – 10:00 pm.',
+				phone: '2475-6644 / 2475-6646',
+				email: '',
+				website: '',
+				facebook: ''
+			},
+			{
+				name: 'Legacy Boutique Hotel',
+				address: '700m este y 100m norte de la Catedral, Ciudad Quesada.',
+				schedule: '7:00 am – 9:00 pm.',
+				phone: '2460-7776',
+				email: 'info@legacyboutiquehotel.com',
+				website: 'http://legacyboutiquehotel.com/es/inicio',
+				facebook: ''
+			},
+			{
+				name: 'Hotel Conquistador',
+				address: '600m sur del parque de Ciudad Quesada.',
+				schedule: '24 horas, 7 días a la semana.',
+				phone: '2460-0546',
+				email: 'reservaciones@hconquistador.com',
+				website: 'http://hconquistador.com',
+				facebook: ''
+			},
+			{
+				name: 'Tree Houses Hotel',
+				address: '300m norte del Cementerio de Santa Clara.',
+				schedule: '',
+				phone: '2475-6507',
+				email: 'Info@treehouseshotelcostarica.com',
+				website: 'http://treehouseshotelcostarica.com',
+				facebook: ''
+			},
+			{
+				name: 'Hotel Loma Verde',
+				address: '2kms al norte del Hospital de Ciudad Quesada, Carretera a La Fortuna del Almacen El Colono, siguiente entrada a mano derecha 500m.',
+				schedule: '',
+				phone: '2460-1976 / 8384-4290',
+				email: '',
+				website: '',
+				facebook: 'https://es-es.facebook.com/Hotel-Loma-Verde-158945587495064/'
+			},
+			{
+				name: 'Cabinas La Hacienda',
+				address: '700m norte de la Escuela de Platanar, Florencia, San Carlos.',
+				schedule: '24 horas, 7 días a la semana (Desayuno incluido).',
+				phone: '2475-6818',
+				email: 'info@cabinaslahacienda.com',
+				website: 'http://www.cabinaslahacienda.com',
+				facebook: ''
+			},
+			{
+				name: 'Cabinas Nelson',
+				address: '1,2km del TEC, carretera hacia Florencia.',
+				schedule: '9:00 am - 9:00 pm.',
+				phone: '8945-2432',
+				email: '',
+				website: '',
+				facebook: ''
+			}
+		];
+
+		$scope.banks = [
+			{
+				name: 'Banco Popular',
+				address: 'Costado este del Supermercado Flosanco, Florencia.',
+				schedule: 'Lunes a viernes de 08:45 am – 4:30 pm / Sábados de 8:15 am – 11:30 am.',
+				phone: '2475-5070 / 2475-5210',
+				addressATM: 'Parqueo del Supermercado Flosanco, Santa Clara.'
+			},
+			{
+				name: 'Banco de Costa Rica (BCR)',
+				address: 'Costado oeste del Supermercado Flosanco Florencia.',
+				schedule: 'Lunes a viernes de 9:00 am – 4:00 pm.',
+				phone: '2475-5373 / 2475-5756',
+				addressATM: 'Entrada principal del Instituto Tecnológico, diagonal al Supermercado M&M.'
+			},
+			{
+				name: 'Banco Nacional',
+				address: 'Centro Comercial Plaza Florencia.',
+				schedule: 'Lunes a viernes de 08:3 0am – 03:35 pm.',
+				phone: '2212-2000',
+				addressATM: 'Centro Comercial Plaza Florencia.'
+			}
+		];
+
+		$scope.pharmacies = [
+			{
+				name: 'Farmacia Talamanca',
+				address: 'Frente al Supermercado Flosanco, Florencia.',
+				schedule: '8:00 am - 8:00 pm.',
+				phone: '2475-8080'
+			},
+			{
+				name: 'Farmacia Supermercado Flosanco, Florencia',
+				address: 'Dentro Supermercado Flosanco, Florencia.',
+				schedule: '7:00 am - 9:00 pm.',
+				phone: '2475-5152'
+			},
+			{
+				name: 'FarmaCity',
+				address: 'Centro Comercial Plaza Florencia.',
+				schedule: '7:00 am - 8:00 pm.',
+				phone: '2475-7510'
+			},
+			{
+				name: 'Farmacia Supermercado Flosanco, Santa Clara',
+				address: 'Dentro Supermercado Flosanco, Santa Clara.',
+				schedule: '7:00 am 9:00 pm.',
+				phone: '2475-8383'
+			}
+		];
+
 		/* 
 		* Moves the scrool to the bottom.
 		*

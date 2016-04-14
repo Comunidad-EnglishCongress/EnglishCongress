@@ -29,7 +29,6 @@
             // Call the login method in the factory that returns the person that try to enter in the system.
             loginFactory.login(data)
             .then(function(response) {
-                console.log(response);
                 if(!response) {
                     $scope.errorLogin = true;
                 }
