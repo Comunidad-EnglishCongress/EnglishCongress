@@ -14,7 +14,7 @@
 		$pass = $_REQUEST['pass'];
 		$fullName = utf8_decode($_REQUEST['fullName']);
 		$regionGroup = utf8_decode($_REQUEST['regionGroup']);
-		$email = $_REQUEST['email'];
+		$email = utf8_decode($_REQUEST['email']);
 		$phone = $_REQUEST['phone'];
 		$workplace = utf8_decode($_REQUEST['workplace']);
 		$informed = utf8_decode($_REQUEST['informed']);

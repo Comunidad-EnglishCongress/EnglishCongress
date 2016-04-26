@@ -15,7 +15,7 @@
 		// Gets the e-mail and password received from the login factory.
 		$email = $_REQUEST['email'];
 		$pass = $_REQUEST['pass'];
-
+		
 		$query = "SELECT id, fullName, email, receipt, type FROM Person WHERE email='$email' AND pass='$pass'";
 		$result = $conn->query($query);
 
@@ -27,7 +27,7 @@
 	    	$JSON[] = array(
 	    		'id' => $row['id'],
 	    		'fullName' => utf8_encode($row['fullName']),
-	    		'email' => $row['email'],
+	    		'email' => utf8_encode($row['email']),
 	    		'receipt' => $row['receipt'],
 	    		'type' => $row['type']
 	    		);

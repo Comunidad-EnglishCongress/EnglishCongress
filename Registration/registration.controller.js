@@ -227,7 +227,7 @@
         function validateEmail() {
             $scope.errorEmail = false;
 			if(!/^([\da-z_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/.test($scope.email)) {
-				$scope.errorEmail = true;
+				//$scope.errorEmail = true;
                 $scope.messageEmail = 'E-mail address has a wrong format.';
 			}
 			else {
