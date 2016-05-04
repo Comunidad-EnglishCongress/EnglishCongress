@@ -70,153 +70,195 @@
 			},
 			{
 				id: '3',
+				name: 'Ana Isabel Campos Centeno',
+				institution: 'Ministerio de Educación Pública',
+				description: "Ana Isabel Campos Centeno works as a National English Elementary Advisor for the Curricular Division of the Ministry of Education and coordinates the new English Curriculum Commission. In addition, she is a professor in the Master's Program in Second Languages and Cultures at the Universidad Nacional. She graduated from the University of Costa Rica and holds an MA in TESOL from the University of Kansas. Currently, she is a doctoral student in the Latin American Studies Program at Universidad Nacional.",
+				image: './images/speakers/local/AnaIsabelCampos.jpg'
+			},
+			{
+				id: '4',
 				name: 'Ana Sawyers',
 				institution: 'LEB La Trinidad',
 				description: 'She has been teaching for twenty years now; she graduated from Universidad Nacional. She works full time in high school with teenagers. She also works at U Latina during the evenings with students who take English courses as a requirement for their administration majors. For her, professional development is an important way to be updated. She invests her time in attending professional development activities.',
 				image: './images/speakers/local/AnaSawyers.jpg'
 			},
 			{
-				id: '4',
+				id: '5',
 				name: 'Cindy Rodriguez',
 				institution: 'Universidad Técnica Nacional',
 				description: 'Cindy is a passionate educator who truly enjoys everything related to learning and education. She graduated as an English teacher at UCR and then obtained an M.A in Translation from UNA. She is working on her thesis to obtain her M.Ed. on Educational Management.  Cindy is close to finish her Doctorate in Education. She works at UTN, and UCR, in the latest as a pedagogical advisor. She is constantly looking for new learning experiences.',
 				image: './images/speakers/local/CindyRodriguez.jpg'
 			},
 			{
-				id: '5',
+				id: '6',
 				name: 'Danilo Alpízar',
 				institution: 'Instituto Tecnológico de Costa Rica',
 				description: "He graduated as an English teacher from Universidad de Costa Rica in 1981 and then obtained his Master's Degree in ESL from West Virginia University, USA in 1984. He has been a professor at Instituto Tecnológico de Costa Rica since 2000. He has been involved in teacher training both at UCR and at TEC with the CONARE-MEP English Teacher Training Program.",
 				image: './images/speakers/local/DaniloAlpizar.jpg'
 			},
 			{
-				id: '6',
+				id: '7',
 				name: 'Eric Herrera Molina',
 				institution: 'Universidad Técnica Nacional',
 				description: "Eric Herrera Molina has a Bachelor's Degree in English (UCR) a Licenciatura (UNED), a Master´s Degree in Educational Technology (UNED), a Postgraduate Degree in Digital Media and E-learning (FATLA). He has an experience of 15 years in public and private high schools and universities. He also worked for 2 years in the US as a Spanish teacher. He is also the editor of The ILE Post, a monthly magazine at UTN.",
 				image: './images/speakers/local/EricHerreraMolina.jpg'
 			},
 			{
-				id: '7',
+				id: '8',
 				name: 'Eric Salas Acuña',
 				institution: 'Instituto Tecnológico de Costa Rica',
 				description: 'Erick Francisco Salas Acuña graduated from the University of Costa Rica (UCR) where he obtained a BA in Spanish Philology and a BA in English. He is currently writing his thesis to obtain his MA Degree in Social Communication with an emphasis in Latin American Literature (UCR). He has worked as a professor for the School of Modern Languages and the School of Social Communications at the University of Costa Rica (207-2013). Since 2014 he works for the Costa Rica Institute of Technology, Santa Clara, San Carlos. His interests involve the teaching of literature and writing.',
 				image: './images/speakers/local/EricSalas.jpg'
 			},
 			{
-				id: '8',
+				id: '9',
+				name: 'Francisco Vargas',
+				institution: 'Textos Educativos, Cambridge University Press',
+				description: "Francisco Vargas holds a BA, Licenciatura, and Master's Degrees in the field of Teaching English to Speakers of Other Languages. He has worked as teacher, teacher supervisor and trainer at institutions such as Centro Cultural Costarricense-Norteamericano, UNED, UCR, Universidad Latina. He was also a Regional Advisor at Ministerio de Educación Pública supervising and training English teachers. Francisco was Country Manager for Cambridge University Press in Costa Rica as academic consultant since 2002. He is now Cambridge University Press Account Manager at Textos Educativos. Francisco has delivered training sessions in English Teaching Conferences in Costa Rica, Panama, Peru, Guatemala, El Salvador and Nicaragua.",
+				image: './images/speakers/local/FranciscoVargas.jpg'
+			},
+			{
+				id: '10',
+				name: 'Gabriela Castillo Hernández',
+				institution: 'Ministerio de Educación Pública',
+				description: "María Gabriela Castillo Hernández works as the English Language Advisor for the Ministry of Public Education Regional Office in San Carlos. She has over 18 years of teaching experience, and has been a professor at the university level for several years. She graduated from the University of Costa Rica and holds a Licenciatura Degree in EFL Teaching from Universidad Católica. She is currently a master student in the EFL Teaching Program at Universidad Latina.",
+				image: './images/speakers/local/GabrielaCastilloHernandez.jpg'
+			},
+			{
+				id: '11',
 				name: 'Hazel Vega',
 				institution: 'Universidad de Costa Rica, Sede Occidente',
 				description: "Hazel received her Bachelor's in English Teaching and Master's in Second Languages and Cultures at Universidad Nacional, Heredia. She has over 13 years of teaching experience mostly working with adults and taking part in teacher training processes in Costa Rica. Institutions and projects in which she has worked include Centro Cultural Costarricense Norteamericano, Universidad Nacional and CONARE-MEP. She is currently a faculty member at the Universidad de Costa Rica, Sede de Occidente.",
 				image: './images/speakers/local/HazelVega.jpg'
 			},
 			{
-				id: '9',
+				id: '12',
 				name: 'Johanny Vallecillo',
 				institution: 'Instituto Tecnológico de Costa Rica',
 				description: 'Professor Johanny Vallecillo started his teaching career in the year 2000. He earned both a Bachelors and Masters of Education with a concentration in English Teaching from Universidad Latina de Costa Rica. His experience includes teaching elementary and high school for MEP. In 2007, he moved to North Carolina, USA, where he taught for five years. Since 2014, he has been teaching English at Instituto Tecnológico de Costa Rica on its campus in San Carlos.',
 				image: './images/speakers/local/JohannyVallecillo.jpg'
 			},
 			{
-				id: '10',
+				id: '13',
 				name: 'Jonathan Salas Alvarado',
 				institution: 'Universidad de Costa Rica, Sede del Pacífico',
 				description: 'Jonnathan Salas Alvarado is an English teacher who has worked at the Universidad de Costa Rica and the Colegio Laboratorio del CUP for more than 9 years. He also worked at Universidad Técnica Nacional for 5 years and at Universidad Latina de Costa Rica for 1 year. He has a Bachelor Degree, a Licenciatura degree and a Master degree in English Teaching. Besides his interest in teaching, he has a big interest in theater and the acting process in general. He has been acting for more than 11 years in Puntarenas. He has had the chance to participate in different theater congresses both national and international and he has had the chance to attend different workshops in this area as well. He has acted with two different groups and he has directed different plays in the high school where he works.',
 				image: './images/speakers/local/JonathanSalas.jpg'
 			},
 			{
-				id: '11',
+				id: '14',
 				name: 'Kelley Williams',
 				institution: 'Universidad Estatal a Distancia',
 				description: 'Kelley Williams holds a Licenciatura from the Universidad Estatal a Distancia in Costa Rica in English Teaching to elementary school children. Mr. Williams graduated from UNC-CH in 1989 with a BA in both English and Spanish. Kelley has taught from elementary school to college-aged students. He worked as Regional Advisor for the Programa de Lenguas Extranjeras para el Desarrollo when English in elementary schools first became part of Costa Rican curriculum. Currently, Mr. Williams works for the UNED teaching EFL to adults, and supervising student teachers.',
 				image: './images/speakers/local/KelleyWilliams.jpg'
 			},
 			{
-				id: '12',
+				id: '15',
+				name: 'Lorein Powell Benard',
+				institution: 'OOLIPRO',
+				description: 'Lorein Powell Benard is a retired professor after 35 years teaching at UNA and Alajuela Community College. She has been continuously involved in research related to identity and multicultural interactions, as well as in multidisciplinary research on EFL teacher education and in-service professional development, also serving for over 15 years as a facilitator and designer of different teacher-training programs.',
+				image: './images/speakers/local/LoreinPowell.jpg'
+			},
+			{
+				id: '16',
+				name: 'Marianella Granados Sirias',
+				institution: 'Ministerio de Educación Pública',
+				description: 'National English Advisor for Secondary Education, Ministry of Public Education. Marianella Granados Sirias is a National English Advisor for Secondary Education. She worked for several years as National English Advisor for the Division of National Testing and has extensive experience as a High School teacher. She graduated from the Universidad Nacional and holds a Master’s Degree in Education with an Emphasis in Curriculum from the Universidad Latina de Costa Rica.',
+				image: './images/speakers/local/MarianellaGranadosSirias.jpg'
+			},
+			{
+				id: '17',
 				name: 'Marisol Rojas Salas',
 				institution: 'Universidad Técnica Nacional',
 				description: 'Marisol Rojas Salas has a Master in Education Sciences, Instituto Tecnológico de Monterrey (ITESM), a Master in TEFL, Universidad de Costa Rica (UCR), a Licenciatura Degree in Educational Administration, Universidad Estatal a Distancia (UNED). She has taught English in Universidad Técnica Nacional (UTN) and Universidad de Costa Rica.  Currently she is the Director of Programa Institucional de Idiomas para el Trabajo at the UTN.',
 				image: './images/speakers/local/MarisolRojasSalas.png'
 			},
 			{
-				id: '13',
+				id: '18',
 				name: 'Mark Foster Cormier',
 				institution: 'Centro Cultural Costarricense Norteamericano',
 				description: 'Mark Foster Cormier is a resource teacher and coach at the Centro Cultural Costarricense Norteamericano in Cartago, Costa Rica where he teaches EFL classes to adults and teenagers and provides supervision, training, and professional development opportunities to new teachers. His interests include task-based instruction, vocabulary building strategies, and using content to teach advanced learners.',
 				image: './images/speakers/local/MarkFosterCormier.jpg'
 			},
 			{
-				id: '14',
+				id: '19',
 				name: 'Marlon Perez',
 				institution: 'Instituto Tecnológico de Costa Rica',
 				description: 'Marlon Perez obtained a Master Degree in TESOL from the University of Northern Iowa in 2005. He has been an English teacher since 1996 and has worked both in Costa Rica and in the United States of America as an English instructor. He has also been a trainer for in-service MEP English teachers and has given presentations and workshops at several conference. He is currently working for the ITCR as an English teacher.',
 				image: './images/speakers/local/MarlonPerez.jpg'
 			},
 			{
-				id: '15',
+				id: '20',
+				name: 'Mary Scholl',
+				institution: 'Embajada de Estados Unidos en Costa Rica  and Centro Espiral Mana',
+				description: 'Mary Scholl founded and directs a center for professional development and community English program in San Ramon. She has been teaching English and working with developing teachers for over 25 years and has lived and taught in 20 countries on four continents. Mary is passionate about learning, reflection, and creativity.',
+				image: './images/speakers/local/MaryScholl.jpg'
+			},
+			{
+				id: '21',
 				name: 'Max Arias Segura',
 				institution: 'Ministerio de Educación Pública',
 				description: 'Max Arias Segura is a Regional English Advisor in Liberia, Guanacaste. He has worked in education for about 19 years in different levels from elementary education to universities. He majored with a BA, a Licenciatura and a Master´s Degree in English Teaching, a Master´s in Educational Leadership and Administration, and a Ph.D. in Education with emphasis in Pedagogical Mediation. His areas of interest are methodology, learning, and assessment.',
 				image: './images/speakers/local/MaxArias.jpg'
 			},
 			{
-				id: '16',
+				id: '22',
 				name: 'Michelle Leip',
 				institution: 'Infinite Horizons',
 				description: 'Michelle Leip earned her Master’s Degree in School Leadership from the Harvard Graduate School of Education and a Bachelor’s degree in Spanish and Elementary Education from Framingham State College. She is a passionate educator with 14 years of experience in all areas of education including instruction, leadership, advocacy, research, writing, and teacher training. She is committed to ensuring that all students receive a first-rate education regardless of race, religion, gender, ability, or socioeconomic status.',
 				image: './images/speakers/local/MichelleLeip.jpg'
 			},
 			{
-				id: '17',
+				id: '23',
 				name: 'Natalia Ramírez Casalvolone',
 				institution: 'Universidad de Costa Rica',
 				description: 'Natalia received her Bachelor’s and Licenciatura Degree in English Teaching at the Universidad de Costa Rica. She received her Master’s in English Teaching at the Universidad Latina de Costa Rica- San José. She received a Diploma de Profesorado en la Enseñanza Primaria at the Universidad de San José.  She has over 13 years of teaching experience mostly working young adults at Colegio Nocturno de Naranjo and San Ramón- MEP. She is currently a faculty member at the Universidad de Costa Rica, Sede de Occidente.',
 				image: './images/speakers/local/NataliaRamirez.jpg'
 			},
 			{
-				id: '18',
+				id: '24',
 				name: 'Norka Ureña Cruz',
 				institution: 'Universidad Estatal a Distancia',
 				description: 'Norka Ivannia Ureña Cruz was born in 1980, in San José, Costa Rica. She attended UNED where she got her Diploma and Bachelor Degree in Education cycles I and II with emphasis on English Teaching in the year 2012, and the Licenciatura in English Teaching cycles I and II, in the year 2014. She is now a regular teacher in Carmen Lyra School. Norka holds a special interest on psychopedagogy and she is planning to start her Master’s Degree on this same field at UNED.',
 				image: './images/speakers/local/NorkaUreña.jpg'
 			}, 
 			{
-				id: '19',
+				id: '25',
 				name: 'Paola Artavia Moya',
 				institution: 'Ministerio de Educación Pública',
 				description: "As a pedagogical advisor, she is dedicated to learning about everyone else´s teaching experiences and trying to solve problems her colleagues face every day in their institutions. Using creativity and innovation along with her co-workers makes me feel that all this effort in the Ministry of Public Education is worthy.  She is always looking for ways to engage students and motivate them through meaningful pedagogical experiences. In her spare time, she enjoys reading, investigating, and looking for ways to make children, adolescents, and adults enjoy their second language learning experience.",
 				image: './images/speakers/local/PaolaArtaviaMoya.png'
 			},
 			{
-				id: '20',
+				id: '26',
 				name: 'Patricia López Estrada',
 				institution: 'Instituto Tecnológico de Costa Rica',
 				description: "Patricia López Estrada holds an Education Doctorate from the University of Florida, a Masters's Degree in Second Languages and Cultures in English as a Foreign Language and a Licentiatura in Applied Linguistics to Second Language Teaching from Universidad Nacional, a Bachelor's Degree in English Teaching and English Translation from Universidad Latinoamericana de Ciencias y Tecnología. Her most recent publications and conference presentations focus on effective pedagogical practices in bilingual education, the use of technology, and empowerment pedagogy practices in higher education.",
 				image: './images/speakers/local/PatriciaLopezEstrada.jpg'
 			},
 			{
-				id: '21',
+				id: '27',
 				name: 'Roger Ramirez Draughn',
 				institution: 'SIT Graduate Institute',
 				description: 'Roger, originally from NYC, received his MA in TESOL at the SIT Graduate Institute in VT and is currently pursuing a Ph.D. in Education at Universidad La Salle. He has worked on teacher training projects in USA, South Korea, Burundi, Nigeria, Dominican Republic and a number of countries in Latin America. Roger’s current interests and research include bio-pedagogy and 21st Century learning.',
 				image: './images/speakers/local/RogerRamirezDraughn.jpg'
 			},
 			{
-				id: '22',
+				id: '28',
 				name: 'Rosberly López',
 				institution: 'Universidad de Costa Rica, Sede del Pacífico',
 				description: "Rosberly López Montero holds a degree of Licenciatura in English Teaching, a Masters in Linguistics. She is a professor and investigator at Universidad de Costa Rica, Pacific Regional Campus. She is the Coordinator of the Extension Program “Languages for International Communication”. Her areas of interest are English Teaching and Language Acquisition.",
 				image: './images/speakers/local/RosberlyLopez.jpg'
 			},
 			{
-				id: '23',
+				id: '29',
 				name: 'Veronica Oguilve',
 				institution: 'Universidad Técnica Nacional',
 				description: "Veronica Oguilve Araya is a TESOL instructor at Universidad Técnica Nacional (UTN) and Universidad Estatal a Distancia (UNED). She holds a Bachelor’s Degree in English Teaching, a Licenciatura Degree in English and a Master’s Degree in TESOL from the University of Costa Rica.  Her research interests include the use of the Common European Framework and implementation of Web 2.0 tools to support teaching and learning.",
 				image: './images/speakers/local/VeronicaOguilve.jpg'
 			},
 			{
-				id: '24',
+				id: '30',
 				name: 'Yorleni Romero Chaves',
 				institution: 'Universidad Técnica Nacional',
 				description: "Yorleni Romero Chaves holds a Master’s Degree in Second Languages and Cultures, a Licenciatura Degree in Applied Linguistics and a Bachelor´s Degree in English Teaching all from Universidad Nacional de Costa Rica. She has been the Academic Principal in private high schools, the Dean of Education at a private university, and an English professor at different public universities and is currently an academic for the PIT program at Universidad Técnica Nacional (UTN) in Alajuela, Costa Rica.",
