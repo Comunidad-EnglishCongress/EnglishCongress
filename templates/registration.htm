@@ -31,17 +31,8 @@
 		</div>
 		<div class="col-md-6">
 		    <p>
-		        <label>Group</label><br>
-		        <select ng-model="group" class="form-control" ng-change="validateGroup();">
-		        	<option value="">-- Choose one --</option>
-					<option value="Dirección Regional de Educación, San Carlos">Dirección Regional de Educación, San Carlos</option>
-					<option value="Dirección Regional de Educación, Norte-Norte">Dirección Regional de Educación, Norte-Norte</option>
-					<option value="Dirección Regional de Educación, Sarapiquí">Dirección Regional de Educación, Sarapiquí</option>
-					<option value="Dirección Regional de Educación, Occidente">Dirección Regional de Educación, Occidente</option>
-					<option value="Consejo Académico Regional">Consejo Académico Regional</option>
-					<option value="General Public">General Public</option>
-				</select>
-				<div class="alert alert-danger" ng-show="errorGroup">{{messageGroup}}</div>
+		        <label>Workplace (Name of institution)</label>
+		        <input ng-model="workplace" class="form-control" type="text">
 		    </p>
 		</div>
 	</div>
@@ -58,14 +49,6 @@
 		        <label>Phone number</label>
 		        <input ng-model="phone" class="form-control" type="text" ng-blur="validatePhone();">
 				<div class="alert alert-danger" ng-show="errorPhone">{{messagePhone}}</div>
-		    </p>
-		</div>
-	</div>
-	<div class="col-md-12">
-		<div class="col-md-6">
-		    <p>
-		        <label>Workplace (Name of institution)</label>
-		        <input ng-model="workplace" class="form-control" type="text">
 		    </p>
 		</div>
 	</div>

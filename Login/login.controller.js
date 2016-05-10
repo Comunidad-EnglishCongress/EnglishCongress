@@ -7,8 +7,8 @@
 
     loginCtrl.$inject = ['$scope', 'Auth', 'loginFactory'];
     function loginCtrl($scope, Auth, loginFactory) {
-        $scope.email = 'c@gmail.com';
-        $scope.pass = '12345';
+        $scope.email = '';
+        $scope.pass = '';
         $scope.errorLogin = false;
         $scope.error = false;
         $scope.login = login;   

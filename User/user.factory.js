@@ -154,7 +154,7 @@
  		*   boolean false Current date is the official.
  		*/
 		function dateOfLaunch() {
-			var currentDate = new Date('01 Jun 2016');
+			var currentDate = new Date();
             var launchDate = new Date('01 Jun 2016');
             
             return currentDate < launchDate;

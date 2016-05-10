@@ -11,18 +11,18 @@
 	function login($conn) {
 		$JSON = array();
 		$array_data = array();
-
+		
 		// Gets the e-mail and password received from the login factory.
 		$email = $_REQUEST['email'];
 		$pass = $_REQUEST['pass'];
 		
 		$query = "SELECT id, fullName, email, receipt, type FROM Person WHERE email='$email' AND pass='$pass'";
 		$result = $conn->query($query);
-
+		
 	    while($row = mysqli_fetch_array($result)) {
 	        $array_data[] = $row;
 	    }
-
+	    
 	    foreach($array_data as &$row) {
 	    	$JSON[] = array(
 	    		'id' => $row['id'],
