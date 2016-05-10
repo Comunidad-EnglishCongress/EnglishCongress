@@ -3,10 +3,10 @@
 
 	angular
 		.module('congressApp')
-		.factory('loginFactory', loginFactory);
+		.factory('LoginFactory', LoginFactory);
 
-	loginFactory.$inject = ['$http', '$q'];
-	function loginFactory($http, $q) {
+	LoginFactory.$inject = ['$http', '$q'];
+	function LoginFactory($http, $q) {
 		var data = {
 			login: login
 		};

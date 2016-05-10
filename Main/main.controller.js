@@ -3,10 +3,10 @@
 
 	angular
 		.module('congressApp')
-		.controller('mainCtrl', mainCtrl);
+		.controller('MainController', MainController);
 
-	mainCtrl.$inject = ['$scope'];
-	function mainCtrl($scope) {
+	MainController.$inject = ['$scope'];
+	function MainController($scope) {
 		$scope.activeNav = '';
 		$scope.goTop = goTop;
 		$scope.guestSpeakers = [

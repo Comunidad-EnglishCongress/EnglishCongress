@@ -3,10 +3,10 @@
 
     angular
         .module('congressApp')
-        .controller('registrationCtrl', registrationCtrl);
+        .controller('RegistrationController', RegistrationController);
 
-    registrationCtrl.$inject = ['$scope', '$timeout', 'registrationFactory'];
-    function registrationCtrl($scope, $timeout, registrationFactory) {
+    RegistrationController.$inject = ['$scope', '$timeout', 'RegistrationFactory'];
+    function RegistrationController($scope, $timeout, RegistrationFactory) {
         $scope.typeInputPass = 'password';
         $scope.registrationOk = false;
         $scope.registrationError = false;
@@ -144,7 +144,7 @@
             };
 
             // Calls the decrement capacity method in the registration factory.
-            registrationFactory.decrementCapacity(data)
+            RegistrationFactory.decrementCapacity(data)
             .then(function(response) {});
         }
 
@@ -174,7 +174,7 @@
             };
 
             // Calls the registration method in the registration factory.
-            registrationFactory.registration(data)
+            RegistrationFactory.registration(data)
             .then(function(response) {
                 if (response == true) {
                     decrementCapacity();
@@ -205,7 +205,7 @@
             };
 
             // Calls the validate ID method in the registration factory.
-            registrationFactory.validateId(data)
+            RegistrationFactory.validateId(data)
             .then(function(response) {
                 if(typeof(response) == 'string') {
                     $scope.errorId = true;
@@ -237,7 +237,7 @@
 				};
 
                 // Calls the validate e-mail method in the registration factory.
-                registrationFactory.validateEmail(data)
+                RegistrationFactory.validateEmail(data)
                 .then(function(response) {
                     if(typeof(response) == 'string') {
                         $scope.errorEmail = true;
@@ -267,7 +267,7 @@
                 };
 
                 // Calls the validate group method in the registration factory.
-                registrationFactory.validateGroup(data)
+                RegistrationFactory.validateGroup(data)
                 .then(function(response) {
                     if (typeof(response) == 'string') {
                         $scope.errorGroup = true;

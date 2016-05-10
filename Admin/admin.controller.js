@@ -3,10 +3,10 @@
 
 	angular
 		.module('congressApp')
-		.controller('adminCtrl', adminCtrl); 
+		.controller('AdminController', AdminController); 
 
-	adminCtrl.$inject = ['$scope', '$timeout', '$cookies', '$mdDialog', 'Auth', 'adminFactory'];
-	function adminCtrl($scope, $timeout, $cookies, $mdDialog, Auth, adminFactory) {
+	AdminController.$inject = ['$scope', '$timeout', '$cookies', '$mdDialog', 'Auth', 'AdminFactory'];
+	function AdminController($scope, $timeout, $cookies, $mdDialog, Auth, AdminFactory) {
 		$scope.admin = $cookies.getObject('session');
 		$scope.admin.name = $scope.admin.fullName.split(' ')[0];
 		$scope.activeNav = '';
@@ -17,6 +17,7 @@
 		$scope.loadPersons = loadPersons;
 		$scope.removePerson = removePerson;
 		$scope.changeReceiptState = changeReceiptState;
+		$scope.addSesion = addSesion;
 		$scope.goTop = goTop;
 
 		/*
@@ -42,7 +43,7 @@
 			};
 
 			// Calls the load sessions method in the admin factory that returns the sessions.
-			adminFactory.loadSessions(data)
+			AdminFactory.loadSessions(data)
 			.then(function(response) {
 				if(typeof(response) == 'object') {
 					$scope.sessions = response;
@@ -66,7 +67,7 @@
 			};
 
 			// Calls the load persons method in the admin factory that returns the persons.
-			adminFactory.loadPersons(data)
+			AdminFactory.loadPersons(data)
 			.then(function(response) {
 				if(typeof(response) == 'object') {
                 	$scope.persons = response;
@@ -102,7 +103,7 @@
 				};
 
 				// Calls the remove person method in the admin factory.
-				adminFactory.removePerson(data)
+				AdminFactory.removePerson(data)
 				.then(function(response) {
 					if(response === '1') {
 						data = {
@@ -111,7 +112,7 @@
 						};
 
 						// Calls the increment capacity method in the admin factory.
-						adminFactory.incrementCapacity(data)
+						AdminFactory.incrementCapacity(data)
 						.then(function(response) {
 							loadPersons();
 						});
@@ -138,7 +139,7 @@
 				receipt: 1 - receiptState
 			}
 			
-			adminFactory.changeReceiptState(data)
+			AdminFactory.changeReceiptState(data)
 			.then(function(response) {
 				if(response === '1') {
 					loadPersons();
@@ -162,7 +163,10 @@
                 $scope.error = false;
             }, 5000);
         }
-
+		
+		function addSesion() {
+			$scope.activeNav = 'addSesion';
+		}
         /* 
 		* Moves the scrool to the bottom.
 		*

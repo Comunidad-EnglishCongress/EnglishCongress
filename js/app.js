@@ -90,15 +90,15 @@
 	function config($routeProvider) {
 		$routeProvider
 			.when('/', {
-				controller: 'mainCtrl',
+				controller: 'MainController',
 				templateUrl: './Main/main.html'
 			})
 			.when('/user', {
-				controller: 'userCtrl',
+				controller: 'UserController',
 				templateUrl: './User/user.html'
 			})
 			.when('/admin', {
-				controller: 'adminCtrl',
+				controller: 'AdminController',
 				templateUrl: './Admin/admin.html'
 			})
 			.otherwise('/');

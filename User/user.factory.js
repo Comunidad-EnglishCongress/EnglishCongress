@@ -3,10 +3,10 @@
 
 	angular
 		.module('congressApp')
-		.factory('userFactory', userFactory);
+		.factory('UserFactory', UserFactory);
 
-	userFactory.$inject = ['$http', '$q'];
-	function userFactory($http, $q) {
+	UserFactory.$inject = ['$http', '$q'];
+	function UserFactory($http, $q) {
 		var data = {
 			loadMySessions: loadMySessions,
 			loadAllSessions: loadAllSessions,

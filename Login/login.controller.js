@@ -3,10 +3,10 @@
 
     angular
         .module('congressApp')
-        .controller('loginCtrl', loginCtrl);
+        .controller('LoginController', LoginController);
 
-    loginCtrl.$inject = ['$scope', 'Auth', 'loginFactory'];
-    function loginCtrl($scope, Auth, loginFactory) {
+    LoginController.$inject = ['$scope', 'Auth', 'LoginFactory'];
+    function LoginController($scope, Auth, LoginFactory) {
         $scope.email = '';
         $scope.pass = '';
         $scope.errorLogin = false;
@@ -27,7 +27,7 @@
             };
 
             // Call the login method in the factory that returns the person that try to enter in the system.
-            loginFactory.login(data)
+            LoginFactory.login(data)
             .then(function(response) {
                 if(!response) {
                     $scope.errorLogin = true;

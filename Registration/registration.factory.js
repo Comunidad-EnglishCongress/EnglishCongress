@@ -3,10 +3,10 @@
 
 	angular
 		.module('congressApp')
-		.factory('registrationFactory', registrationFactory);
+		.factory('RegistrationFactory', RegistrationFactory);
 
-	registrationFactory.$inject = ['$http', '$q'];
-	function registrationFactory($http, $q) {
+	RegistrationFactory.$inject = ['$http', '$q'];
+	function RegistrationFactory($http, $q) {
 		var data = {
 			decrementCapacity: decrementCapacity,
 			registration: registration,

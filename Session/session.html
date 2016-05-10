@@ -1,0 +1,56 @@
+<div ng-controller="SessionController" class="box">
+    <form class="col-md-12">
+        <div class="col-md-6 col-sm-6">
+            <p>
+                <label>Name</label>
+                <input ng-model="name" class="form-control" type="text">
+            </p>
+        </div>
+        <div class="col-md-6 col-sm-6">
+            <p>
+                <label>Location</label>
+                <input ng-model="location" class="form-control" type="text">
+            </p>
+        </div>
+        <div class="col-md-6 col-sm-6">
+            <p>
+                <label>Hour start</label>
+                <div class="input-group clockpicker" data-placement="bottom" data-align="bottom" data-autoclose="true">
+                    <input id="start" type="text" class="form-control">
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-time"></span>
+                    </span>
+                </div>
+            </p>
+        </div>
+        <div class="col-md-6 col-sm-6">
+            <p>
+                <label>Hour finish</label>
+                <div class="input-group clockpicker" data-placement="bottom" data-align="bottom" data-autoclose="true">
+                    <input id="finish" type="text" class="form-control">
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-time"></span>
+                    </span>
+                </div>
+            </p>
+        </div>
+        <div class="col-md-6 col-sm-6">
+            <p>
+                <label>Capacity</label>
+                <input ng-model="capacity" class="form-control" type="number">
+            </p>
+        </div>
+        <div class="col-md-6 col-sm-6">
+            <p>
+                <label>Date</label>
+                <md-content>
+                    <md-datepicker data-ng-model="date" md-placeholder="Enter date"></md-datepicker>
+                </md-content>
+            </p>
+        </div>
+        <div class="col-md-12 col-sm-12 box text-center">
+            <div ng-show="msgSession" ng-class="styleSession" ng-bind="msgSession"></div>
+            <button class="btn btn-primary" ng-click="store();"><span class="glyphicon glyphicon-floppy-disk"></span>&nbsp;&nbsp;Save</button>
+        </div>
+    </form>
+</div>

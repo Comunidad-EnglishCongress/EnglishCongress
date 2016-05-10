@@ -327,11 +327,17 @@ footer p a:hover {
 .glyphicon-trash {
     color: #E74C3C;
     font-size: 20px;
+    cursor: pointer;
+}
+.glyphicon-pencil {
+    color: #F28705;
+    font-size: 20px;
+    cursor: pointer;
 }
 .card-text .glyphicon-trash {
     float: right;
 }
-.glyphicon-trash:hover, .fa-square:hover, .fa-square-o:hover, .fa-arrow-up:hover {
+.glyphicon-trash:hover, .fa-square:hover, .fa-square-o:hover, .fa-arrow-up:hover, .glyphicon-pencil:hover {
     transform: scale(1.2);
 }
 

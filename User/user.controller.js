@@ -3,10 +3,10 @@
 
     angular
         .module('congressApp')
-        .controller('userCtrl', userCtrl);
+        .controller('UserController', UserController);
 
-    userCtrl.$inject = ['$scope', '$timeout', '$cookies', '$mdDialog', 'Auth', 'userFactory'];
-    function userCtrl($scope, $timeout, $cookies, $mdDialog, Auth, userFactory) {
+    UserController.$inject = ['$scope', '$timeout', '$cookies', '$mdDialog', 'Auth', 'UserFactory'];
+    function UserController($scope, $timeout, $cookies, $mdDialog, Auth, UserFactory) {
         $scope.user = $cookies.getObject('session');
         $scope.user.name = $scope.user.fullName.split(' ')[0];
         $scope.activeNav = '';
@@ -19,7 +19,7 @@
         $scope.showMySessions = false;
         $scope.uploadStyle = '';
         $scope.uploadMessage = '';
-        $scope.blockSessions = userFactory.dateOfLaunch();
+        $scope.blockSessions = UserFactory.dateOfLaunch();
         $scope.logOut = logOut;
         $scope.loadMySessions = loadMySessions;
         $scope.loadAllSessions = loadAllSessions;
@@ -53,7 +53,7 @@
             };
 
             // Calls the load my sessions method in the user factory that returns the user's sessions.
-            userFactory.loadMySessions(data)
+            UserFactory.loadMySessions(data)
             .then(function(response) {
                  if(typeof(response) == 'object') {
                     if(response.length) {
@@ -82,7 +82,7 @@
             };
 
             // Calls the load sessions method in the user factory that returns the sessions.
-            userFactory.loadAllSessions(data)
+            UserFactory.loadAllSessions(data)
             .then(function(response) {
                 if(typeof(response) == 'object') {
                     $scope.sessions = response;
@@ -120,7 +120,7 @@
                 };
 
                 // Calls the remove sessions method in the user factory.
-                userFactory.removeFromMySessions(data)
+                UserFactory.removeFromMySessions(data)
                 .then(function(response) {
                     if (response == true) {
                         loadMySessions();
@@ -131,7 +131,7 @@
                         };
 
                         // Calls the increment method in the user factory.
-                        userFactory.increment(data)
+                        UserFactory.increment(data)
                         .then(function(response) {
                             $scope.remove = true;
 
@@ -162,7 +162,7 @@
 			};
 
             // Calls the add to my sessions method in the user factory.
-            userFactory.addToMySessions(data)
+            UserFactory.addToMySessions(data)
             .then(function(response) {
                 if (response === 'exists') {
                     $scope.repeatSession = true;
@@ -185,7 +185,7 @@
                     };
 
                     // Calls the decrement method in the user factory.
-                    userFactory.decrement(data)
+                    UserFactory.decrement(data)
                     .then(function(response) {
                         loadAllSessions();
                         $scope.add = true;
@@ -239,7 +239,7 @@
             var formData = new FormData();
             formData.append('file', file.file);
 
-            userFactory.uploadReceipt(uploadUrl, formData)
+            UserFactory.uploadReceipt(uploadUrl, formData)
             .then(function(response) {
                 $scope.upload = true;
 

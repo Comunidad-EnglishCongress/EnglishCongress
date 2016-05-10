@@ -13,8 +13,14 @@
         </div>
         <div class="navbar-collapse collapse navBar">
             <ul class="nav navbar-nav navbar-right">
-                <li ng-click="loadPersons()"><a style="color: #FF770D;">ALL PERSONS</a></li>
-                <li ng-click="loadSessions()"><a style="color: #FF770D;">ALL SESSIONS</a></li>
+                <li ng-click="loadPersons();"><a style="color: #FF770D;">ALL PERSONS</a></li>
+                <li class="dropdown">
+                    <a href="" class="dropdown-toggle" data-toggle="dropdown" style="color: #FF770D;">SESSIONS <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li ng-click="addSesion();"><a style="color: #2E32BF;"><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;ADD</a></li>
+                        <li ng-click="loadSessions();"><a style="color: #2E32BF;"><span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;ALL</a></li>
+                    </ul>
+                </li>
                 <li class="dropdown">
                     <a href="" class="dropdown-toggle" data-toggle="dropdown" style="color: #FF770D;">{{admin.name | uppercase}} <b class="caret"></b></a>
                     <ul class="dropdown-menu">
@@ -35,9 +41,9 @@
                     <th><label class="subtitle">Name</label></th>
                     <th><label class="subtitle">Location</label></th>
                     <th><label class="subtitle">Date</label></th>
-                    <th><label class="subtitle">Start time</label></th>
-                    <th><label class="subtitle">Finish time</label></th>
+                    <th><label class="subtitle">Time</label></th>
                     <th><label class="subtitle">Availability</label></th>
+                    <th><label class="subtitle">Actions</label></th>
                 </tr>
             </thead>
             <tbody>
@@ -45,12 +51,20 @@
                     <td>{{session.name}}</td>
                     <td>{{session.location}}</td>
                     <td>{{session.date}}</td>
-                    <td>{{session.hourStart}}</td>
-                    <td>{{session.hourFinish}}</td>
+                    <td>{{session.hourStart}} to {{session.hourFinish}}</td>
                     <td>{{session.capacity}} of {{session.maxCapacity}}</td>
+                    <td>
+                        <span class="glyphicon glyphicon-pencil"><md-tooltip md-direction="top">Edit session</md-tooltip></span>
+                        &nbsp;
+                        <span class="glyphicon glyphicon-trash"><md-tooltip md-direction="top">Remove session</md-tooltip></span>
+                    </td>
                 </tr>
             </tbody>
       </table>
+	</div>
+    <div ng-switch-when="addSesion">
+		<label class="title montserrat"><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Add session</label>
+        <div ng-include="'./Session/session.html'"></div>
 	</div>
 	<div ng-switch-when="persons">
 		<label class="title montserrat"><span class="fa fa-users"></span>&nbsp;&nbsp;All persons</label>
@@ -84,8 +98,8 @@
                     <td>{{person.phoneNumber}}</td>
                     <td>{{person.workplace}}</td>
                     <td>{{person.regionGroup}}</td>
-                    <td><span ng-class="{'fa fa-square': person.receipt == 1, 'fa fa-square-o': person.receipt == 0}" ng-click="changeReceiptState(person.id, person.receipt);" title="Change receipt state"></span></td>
-                    <td><span class="glyphicon glyphicon-trash" ng-click="removePerson($event, person.id, person.regionGroup);" title="Remove person"></span></td>
+                    <td><span ng-class="{'fa fa-square': person.receipt == 1, 'fa fa-square-o': person.receipt == 0}" ng-click="changeReceiptState(person.id, person.receipt);"><md-tooltip md-direction="top">Change receipt state</md-tooltip></span></td>
+                    <td><span class="glyphicon glyphicon-trash" ng-click="removePerson($event, person.id, person.regionGroup);"><md-tooltip md-direction="top">Remove person</md-tooltip></span></td>
                 </tr>
             </tbody>
       </table>
