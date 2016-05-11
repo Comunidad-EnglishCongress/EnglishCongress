@@ -5,8 +5,9 @@
         .module('congressApp')
         .controller('SessionController', SessionController);
     
-    function SessionController($scope, $filter, SessionFactory) {
+    function SessionController($scope, $timeout, $filter, SessionFactory) {
         $scope.store = store;
+        // Catch the value of the clockpickers.
         $('.clockpicker').clockpicker()
             .find('#start').change(function(){
                 $scope.hourStart = this.value;
@@ -16,6 +17,9 @@
                 $scope.hourFinish = this.value;
             });
         
+        /*
+		* Set empty the variables.
+ 		*/
         function setData() {
             $scope.name = '';
             $scope.location = '';
@@ -39,18 +43,28 @@
                 action: 'store'  
             };
             
-            SessionFactory.store(data)
-            .then(function(response) {
-                if (response === '1') {
-                    $scope.styleSession = 'alert alert-success'
-                    $scope.msgSession = 'The session was registered successfully.'
-                    setData();
-                }
-                else {
-                    $scope.styleSession = 'alert alert-error'
-                    $scope.msgSession = "An error has occurred during the session's register.";
-                }
-            });
+            if (data.name != "" && data.location != "" && data.hourStart != "" && data.hourFinish != "" && data.capacity != "" && data.date != "") {            
+                SessionFactory.store(data)
+                .then(function(response) {
+                    if (response === '1') {
+                        $scope.styleSession = 'alert alert-success';
+                        $scope.msgSession = 'The session was registered successfully.'
+                        setData();
+                    }
+                    else {
+                        $scope.styleSession = 'alert alert-danger';
+                        $scope.msgSession = "An error has occurred during the session's register.";
+                    }
+                });
+            }
+            else {
+                $scope.styleSession = 'alert alert-danger';
+                $scope.msgSession = "There can't be empty spaces.";
+            }
+            
+            $timeout(function() {
+                $scope.msgSession = '';
+            }, 7000);
         }
         
         setData();

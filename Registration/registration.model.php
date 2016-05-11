@@ -22,7 +22,7 @@
 		$population = utf8_decode($_REQUEST['population']);
 		$type = $_REQUEST['type'];
 
-		$query = "INSERT INTO Person (id, pass, fullName, regionGroup, email, phoneNumber, workplace, receipt, informed, academicDegree, teachingPopulation, type)
+		$query = "INSERT INTO person (id, pass, fullName, regionGroup, email, phoneNumber, workplace, receipt, informed, academicDegree, teachingPopulation, type)
 		                       VALUES('$id','$pass','$fullName','$regionGroup','$email','$phone','$workplace', 0,'$informed',\"$academic\",'$population','$type')";
 		$result = $conn->query($query);
 
@@ -40,7 +40,7 @@
 		$id = $_REQUEST['id'];
 		$array_data = array();
 
-		$query = "SELECT id FROM Person WHERE id='$id'";
+		$query = "SELECT id FROM person WHERE id='$id'";
 		$result = $conn->query($query);
 
 		while($row = mysqli_fetch_array($result)) {
@@ -61,7 +61,7 @@
 		$email = $_REQUEST['email'];
 		$array_data = array();
 
-		$query = "SELECT email FROM Person WHERE email='$email'";
+		$query = "SELECT email FROM person WHERE email='$email'";
 		$result = $conn->query($query);
 
 		while($row = mysqli_fetch_array($result)) {

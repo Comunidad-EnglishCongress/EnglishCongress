@@ -35,15 +35,15 @@
     <div ng-show="error" class="alert alert-danger text-center">An unexpected error has occurred. Please try again.</div>
 	<div ng-switch-when="sessions">
 		<label class="title montserrat"><span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;All sessions</label>
-		<table class="table table-striped box">
+		<table class="table table-striped box" ng-show="sessions.length">
             <thead>
                 <tr>
                     <th><label class="subtitle">Name</label></th>
                     <th><label class="subtitle">Location</label></th>
                     <th><label class="subtitle">Date</label></th>
-                    <th><label class="subtitle">Time</label></th>
+                    <th><label class="subtitle">Start time</label></th>
+                    <th><label class="subtitle">Finish time</label></th>
                     <th><label class="subtitle">Availability</label></th>
-                    <th><label class="subtitle">Actions</label></th>
                 </tr>
             </thead>
             <tbody>
@@ -51,16 +51,15 @@
                     <td>{{session.name}}</td>
                     <td>{{session.location}}</td>
                     <td>{{session.date}}</td>
-                    <td>{{session.hourStart}} to {{session.hourFinish}}</td>
+                    <td>{{session.hourStart}}</td>
+                    <td>{{session.hourFinish}}</td>
                     <td>{{session.capacity}} of {{session.maxCapacity}}</td>
-                    <td>
-                        <span class="glyphicon glyphicon-pencil"><md-tooltip md-direction="top">Edit session</md-tooltip></span>
-                        &nbsp;
-                        <span class="glyphicon glyphicon-trash"><md-tooltip md-direction="top">Remove session</md-tooltip></span>
-                    </td>
                 </tr>
             </tbody>
-      </table>
+        </table>
+        <div class="text-center box" ng-hide="sessions.length">
+            <label>Loading sessions...</label>
+        </div>
 	</div>
     <div ng-switch-when="addSesion">
 		<label class="title montserrat"><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Add session</label>
@@ -68,41 +67,46 @@
 	</div>
 	<div ng-switch-when="persons">
 		<label class="title montserrat"><span class="fa fa-users"></span>&nbsp;&nbsp;All persons</label>
-        <div class="box">
-            <div class="col-md-offset-8 col-md-4 col-sm-offset-6 col-sm-6 col-xs-12">
-                <div class="inner-addon right-addon">
-                    <i class="glyphicon glyphicon-search"></i>
-                    <input type="text" class="form-control" ng-model="searchID" placeholder="Filter persons">
-                </div>  
+        <div class="box" ng-show="persons.length">
+            <div>
+                <div class="col-md-offset-8 col-md-4 col-sm-offset-6 col-sm-6 col-xs-12">
+                    <div class="inner-addon right-addon">
+                        <i class="glyphicon glyphicon-search"></i>
+                        <input type="text" class="form-control" ng-model="searchID" placeholder="Filter persons">
+                    </div>  
+                </div>
             </div>
+            <br>
+            <table class="table table-striped box">
+                <thead>
+                    <tr>
+                        <th><label class="subtitle">ID</label></th>
+                        <th><label class="subtitle">Name</label></th>
+                        <th><label class="subtitle">Email</label></th>
+                        <th><label class="subtitle">Phone</label></th>
+                        <th><label class="subtitle">Workplace</label></th>
+                        <th><label class="subtitle">Place</label></th>
+                        <th><label class="subtitle">Receipt</label></th>
+                        <th><label class="subtitle">Remove</label></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="person in persons | filter:searchID">
+                        <td>{{person.id}}</td>
+                        <td>{{person.name}}</td>
+                        <td>{{person.email}}</td>
+                        <td>{{person.phoneNumber}}</td>
+                        <td>{{person.workplace}}</td>
+                        <td>{{person.regionGroup}}</td>
+                        <td><span ng-class="{'fa fa-square': person.receipt == 1, 'fa fa-square-o': person.receipt == 0}" ng-click="changeReceiptState(person.id, person.receipt);"><md-tooltip md-direction="top">Change receipt state</md-tooltip></span></td>
+                        <td><span class="glyphicon glyphicon-trash" ng-click="removePerson($event, person.id, person.regionGroup);"><md-tooltip md-direction="top">Remove person</md-tooltip></span></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-        <br>
-		<table class="table table-striped box">
-            <thead>
-                <tr>
-                    <th><label class="subtitle">ID</label></th>
-                    <th><label class="subtitle">Name</label></th>
-                    <th><label class="subtitle">Email</label></th>
-                    <th><label class="subtitle">Phone</label></th>
-                    <th><label class="subtitle">Workplace</label></th>
-                    <th><label class="subtitle">Place</label></th>
-                    <th><label class="subtitle">Receipt</label></th>
-                    <th><label class="subtitle">Remove</label></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="person in persons | filter:searchID">
-                    <td>{{person.id}}</td>
-                    <td>{{person.name}}</td>
-                    <td>{{person.email}}</td>
-                    <td>{{person.phoneNumber}}</td>
-                    <td>{{person.workplace}}</td>
-                    <td>{{person.regionGroup}}</td>
-                    <td><span ng-class="{'fa fa-square': person.receipt == 1, 'fa fa-square-o': person.receipt == 0}" ng-click="changeReceiptState(person.id, person.receipt);"><md-tooltip md-direction="top">Change receipt state</md-tooltip></span></td>
-                    <td><span class="glyphicon glyphicon-trash" ng-click="removePerson($event, person.id, person.regionGroup);"><md-tooltip md-direction="top">Remove person</md-tooltip></span></td>
-                </tr>
-            </tbody>
-      </table>
+        <div class="text-center box" ng-hide="persons.length">
+            <label>Loading persons...</label>
+        </div>
 	</div>
 </div>
 

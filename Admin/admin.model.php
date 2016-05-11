@@ -44,7 +44,7 @@
 		$JSON = array();
 		$array_data = array();
 
-		$query = "SELECT * FROM Session";
+		$query = "SELECT * FROM session";
 		$result = $conn->query($query);
 
 	    while($row = mysqli_fetch_array($result)) {

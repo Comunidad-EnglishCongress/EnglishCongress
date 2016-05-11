@@ -2,6 +2,12 @@
 
     require '../db/connection.php';
     
+	/**
+	* Store a new session in the database.
+	*
+	* @param Connection $conn Connection with the database.
+	* @return boolean true Stored successfuly.
+	*/
     function store($conn) {
         // Gets all information received from the session factory.
 		$name = utf8_decode($_REQUEST['name']);

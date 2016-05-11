@@ -12,7 +12,7 @@
 		$JSON = array();
 		$array_data = array();
 
-		$query = "SELECT * FROM Session WHERE capacity>0";
+		$query = "SELECT * FROM session WHERE capacity>0";
 		$result = $conn->query($query);
 
 	    while($row = mysqli_fetch_array($result)) {

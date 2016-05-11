@@ -37,6 +37,7 @@
  		* @return Nothing.
  		*/
 		function loadSessions() {
+			$scope.sessions = [];
 			$scope.activeNav = 'sessions';
 			var data = {
 				action: 'sessions'
@@ -61,6 +62,7 @@
  		* @return Nothing.
  		*/
 		function loadPersons() {
+			$scope.persons = [];
 			$scope.activeNav = 'persons';
 			var data = {
 				action: 'persons'		
@@ -70,7 +72,7 @@
 			AdminFactory.loadPersons(data)
 			.then(function(response) {
 				if(typeof(response) == 'object') {
-                	$scope.persons = response;
+					$scope.persons = response;
 				}
 				else {
 					errorConnection();
