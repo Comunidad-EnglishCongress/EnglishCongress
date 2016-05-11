@@ -35,7 +35,10 @@
     <div ng-show="error" class="alert alert-danger text-center">An unexpected error has occurred. Please try again.</div>
 	<div ng-switch-when="sessions">
 		<label class="title montserrat"><span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;All sessions</label>
-		<table class="table table-striped box" ng-show="sessions.length">
+        <div class="alert alert-info text-center box" ng-show="sessions.length == 0">
+            There aren't sessions created, please click <a href="" ng-click="addSesion();">here</a> to register sessions.
+        </div>
+		<table class="table table-striped box" ng-show="sessions.length > 0">
             <thead>
                 <tr>
                     <th><label class="subtitle">Name</label></th>
@@ -57,9 +60,6 @@
                 </tr>
             </tbody>
         </table>
-        <div class="text-center box" ng-hide="sessions.length">
-            <label>Loading sessions...</label>
-        </div>
 	</div>
     <div ng-switch-when="addSesion">
 		<label class="title montserrat"><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Add session</label>
