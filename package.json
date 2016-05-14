@@ -1,0 +1,33 @@
+{
+  "name": "iienglishteachingcongress",
+  "version": "1.0.0",
+  "description": "Web app for the II English Teaching Congress, Huetar Northern Region",
+  "main": "index.js",
+  "dependencies": {
+    "angular-animate": "^1.5.0",
+    "angular-material": "^1.0.6",
+    "angular-aria": "^1.5.0",
+    "angular-cookies": "^1.5.0",
+    "angular": "^1.5.0",
+    "angular-messages": "^1.5.0",
+    "angular-ui-bootstrap": "^1.2.4",
+    "jquery": "^2.2.1",
+    "bootstrap": "^3.3.6",
+    "font-awesome": "^4.5.0",
+    "angular-route": "^1.5.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fauricioRojas/EnglishCongress.git"
+  },
+  "author": "Fauricio Rojas Hernandez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fauricioRojas/EnglishCongress/issues"
+  },
+  "homepage": "https://github.com/fauricioRojas/EnglishCongress#readme"
+}
