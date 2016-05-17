@@ -113,6 +113,16 @@
 		echo true;
 	}
 
+	function isThereCapacity($conn) {
+		// Gets the group received from the registration factory.
+		$group = utf8_decode($_REQUEST['group']);
+
+		$query = "SELECT capacity FROM groups WHERE name='$group'";
+		$result = $conn->query($query);
+		$result = mysqli_fetch_row($result);
+		echo $result[0];
+	}
+
 	// Try to make the connection with the database.
 	$connection = new Connection();
 	$conn = $connection->createConnection();
@@ -135,6 +145,9 @@
 		}
 		else if($action === 'decrement') {
 			decrementCapacity($conn);
+		}
+		else if($action === 'capacity') {
+			isThereCapacity($conn);
 		}
 	}
 	else {

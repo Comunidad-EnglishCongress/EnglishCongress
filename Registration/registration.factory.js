@@ -12,7 +12,8 @@
 			registration: registration,
 			validateId: validateId,
 			validateEmail: validateEmail,
-			validateGroup: validateGroup
+			validateGroup: validateGroup,
+			isThereCapacity: isThereCapacity
 		};
 
 		return data;
@@ -125,6 +126,29 @@
  		* @return boolean Result of the action.
  		*/
 		function validateGroup(data) {
+			var defered = $q.defer();
+
+			$http({
+                url: "./Registration/registration.model.php",
+                method: "POST",
+                params: data
+            })
+            .success(function(response) {
+                defered.resolve(response);
+            })
+            .error(function(err) {
+            	defered.reject(err);
+            });
+
+            return defered.promise;
+		}
+
+		/**
+		* Validates if there is capacity for registration.
+		* @param  {Object} Information about action for realize.
+		* @return {int} Capacity if the group.
+		*/
+		function isThereCapacity(data) {
 			var defered = $q.defer();
 
 			$http({

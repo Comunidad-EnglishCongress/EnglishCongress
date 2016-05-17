@@ -308,5 +308,19 @@
             else
                 $scope.typeInputPass = 'password';
         }
+
+        function isThereCapacity() {
+            var data = {
+                action: 'capacity',
+                group: 'General Public'
+            }; 
+
+            RegistrationFactory.isThereCapacity(data)
+            .then(function(response) {
+                $scope.capacity = response;
+            });
+        }
+
+        isThereCapacity();
     }
 })();
