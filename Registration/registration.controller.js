@@ -309,6 +309,9 @@
                 $scope.typeInputPass = 'password';
         }
 
+        /**
+         * Get the capacity of a speccific group.
+         */
         function isThereCapacity() {
             var data = {
                 action: 'capacity',

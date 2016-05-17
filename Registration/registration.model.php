@@ -113,6 +113,11 @@
 		echo true;
 	}
 
+	/**
+	 * Determine if ta specifi group have capacity.
+	 * @param  Conenction $conn Connection with the database.
+	 * @return int Capacity of the group.
+	 */
 	function isThereCapacity($conn) {
 		// Gets the group received from the registration factory.
 		$group = utf8_decode($_REQUEST['group']);
