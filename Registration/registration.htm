@@ -103,5 +103,6 @@
 			<center><button ng-disabled="emptyData || errorId || errorEmail || errorPhone || errorGroup || !agreePay || !agreeInfo" ng-click="registration()" class="btn btn-primary"><span class="glyphicon glyphicon-ok"></span>&nbsp;&nbsp;Sign up</button></center>
 		</div>
 	</div>
-	<div ng-show="capacity == 0" class="alert alert-info text-center">Sorry, we have no more capacity in the registration.</div>
+	<div ng-show="capacity == 0" class="alert alert-info text-center">There are no more spaces available.</div>
+	<div ng-show="registrationOk && capacity == 0" class="alert alert-success text-center">Registration was successful.</div>
 </div>

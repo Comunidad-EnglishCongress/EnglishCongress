@@ -145,7 +145,11 @@
 
             // Calls the decrement capacity method in the registration factory.
             RegistrationFactory.decrementCapacity(data)
-            .then(function(response) {});
+            .then(function(response) {
+                if (response == true) {
+                    isThereCapacity();
+                }
+            });
         }
 
         /*
