@@ -28,6 +28,7 @@
 		        	<ul class="dropdown-menu">
 		          		<li ng-click="activeNav='thematic'"><a style="color: #2E32BF;">THEMATIC STRANDS</a></li>
 		                <li ng-click="activeNav='congressP'"><a style="color: #2E32BF;">CONGRESS PRESENTATIONS</a></li>
+		                <li ng-click="activeNav='program'"><a style="color: #2E32BF;">CONGRESS PROGRAM</a></li>
 		        	</ul>
 		      	</li>
 		      	<li class="dropdown">
@@ -82,6 +83,9 @@
 	<div ng-switch-when="congressP">
 		<div ng-include="'./templates/congressP.htm'"></div>
 	</div>
+	<div ng-switch-when="program">
+		<div ng-include="'./templates/program.htm'"></div>
+	</div>
 	<div ng-switch-when="guestSpeakers">
 		<div ng-include="'./templates/guestSpeakers.htm'"></div>
 	</div>
@@ -115,6 +119,13 @@
 </div>
 
 <div ng-include="'./Login/login.htm'"></div>
+
+<!-- ALERT OF CONGRESS PROGRAM -->
+<div id="info-message" class="alert alert-info fade in">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>&nbsp;
+    See the congress program in academic frame
+</div>
 
 <!--  ZONA DE CONTACTO -->
 <footer class="text-center">

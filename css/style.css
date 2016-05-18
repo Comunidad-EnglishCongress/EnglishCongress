@@ -3,6 +3,7 @@ body {
     font-size: 16px;
     text-align: justify;
 }
+
 .montserrat {
     font-family: 'Montserrat', sans-serif;
 }
@@ -25,6 +26,22 @@ body {
     font-size: 30px;
     color: #FF770D;
 }
+
+
+
+.padding {
+    padding: 10px !important;
+}
+.be-sky-blue {
+    background-color: #28A9E1;
+}
+.white {
+    color: #FFF;
+}
+
+
+
+
 
 .fa-facebook-official {
     font-size: 30px;
@@ -197,6 +214,12 @@ footer p a:hover {
         overflow-x: auto;
         display: block;
     }
+    #info-message {
+        position: fixed;
+        bottom: 35px;
+        right: 10px;
+        width: 95%;
+    }
 }
 @media screen and (min-width: 360px) {
     .circle {
@@ -208,6 +231,12 @@ footer p a:hover {
         overflow-x: auto;
         display: block;
     }
+    #info-message {
+        position: fixed;
+        bottom: 35px;
+        right: 10px;
+        width: 95%;
+    }
 }
 @media screen and (min-width: 480px) {
     .circle {
@@ -218,6 +247,12 @@ footer p a:hover {
     table {
         overflow-x: auto;
         display: block;
+    }
+    #info-message {
+        position: fixed;
+        bottom: 35px;
+        right: 10px;
+        width: 60%;
     }
 }
 @media screen and (min-width: 640px) {
@@ -231,6 +266,12 @@ footer p a:hover {
         overflow-x: auto;
         display: table;
     }
+    #info-message {
+        position: fixed;
+        bottom: 35px;
+        right: 10px;
+        width: 60%;
+    }
 }
 @media screen and (min-width: 768px) {
     .circle {
@@ -243,6 +284,12 @@ footer p a:hover {
         overflow-x: auto;
         display: table;
     }
+    #info-message {
+        position: fixed;
+        bottom: 35px;
+        right: 10px;
+        width: 60%;
+    }
 }
 @media screen and (min-width: 1024px) {
     .circle {
@@ -254,6 +301,12 @@ footer p a:hover {
     table {
         overflow-x: auto;
         display: table;
+    }
+    #info-message {
+        position: fixed;
+        bottom: 35px;
+        right: 10px;
+        width: 34%;
     }
 }
 
@@ -344,7 +397,7 @@ footer p a:hover {
     font-size: 22px;
 }
 
-.info-box {
+.info-box, .program-box {
     background-color: #FAFAFA;
     border: 1px solid #E5E5E5;
     padding: 20px;
@@ -358,6 +411,9 @@ footer p a:hover {
     text-align: center;
 }
 
+.program-box td {
+    text-align: left;
+}
 .modal-header {
     background-color: #2E32BF;
     color: #FF770D;
