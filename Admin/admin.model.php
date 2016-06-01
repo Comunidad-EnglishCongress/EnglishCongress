@@ -54,8 +54,9 @@
 	    foreach($array_data as &$row) {
 	    	$JSON[] = array(
 	    		'id' => $row['id'],
-	    		'name' => $row['name'],
-	    		'location' => $row['location'],
+	    		'name' => utf8_encode($row['name']),
+	    		'speaker' => utf8_encode($row['speaker']),
+	    		'location' => utf8_encode($row['location']),
 	    		'date' => $row['date'],
 	    		'hourStart' => $row['hourStart'],
 	    		'hourFinish' => $row['hourFinish'],

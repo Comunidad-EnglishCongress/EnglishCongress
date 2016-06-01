@@ -36,23 +36,24 @@
 	<div ng-switch on="activeNav">
 		<div ng-switch-when="mySessions">
 			<label class="title montserrat">My sessions</label>
-			<div ng-show="!blockSessions">
-				<div class="alert alert-info text-center box" ng-show="!showMySessions">
+			<div ng-hide="blockSessions || unAuthorized">
+				<div class="alert alert-info text-center box" ng-hide="showMySessions">
 					Your sessions part is empty, please click <a href="" ng-click="loadAllSessions();">here</a> to register to the sessions.
 				</div>
 				<div ng-show="showMySessions">
 					<div class="box">
 						<div ng-if="sessions.first.morning.length">
 							<div>
-								<label class="subtitle">First day at morning</label>
+								<label class="subtitle">Thursday, June 16 at morning</label>
 							</div>
 							<div class="col-md-12 col-sm-12 box">
-						  		<div class="col-md-3 col-sm-4 card-box" ng-repeat="session in sessions.first.morning">
+						  		<div class="col-md-4 col-sm-4 card-box" ng-repeat="session in sessions.first.morning">
 							        <div class="inner">
 								        <div class="title-card">
 								        	<label class="subtitle">{{session.name}}</label>
 							        	</div>
 							        	<div class="body-card">
+						        			<p class="card-text">With {{session.speaker}}</p>
 						      				<p class="card-text">In {{session.location}} from {{session.hourStart}} to {{session.hourFinish}}.</p>
 						      				<p class="card-text">
 						      					When? {{session.date}}.
@@ -67,15 +68,16 @@
 			      	<div class="box">
 			      		<div ng-if="sessions.first.afternoon.length">
 							<div>
-								<label class="subtitle">First day at afternoon</label>
+								<label class="subtitle">Thursday, June 16 at afternoon</label>
 							</div>
 							<div class="col-md-12 col-sm-12 box">
-						  		<div class="col-md-3 col-sm-4 card-box" ng-repeat="session in sessions.first.afternoon">
+						  		<div class="col-md-4 col-sm-4 card-box" ng-repeat="session in sessions.first.afternoon">
 							        <div class="inner">
 								        <div class="title-card">
 								        	<label class="subtitle">{{session.name}}</label>
 							        	</div>
 							        	<div class="body-card">
+						        			<p class="card-text">With {{session.speaker}}</p>
 						      				<p class="card-text">In {{session.location}} from {{session.hourStart}} to {{session.hourFinish}}.</p>
 						      				<p class="card-text">
 						      					When? {{session.date}}.
@@ -90,15 +92,16 @@
 			      	<div class="box">
 			      		<div ng-if="sessions.second.morning.length">
 							<div>
-								<label class="subtitle">Second day at morning</label>
+								<label class="subtitle">Friday, June 17 at morning</label>
 							</div>
 							<div class="col-md-12 col-sm-12 box">
-						  		<div class="col-md-3 col-sm-4 card-box" ng-repeat="session in sessions.second.morning">
+						  		<div class="col-md-4 col-sm-4 card-box" ng-repeat="session in sessions.second.morning">
 							        <div class="inner">
 								        <div class="title-card">
 								        	<label class="subtitle">{{session.name}}</label>
 							        	</div>
 							        	<div class="body-card">
+						        			<p class="card-text">With {{session.speaker}}</p>
 						      				<p class="card-text">In {{session.location}} from {{session.hourStart}} to {{session.hourFinish}}.</p>
 						      				<p class="card-text">
 						      					When? {{session.date}}.
@@ -113,15 +116,16 @@
 			      	<div class="box">
 			      		<div ng-if="sessions.second.afternoon.length">
 							<div>
-								<label class="subtitle">Second day at afternoon</label>
+								<label class="subtitle">Friday, June 17 at afternoon</label>
 							</div>
 							<div class="col-md-12 col-sm-12 box">
-						  		<div class="col-md-3 col-sm-4 card-box" ng-repeat="session in sessions.second.afternoon">
+						  		<div class="col-md-4 col-sm-4 card-box" ng-repeat="session in sessions.second.afternoon">
 							        <div class="inner">
 								        <div class="title-card">
 								        	<label class="subtitle">{{session.name}}</label>
 							        	</div>
 							        	<div class="body-card">
+						        			<p class="card-text">With {{session.speaker}}</p>
 						      				<p class="card-text">In {{session.location}} from {{session.hourStart}} to {{session.hourFinish}}.</p>
 						      				<p class="card-text">
 						      					When? {{session.date}}.
@@ -136,16 +140,20 @@
 				</div>
 	      	</div>
 	      	<div class="alert alert-info text-center box" ng-show="blockSessions">
-				All sessions will open on June 1st!
+				All sessions will open on June 3rd!
+			</div>
+			<div class="alert alert-danger text-center box" ng-show="unAuthorized">
+				You are not authorized to register for the sessions. Please contact the congress people.
 			</div>
 		</div>
 		<div ng-switch-when="allSessions">
 			<label class="title montserrat">All sessions</label>
-			<div ng-show="!blockSessions">
+			<div ng-hide="blockSessions || unAuthorized">
 				<table class="table table-striped box">
 			        <thead>
 			            <tr>
 			                <th><label class="subtitle">Name</label></th>
+			                <th><label class="subtitle">Speaker</label></th>
 			                <th><label class="subtitle">Location</label></th>
 			                <th><label class="subtitle">Date</label></th>
 			                <th><label class="subtitle">Start time</label></th>
@@ -157,6 +165,7 @@
 			        <tbody>
 			            <tr ng-repeat="session in sessions">
 			                <td>{{session.name}}</td>
+			                <td>{{session.speaker}}</td>
 			                <td>{{session.location}}</td>
 			                <td>{{session.date}}</td>
 			                <td>{{session.hourStart}}</td>
@@ -168,7 +177,10 @@
 		      </table>
 	        </div>
 	        <div class="alert alert-info text-center box" ng-show="blockSessions">
-				All sessions will open on June 1st!
+				All sessions will open on June 3rd!
+			</div>
+			<div class="alert alert-danger text-center box" ng-show="unAuthorized">
+				You are not authorized to register for the sessions. Please contact the congress people.
 			</div>
 		</div>
 		<div ng-switch-when="addReceipt">

@@ -22,8 +22,9 @@
 	    foreach($array_data as &$row) {
 	    	$JSON[] = array(
 	    		'id' => $row['id'],
-	    		'name' => $row['name'],
-	    		'location' => $row['location'],
+	    		'name' => utf8_encode($row['name']),
+	    		'speaker' => utf8_encode($row['speaker']),
+	    		'location' => utf8_encode($row['location']),
 	    		'date' => $row['date'],
 	    		'hourStart' => $row['hourStart'],
 	    		'hourFinish' => $row['hourFinish'],
@@ -105,7 +106,7 @@
 		// Gets the person ID received from the user factory.
 		$idPerson = $_REQUEST['idPerson'];
 
-		$query = "SELECT S.id, S.name, S.location, S.date, S.hourStart, S.hourFinish, PC.id as idPersonSession FROM session as S INNER JOIN personsession as PC ON PC.idSession=S.id WHERE PC.idPerson='$idPerson'";
+		$query = "SELECT S.id, S.name, S.speaker, S.location, S.date, S.hourStart, S.hourFinish, PC.id as idPersonSession FROM session as S INNER JOIN personsession as PC ON PC.idSession=S.id WHERE PC.idPerson='$idPerson'";
 		$result = $conn->query($query);
 
 	    while($row = mysqli_fetch_array($result)) {
@@ -115,8 +116,9 @@
 	    foreach($array_data as &$row) {
 	    	$JSON[] = array(
 	    		'id' => $row['id'],
-	    		'name' => $row['name'],
-	    		'location' => $row['location'],
+	    		'name' => utf8_encode($row['name']),
+	    		'speaker' => utf8_encode($row['speaker']),
+	    		'location' => utf8_encode($row['location']),
 	    		'date' => $row['date'],
 	    		'hourStart' => $row['hourStart'],
 	    		'hourFinish' => $row['hourFinish'],

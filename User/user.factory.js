@@ -155,7 +155,7 @@
  		*/
 		function dateOfLaunch() {
 			var currentDate = new Date();
-            var launchDate = new Date('01 Jun 2016');
+            var launchDate = new Date('03 Jun 2016');
             
             return currentDate < launchDate;
 		}

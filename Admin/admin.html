@@ -42,6 +42,7 @@
             <thead>
                 <tr>
                     <th><label class="subtitle">Name</label></th>
+                    <th><label class="subtitle">Speaker</label></th>
                     <th><label class="subtitle">Location</label></th>
                     <th><label class="subtitle">Date</label></th>
                     <th><label class="subtitle">Start time</label></th>
@@ -52,6 +53,7 @@
             <tbody>
                 <tr ng-repeat="session in sessions">
                     <td>{{session.name}}</td>
+                    <td>{{session.speaker}}</td>
                     <td>{{session.location}}</td>
                     <td>{{session.date}}</td>
                     <td>{{session.hourStart}}</td>

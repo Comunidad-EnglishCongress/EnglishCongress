@@ -26,7 +26,10 @@ body {
     font-size: 30px;
     color: #FF770D;
 }
-
+.nav-justified>li>a {
+    margin-bottom: 0;
+    cursor: pointer;
+}
 
 
 .padding {
@@ -348,6 +351,7 @@ footer p a:hover {
 /* tarjetas de sesiones */
 .card-box {
     padding: 0 5px 0 5px;
+    text-align: left;
 }
 .card-box .inner {
     background-color: #FAFAFA;

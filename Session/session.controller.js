@@ -22,6 +22,7 @@
  		*/
         function setData() {
             $scope.name = '';
+            $scope.speaker = '';
             $scope.location = '';
             $scope.hourStart = '';
             $scope.hourFinish = '';
@@ -35,6 +36,7 @@
         function store() {
             var data = {
                 name: $scope.name,
+                speaker: $scope.speaker,
                 location: $scope.location,
                 hourStart: $scope.hourStart,
                 hourFinish: $scope.hourFinish,
@@ -43,7 +45,7 @@
                 action: 'store'  
             };
             
-            if (data.name != "" && data.location != "" && data.hourStart != "" && data.hourFinish != "" && data.capacity != "" && data.date != "") {            
+            if (data.name != "" && data.speaker != "" && data.location != "" && data.hourStart != "" && data.hourFinish != "" && data.capacity != "" && data.date != "") {            
                 SessionFactory.store(data)
                 .then(function(response) {
                     if (response === '1') {

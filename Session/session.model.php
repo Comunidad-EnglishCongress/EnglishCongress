@@ -11,14 +11,15 @@
     function store($conn) {
         // Gets all information received from the session factory.
 		$name = utf8_decode($_REQUEST['name']);
+		$speaker = utf8_decode($_REQUEST['speaker']);
 		$location = utf8_decode($_REQUEST['location']);
 		$date = $_REQUEST['date'];
 		$hourStart = $_REQUEST['hourStart'];
 		$hourFinish = $_REQUEST['hourFinish'];
 		$capacity = $_REQUEST['capacity'];
 
-		$query = "INSERT INTO session (name, location, date, hourStart, hourFinish, capacity, maxCapacity)
-		                       VALUES('$name', '$location', '$date', '$hourStart', '$hourFinish', $capacity, $capacity)";
+		$query = "INSERT INTO session (name, speaker, location, date, hourStart, hourFinish, capacity, maxCapacity)
+		                       VALUES('$name', '$speaker', $location', '$date', '$hourStart', '$hourFinish', $capacity, $capacity)";
 		$result = $conn->query($query);
 
 		echo true;

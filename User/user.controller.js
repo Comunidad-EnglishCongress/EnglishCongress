@@ -19,7 +19,6 @@
         $scope.showMySessions = false;
         $scope.uploadStyle = '';
         $scope.uploadMessage = '';
-        $scope.blockSessions = UserFactory.dateOfLaunch();
         $scope.logOut = logOut;
         $scope.loadMySessions = loadMySessions;
         $scope.loadAllSessions = loadAllSessions;
@@ -39,6 +38,16 @@
             Auth.logOut();
         }
 
+        /**
+         * Verify if the user can see the sessions.
+         */
+        function verify() {
+            $scope.blockSessions = UserFactory.dateOfLaunch();
+            $scope.unAuthorized = ($scope.user.receipt === '0' ? true : false);
+
+            loadMySessions();
+        }
+
         /*
         * Loads the user's sessions.
         *
@@ -56,7 +65,7 @@
             UserFactory.loadMySessions(data)
             .then(function(response) {
                  if(typeof(response) == 'object') {
-                    if(response.length) {
+                    if(response.length > 0) {
                         sortList(response);
                         $scope.showMySessions = true;
                     }
@@ -322,7 +331,7 @@
             };
 
             angular.forEach(list, function(session, key) {
-                if(session.date === '2016-03-20') {
+                if(session.date === '2016-06-16') {
                     if(compareHours(session.hourStart, '12:00'))
                         $scope.sessions.first.morning.push(session);
                     else
@@ -337,6 +346,6 @@
             });
         }
 
-        loadMySessions();
+        verify();
     }
 })();
